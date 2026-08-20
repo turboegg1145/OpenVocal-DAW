@@ -1,10 +1,6 @@
 # 🎙️ OpenVocal-DAW: Full-Stack AI Vocaloid & DAW Production Engine
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/turboegg1145/OpenVocal-DAW/main/docs/assets/banner.png" alt="OpenVocal-DAW Banner" width="100%" onerror="this.style.display='none'"/>
-</p>
-
-<p align="center">
   <a href="#english"><img src="https://img.shields.io/badge/Language-English-blue.svg" alt="English"/></a>
   <a href="#chinese"><img src="https://img.shields.io/badge/语言-中文简体-red.svg" alt="中文"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/></a>
@@ -17,10 +13,10 @@
 
 **Stop generating flat, black-box audio. Start generating professional DAW sessions.**
 
-**OpenVocal-DAW** is an end-to-end, open-source industrial music production pipeline designed for virtual singers (Kasane Teto, Vocaloid, UTAU, CeVIO) and DAW creators. 
+**OpenVocal-DAW** is an end-to-end, open-source technical music production pipeline designed for virtual singers (Kasane Teto, Vocaloid, UTAU, CeVIO) and DAW creators. 
 
 Unlike black-box generative music tools that spit out un-editable, muddy stereo WAVs, **OpenVocal-DAW** builds real, multi-track, commercial-grade music productions from the ground up:
-* 🎼 **Harmonic Matrix**: Circle-of-fifths modulation, modal interchange, and strict Low-Interval Limit consonance.
+* 🎼 **Harmonic Matrix**: Circle-of-fifths modulation, modal interchange, and strict voice leading.
 * 🎹 **6-Track SMF-1 MIDI**: Structured multi-track scores for Vocals, Keys, Guitars, Bass, Drums, and Synths.
 * 🎤 **Micro-Timing Vocal Engine**: -45ms consonant compensation engine for UTAU / Moresampler to eliminate plosive dragging.
 * 🎛️ **Vital VST3 Matrix**: Automated sound design (16-Voice SuperSaws, Spectral Plucks, Sidechained Reese Bass).
@@ -30,7 +26,7 @@ Unlike black-box generative music tools that spit out un-editable, muddy stereo 
 ---
 
 <a name="chinese"></a>
-## 🇨🇳 中文说明与核心特性
+## 🇨🇳 中文说明与核心架构
 
 传统黑盒 AI 音乐（如 Suno / Udio）最大的痛点是：**无法分轨、无法进宿主二次编辑、歌姬咬字含糊、和声不可控**。
 
@@ -70,14 +66,11 @@ Unlike black-box generative music tools that spit out un-editable, muddy stereo 
     └──────────────────────────┘     └──────────────────────────┘
 ```
 
-### ✨ 核心工业级优势：
+### ✨ 核心技术优势：
 1. **白盒可控 (100% DAW Ready)**：每一次生成均产出标准 MIDI、24-bit 无损分轨与 REAPER 工程，制作人可随时在 DAW 中替换音源插件或微调乐句；
-2. **-45ms 辅音预发音微时序补偿**：彻底攻克虚拟歌姬（UTAU/Vocaloid）塞音/擦音（k, t, s, p, b）拖拍失重的历史难题，母音重心死死咬住节拍律动；
-3. **制作人审美标准算法 (Producer Aesthetic Law)**：
-   * **音域黄金甜区 (D4 ~ A5)**：杜绝沉入 C4 以下破坏低音声部协和极限（LIL），杜绝破音尖叫；
-   * **打破单一节奏型**：破除对单一 `3+3+2`（Tresillo / `xxx-xxx`）的无脑套用；
-   * **电影感 Outro 消融法则**：歌姬 Ad-lib 尾韵隐退 + 伴奏声部逐层剥离（Strip-down） + 滤波渐弱淡出（Fade-out）。
-4. **PV 全自动化支持**：输出逐字毫秒级时码 JSON，直接对接卡拉OK字幕与粒子特效制作。
+2. **-45ms 辅音预发音微时序补偿**：攻克虚拟歌姬（UTAU/Vocaloid）塞音/擦音（k, t, s, p, b）拖拍失重问题，母音重心咬住节拍律动；
+3. **现代波表合成器（Vital VST3）矩阵**：自动化编排波表齐奏、光谱扭曲 Pluck 与侧链 Reese Bass；
+4. **PV 自动化全套资产就绪**：输出逐字毫秒级时码 JSON，直接对接卡拉OK字幕与粒子特效制作。
 
 ---
 
@@ -123,9 +116,6 @@ OpenVocal-DAW/
 │   ├── mixing_mastering.py        # 动态人声雕刻与商业级母带
 │   ├── reaper_project_builder.py  # REAPER .rpp 全点亮工程组装
 │   └── pv_timeline_generator.py   # PV 歌词时间轴与导演分镜生成
-├── docs/                          # 工业标准文档
-│   ├── PRODUCER_AESTHETIC_STANDARD.md  # 制作人审美铁律 v4.0
-│   └── PV_DIRECTOR_GUIDE.md            # 叙事 PV 导演与动效对接指南
 ├── examples/                      # 经典示范工程
 │   └── neon_pulse_v2/             # 《NEON PULSE v2》完整资产范例
 │       ├── lyrics_timeline.json   # 毫秒级歌词时间戳
@@ -136,16 +126,6 @@ OpenVocal-DAW/
 ├── requirements.txt               # Python 依赖
 └── LICENSE                        # MIT License
 ```
-
----
-
-## 📜 Producer Aesthetic Standard / 制作人审美铁律
-
-本项目严格遵循 **《制作人最高审美与制作铁律标准 v4.0》**（详情见 [`docs/PRODUCER_AESTHETIC_STANDARD.md`](docs/PRODUCER_AESTHETIC_STANDARD.md)）：
-* **转调声部绝对协和**：升调副歌 100% 严密对齐调内骨干和弦音，0 还原音半音摩擦；
-* **低音声部协和极限 (LIL) 规避**：严禁中低音声部非和弦音产生互调失真；
-* **律动多样性**：拒绝概率坍缩至单一套路；
-* **自然电影感 Outro**：拒绝硬切猝死，追求声部剥离与滤波消融。
 
 ---
 
