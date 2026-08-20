@@ -1,1 +1,0 @@
-# UTAU MCP Server Package
