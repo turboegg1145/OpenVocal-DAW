@@ -1,0 +1,7287 @@
+name: NEON PULSE v2 (霓虹脉冲 v2) - Definitive Master
+comment: Generated automatically by OpenVocal-DAW OpenUtau Engine
+output_dir: Vocal
+cache_dir: Cache
+ustx_version: '0.6'
+bpm: 130.0
+beat_per_bar: 4
+beat_unit: 4
+resolution: 480
+tracks:
+- singer: Kasane Teto [UTAU]
+  phoneticizer: OpenUtau.Core.DefaultPhoneticizer
+  renderer_settings:
+    renderer: CLASSIC
+    resampler: moresampler.exe
+  track_name: Lead Vocal
+  track_color: Blue
+  mute: false
+  solo: false
+  volume: 0.0
+  pan: 0.0
+voice_parts:
+- name: Lead Part
+  track_no: 0
+  position: 0
+  notes:
+  - position: 15360
+    duration: 240
+    tone: 62
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 15600
+    duration: 240
+    tone: 66
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 15840
+    duration: 240
+    tone: 71
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 16080
+    duration: 240
+    tone: 74
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 16320
+    duration: 480
+    tone: 71
+    lyric: ち
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 16800
+    duration: 240
+    tone: 66
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 17040
+    duration: 240
+    tone: 62
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 17280
+    duration: 480
+    tone: 67
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 17760
+    duration: 240
+    tone: 71
+    lyric: ね
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 18000
+    duration: 240
+    tone: 74
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 18240
+    duration: 480
+    tone: 78
+    lyric: ん
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 18720
+    duration: 240
+    tone: 74
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 18960
+    duration: 240
+    tone: 71
+    lyric: う
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 19200
+    duration: 480
+    tone: 69
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 19680
+    duration: 240
+    tone: 73
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 19920
+    duration: 240
+    tone: 76
+    lyric: ぜ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 20160
+    duration: 480
+    tone: 73
+    lyric: 料
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 20640
+    duration: 240
+    tone: 69
+    lyric: き
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 20880
+    duration: 240
+    tone: 73
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 21120
+    duration: 240
+    tone: 73
+    lyric: さ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 21360
+    duration: 240
+    tone: 69
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 21600
+    duration: 480
+    tone: 66
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 22080
+    duration: 240
+    tone: 69
+    lyric: は
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 22320
+    duration: 240
+    tone: 73
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 22560
+    duration: 480
+    tone: 76
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 23040
+    duration: 240
+    tone: 62
+    lyric: ぼ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 23280
+    duration: 240
+    tone: 66
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 23520
+    duration: 240
+    tone: 71
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 23760
+    duration: 240
+    tone: 74
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 24000
+    duration: 480
+    tone: 71
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 24480
+    duration: 240
+    tone: 66
+    lyric: ど
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 24720
+    duration: 240
+    tone: 62
+    lyric: う
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 24960
+    duration: 480
+    tone: 67
+    lyric: が
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 25440
+    duration: 240
+    tone: 71
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 25680
+    duration: 240
+    tone: 74
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 25920
+    duration: 480
+    tone: 78
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 26400
+    duration: 240
+    tone: 74
+    lyric: び
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 26640
+    duration: 240
+    tone: 71
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 26880
+    duration: 480
+    tone: 69
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 27360
+    duration: 240
+    tone: 73
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 27600
+    duration: 240
+    tone: 76
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 27840
+    duration: 480
+    tone: 79
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 28320
+    duration: 240
+    tone: 76
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 28560
+    duration: 240
+    tone: 73
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 28800
+    duration: 480
+    tone: 70
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 29280
+    duration: 240
+    tone: 73
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 29520
+    duration: 240
+    tone: 76
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 29760
+    duration: 480
+    tone: 78
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 30720
+    duration: 240
+    tone: 64
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 30960
+    duration: 240
+    tone: 67
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 31200
+    duration: 240
+    tone: 71
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 31440
+    duration: 240
+    tone: 74
+    lyric: き
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 31680
+    duration: 480
+    tone: 71
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 32160
+    duration: 240
+    tone: 67
+    lyric: そ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 32400
+    duration: 240
+    tone: 71
+    lyric: う
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 32640
+    duration: 480
+    tone: 69
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 33120
+    duration: 240
+    tone: 73
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 33360
+    duration: 240
+    tone: 76
+    lyric: め
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 33600
+    duration: 480
+    tone: 78
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 34080
+    duration: 240
+    tone: 76
+    lyric: だ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 34320
+    duration: 240
+    tone: 73
+    lyric: き
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 34560
+    duration: 240
+    tone: 67
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 34800
+    duration: 240
+    tone: 71
+    lyric: め
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 35040
+    duration: 240
+    tone: 74
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 35280
+    duration: 240
+    tone: 78
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 35520
+    duration: 480
+    tone: 74
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 36000
+    duration: 240
+    tone: 71
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 36240
+    duration: 240
+    tone: 74
+    lyric: び
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 36480
+    duration: 480
+    tone: 76
+    lyric: だ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 36960
+    duration: 240
+    tone: 79
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 37200
+    duration: 240
+    tone: 81
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 37440
+    duration: 480
+    tone: 79
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 37920
+    duration: 480
+    tone: 76
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 38400
+    duration: 240
+    tone: 64
+    lyric: ふ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 38640
+    duration: 240
+    tone: 67
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 38880
+    duration: 240
+    tone: 71
+    lyric: む
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 39120
+    duration: 240
+    tone: 74
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 39360
+    duration: 480
+    tone: 71
+    lyric: ず
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 39840
+    duration: 240
+    tone: 67
+    lyric: に
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 40080
+    duration: 240
+    tone: 71
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 40320
+    duration: 480
+    tone: 69
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 40800
+    duration: 240
+    tone: 73
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 41040
+    duration: 240
+    tone: 76
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 41280
+    duration: 480
+    tone: 78
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 41760
+    duration: 240
+    tone: 76
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 42000
+    duration: 240
+    tone: 73
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 42240
+    duration: 240
+    tone: 67
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 42480
+    duration: 240
+    tone: 71
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 42720
+    duration: 240
+    tone: 74
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 42960
+    duration: 240
+    tone: 78
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 43200
+    duration: 480
+    tone: 81
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 43680
+    duration: 240
+    tone: 78
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 43920
+    duration: 240
+    tone: 74
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 44160
+    duration: 240
+    tone: 78
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 44400
+    duration: 240
+    tone: 82
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 44640
+    duration: 480
+    tone: 83
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 45120
+    duration: 240
+    tone: 78
+    lyric: は
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 45360
+    duration: 240
+    tone: 74
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 45600
+    duration: 480
+    tone: 78
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 46080
+    duration: 240
+    tone: 67
+    lyric: ね
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 46320
+    duration: 240
+    tone: 71
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 46560
+    duration: 240
+    tone: 74
+    lyric: ん
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 46800
+    duration: 240
+    tone: 78
+    lyric: ぱ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 47040
+    duration: 480
+    tone: 81
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 47520
+    duration: 240
+    tone: 78
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 47760
+    duration: 240
+    tone: 74
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 48000
+    duration: 240
+    tone: 76
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 48240
+    duration: 240
+    tone: 81
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 48480
+    duration: 480
+    tone: 83
+    lyric: で
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 48960
+    duration: 240
+    tone: 81
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 49200
+    duration: 240
+    tone: 76
+    lyric: ど
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 49440
+    duration: 480
+    tone: 73
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 49920
+    duration: 240
+    tone: 66
+    lyric: ぼ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 50160
+    duration: 240
+    tone: 69
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 50400
+    duration: 240
+    tone: 73
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 50640
+    duration: 240
+    tone: 76
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 50880
+    duration: 480
+    tone: 73
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 51360
+    duration: 240
+    tone: 69
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 51600
+    duration: 240
+    tone: 66
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 51840
+    duration: 240
+    tone: 71
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 52080
+    duration: 240
+    tone: 74
+    lyric: び
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 52320
+    duration: 240
+    tone: 78
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 52560
+    duration: 240
+    tone: 81
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 52800
+    duration: 480
+    tone: 83
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 53280
+    duration: 480
+    tone: 78
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 53760
+    duration: 240
+    tone: 64
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 54000
+    duration: 240
+    tone: 67
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 54240
+    duration: 240
+    tone: 71
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 54480
+    duration: 240
+    tone: 74
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 54720
+    duration: 480
+    tone: 78
+    lyric: ば
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 55200
+    duration: 240
+    tone: 74
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 55440
+    duration: 240
+    tone: 71
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 55680
+    duration: 480
+    tone: 76
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 56160
+    duration: 240
+    tone: 78
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 56400
+    duration: 240
+    tone: 82
+    lyric: む
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 56640
+    duration: 480
+    tone: 83
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 57120
+    duration: 480
+    tone: 78
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 57600
+    duration: 240
+    tone: 66
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 57840
+    duration: 240
+    tone: 71
+    lyric: だ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 58080
+    duration: 240
+    tone: 74
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 58320
+    duration: 240
+    tone: 78
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 58560
+    duration: 480
+    tone: 74
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 59040
+    duration: 240
+    tone: 71
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 59280
+    duration: 240
+    tone: 66
+    lyric: め
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 59520
+    duration: 480
+    tone: 74
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 60000
+    duration: 480
+    tone: 78
+    lyric: は
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 60480
+    duration: 480
+    tone: 81
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 60960
+    duration: 480
+    tone: 78
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 61440
+    duration: 240
+    tone: 67
+    lyric: げ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 61680
+    duration: 240
+    tone: 71
+    lyric: ん
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 61920
+    duration: 240
+    tone: 74
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 62160
+    duration: 240
+    tone: 78
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 62400
+    duration: 480
+    tone: 81
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 62880
+    duration: 240
+    tone: 78
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 63120
+    duration: 240
+    tone: 74
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 63360
+    duration: 480
+    tone: 81
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 63840
+    duration: 240
+    tone: 69
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 64080
+    duration: 240
+    tone: 69
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 64320
+    duration: 240
+    tone: 73
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 64560
+    duration: 240
+    tone: 76
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 64800
+    duration: 480
+    tone: 81
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 65280
+    duration: 240
+    tone: 76
+    lyric: ぐ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 65520
+    duration: 240
+    tone: 73
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 65760
+    duration: 240
+    tone: 76
+    lyric: が
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 66000
+    duration: 240
+    tone: 73
+    lyric: や
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 66240
+    duration: 240
+    tone: 69
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 66480
+    duration: 480
+    tone: 66
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 66960
+    duration: 240
+    tone: 69
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 67200
+    duration: 240
+    tone: 71
+    lyric: へ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 67440
+    duration: 240
+    tone: 74
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 67680
+    duration: 240
+    tone: 78
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 67920
+    duration: 240
+    tone: 81
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 68160
+    duration: 480
+    tone: 83
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 68640
+    duration: 480
+    tone: 85
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 69120
+    duration: 240
+    tone: 78
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 69360
+    duration: 240
+    tone: 74
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 69600
+    duration: 240
+    tone: 71
+    lyric: も
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 69840
+    duration: 240
+    tone: 74
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 70080
+    duration: 480
+    tone: 78
+    lyric: だ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 70560
+    duration: 240
+    tone: 74
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 70800
+    duration: 240
+    tone: 81
+    lyric: で
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 71040
+    duration: 240
+    tone: 76
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 71280
+    duration: 240
+    tone: 78
+    lyric: び
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 71520
+    duration: 240
+    tone: 82
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 71760
+    duration: 240
+    tone: 78
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 72000
+    duration: 480
+    tone: 76
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 72480
+    duration: 480
+    tone: 70
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 72960
+    duration: 240
+    tone: 66
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 73200
+    duration: 240
+    tone: 71
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 73440
+    duration: 240
+    tone: 74
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 73680
+    duration: 480
+    tone: 78
+    lyric: で
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 74160
+    duration: 240
+    tone: 81
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 74400
+    duration: 480
+    tone: 83
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 74880
+    duration: 240
+    tone: 83
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 75120
+    duration: 240
+    tone: 81
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 75360
+    duration: 240
+    tone: 78
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 75600
+    duration: 480
+    tone: 74
+    lyric: へ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 76080
+    duration: 240
+    tone: 71
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 76320
+    duration: 240
+    tone: 66
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 76560
+    duration: 240
+    tone: 62
+    lyric: げ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 92160
+    duration: 240
+    tone: 64
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 92400
+    duration: 240
+    tone: 67
+    lyric: さ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 92640
+    duration: 240
+    tone: 71
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 92880
+    duration: 240
+    tone: 74
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 93120
+    duration: 480
+    tone: 71
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 93600
+    duration: 240
+    tone: 67
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 93840
+    duration: 240
+    tone: 71
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 94080
+    duration: 480
+    tone: 69
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 94560
+    duration: 240
+    tone: 73
+    lyric: む
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 94800
+    duration: 240
+    tone: 76
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 95040
+    duration: 480
+    tone: 78
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 95520
+    duration: 240
+    tone: 76
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 95760
+    duration: 240
+    tone: 73
+    lyric: に
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 96000
+    duration: 240
+    tone: 67
+    lyric: ぎ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 96240
+    duration: 240
+    tone: 71
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 96480
+    duration: 240
+    tone: 74
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 96720
+    duration: 240
+    tone: 78
+    lyric: め
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 96960
+    duration: 480
+    tone: 74
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 97440
+    duration: 240
+    tone: 71
+    lyric: 走
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 97680
+    duration: 240
+    tone: 74
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 97920
+    duration: 480
+    tone: 76
+    lyric: だ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 98400
+    duration: 240
+    tone: 79
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 98640
+    duration: 240
+    tone: 81
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 98880
+    duration: 480
+    tone: 79
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 99360
+    duration: 480
+    tone: 76
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 99840
+    duration: 240
+    tone: 62
+    lyric: き
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 100080
+    duration: 240
+    tone: 66
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 100320
+    duration: 240
+    tone: 71
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 100560
+    duration: 240
+    tone: 74
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 100800
+    duration: 480
+    tone: 71
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 101280
+    duration: 240
+    tone: 66
+    lyric: ば
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 101520
+    duration: 240
+    tone: 71
+    lyric: ど
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 101760
+    duration: 480
+    tone: 67
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 102240
+    duration: 240
+    tone: 71
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 102480
+    duration: 240
+    tone: 74
+    lyric: で
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 102720
+    duration: 480
+    tone: 78
+    lyric: も
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 103200
+    duration: 240
+    tone: 74
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 103440
+    duration: 240
+    tone: 71
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 103680
+    duration: 240
+    tone: 69
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 103920
+    duration: 240
+    tone: 73
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 104160
+    duration: 240
+    tone: 76
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 104400
+    duration: 240
+    tone: 79
+    lyric: ん
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 104640
+    duration: 480
+    tone: 81
+    lyric: じ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 105120
+    duration: 240
+    tone: 79
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 105360
+    duration: 240
+    tone: 76
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 105600
+    duration: 240
+    tone: 78
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 105840
+    duration: 240
+    tone: 82
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 106080
+    duration: 480
+    tone: 83
+    lyric: り
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 106560
+    duration: 240
+    tone: 77
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 106800
+    duration: 240
+    tone: 74
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 107040
+    duration: 480
+    tone: 78
+    lyric: き
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 107520
+    duration: 240
+    tone: 69
+    lyric: ね
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 107760
+    duration: 240
+    tone: 73
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 108000
+    duration: 240
+    tone: 76
+    lyric: ん
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 108240
+    duration: 240
+    tone: 80
+    lyric: ぱ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 108480
+    duration: 480
+    tone: 83
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 108960
+    duration: 240
+    tone: 80
+    lyric: す
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 109200
+    duration: 240
+    tone: 76
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 109440
+    duration: 240
+    tone: 78
+    lyric: な
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 109680
+    duration: 240
+    tone: 83
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 109920
+    duration: 480
+    tone: 85
+    lyric: で
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 110400
+    duration: 240
+    tone: 83
+    lyric: お
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 110640
+    duration: 240
+    tone: 78
+    lyric: ど
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 110880
+    duration: 480
+    tone: 75
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 111360
+    duration: 240
+    tone: 68
+    lyric: ぼ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 111600
+    duration: 240
+    tone: 71
+    lyric: く
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 111840
+    duration: 240
+    tone: 75
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 112080
+    duration: 240
+    tone: 78
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 112320
+    duration: 480
+    tone: 75
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 112800
+    duration: 240
+    tone: 71
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 113040
+    duration: 240
+    tone: 68
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 113280
+    duration: 240
+    tone: 73
+    lyric: ひ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 113520
+    duration: 240
+    tone: 76
+    lyric: び
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 113760
+    duration: 240
+    tone: 80
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 114000
+    duration: 240
+    tone: 83
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 114240
+    duration: 480
+    tone: 85
+    lyric: ゆ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 114720
+    duration: 480
+    tone: 80
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 115200
+    duration: 240
+    tone: 66
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 115440
+    duration: 240
+    tone: 69
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 115680
+    duration: 240
+    tone: 73
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 115920
+    duration: 240
+    tone: 76
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 116160
+    duration: 480
+    tone: 80
+    lyric: ば
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 116640
+    duration: 240
+    tone: 76
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 116880
+    duration: 240
+    tone: 73
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 117120
+    duration: 480
+    tone: 78
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 117600
+    duration: 240
+    tone: 80
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 117840
+    duration: 240
+    tone: 84
+    lyric: む
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 118080
+    duration: 480
+    tone: 85
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 118560
+    duration: 480
+    tone: 80
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 119040
+    duration: 240
+    tone: 68
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 119280
+    duration: 240
+    tone: 73
+    lyric: だ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 119520
+    duration: 240
+    tone: 76
+    lyric: け
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 119760
+    duration: 240
+    tone: 80
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 120000
+    duration: 480
+    tone: 76
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 120480
+    duration: 240
+    tone: 73
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 120720
+    duration: 240
+    tone: 68
+    lyric: め
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 120960
+    duration: 480
+    tone: 76
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 121440
+    duration: 480
+    tone: 80
+    lyric: は
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 121920
+    duration: 480
+    tone: 83
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 122400
+    duration: 480
+    tone: 80
+    lyric: る
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 122880
+    duration: 240
+    tone: 69
+    lyric: こ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 123120
+    duration: 240
+    tone: 73
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 123360
+    duration: 240
+    tone: 76
+    lyric: て
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 123600
+    duration: 240
+    tone: 80
+    lyric: の
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 123840
+    duration: 480
+    tone: 83
+    lyric: ば
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 124320
+    duration: 480
+    tone: 80
+    lyric: し
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 124800
+    duration: 240
+    tone: 71
+    lyric: つ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 125040
+    duration: 240
+    tone: 75
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 125280
+    duration: 240
+    tone: 78
+    lyric: む
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 125520
+    duration: 240
+    tone: 81
+    lyric: み
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 125760
+    duration: 480
+    tone: 83
+    lyric: ら
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 126240
+    duration: 480
+    tone: 81
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 126720
+    duration: 240
+    tone: 71
+    lyric: に
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 126960
+    duration: 240
+    tone: 75
+    lyric: ど
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 127200
+    duration: 240
+    tone: 78
+    lyric: と
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 127440
+    duration: 240
+    tone: 80
+    lyric: ま
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 127680
+    duration: 480
+    tone: 83
+    lyric: よ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 128160
+    duration: 480
+    tone: 80
+    lyric: わ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 128640
+    duration: 240
+    tone: 73
+    lyric: ず
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 128880
+    duration: 240
+    tone: 76
+    lyric: げ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 129120
+    duration: 240
+    tone: 80
+    lyric: ん
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 129360
+    duration: 240
+    tone: 83
+    lyric: か
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 129600
+    duration: 480
+    tone: 85
+    lyric: い
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 130080
+    duration: 480
+    tone: 85
+    lyric: を
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 130560
+    duration: 960
+    tone: 85
+    lyric: え
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 132480
+    duration: 480
+    tone: 83
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 132960
+    duration: 480
+    tone: 80
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 134400
+    duration: 480
+    tone: 80
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 134880
+    duration: 480
+    tone: 75
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+  - position: 136320
+    duration: 960
+    tone: 73
+    lyric: あ
+    pitch:
+      data:
+      - x: -40
+        y: 0
+        shape: io
+      - x: 40
+        y: 0
+        shape: io
+      snap_first: true
+    vibrato:
+      length: 65
+      period: 175
+      depth: 25
+      in: 15
+      out: 15
+      shift: 0
+      drift: 0
+      vol_link: 0
+curves: []

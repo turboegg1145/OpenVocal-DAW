@@ -3,3 +3,4 @@ scipy>=1.9.0
 soundfile>=0.12.1
 mido>=1.2.10
 pretty_midi>=0.2.10
+pyyaml>=6.0
