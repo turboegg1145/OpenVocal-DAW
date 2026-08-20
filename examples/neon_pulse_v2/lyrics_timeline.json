@@ -1,0 +1,3357 @@
+{
+  "project": {
+    "title": "NEON PULSE (霓虹脉冲) v2",
+    "artist": "Kasane Teto (重音テト)",
+    "bpm": 130.0,
+    "time_signature": "4/4",
+    "key": "B minor / D Major -> C# minor / E Major (+2 Modulated)",
+    "total_bars": 78,
+    "total_duration_s": 144.0,
+    "total_duration_formatted": "02:24.000",
+    "master_audio_path": "F:/antigravity lol/antigravity-p/projects/project_neon_pulse/export/Neon_Pulse_Master.wav",
+    "inst_audio_path": "F:/antigravity lol/antigravity-p/projects/project_neon_pulse/export/Neon_Pulse_Inst.wav",
+    "vocal_dry_path": "F:/antigravity lol/antigravity-p/projects/project_neon_pulse/vocal/lead_vocal_dry_v2.wav"
+  },
+  "structure_sections": [
+    {
+      "section_name": "Intro",
+      "type": "instrumental",
+      "bar_range": "Bar 1 - Bar 8",
+      "start_s": 0.0,
+      "end_s": 14.769,
+      "duration_s": 14.769,
+      "start_timecode": "00:00.000",
+      "end_timecode": "00:14.769",
+      "description": "Vital 赛博琶音 + 滤波 Reese 贝斯引出 4-on-the-floor 舞曲律动"
+    },
+    {
+      "section_name": "Verse 1",
+      "type": "vocal",
+      "bar_range": "Bar 9 - Bar 16",
+      "start_s": 14.769,
+      "end_s": 29.538,
+      "duration_s": 14.769,
+      "start_timecode": "00:14.769",
+      "end_timecode": "00:29.538",
+      "description": "主歌叙事 (D4~B4 黄金中频，慵懒微醺对话感)"
+    },
+    {
+      "section_name": "Pre-Chorus",
+      "type": "vocal",
+      "bar_range": "Bar 17 - Bar 24",
+      "start_s": 29.538,
+      "end_s": 44.308,
+      "duration_s": 14.769,
+      "start_timecode": "00:29.538",
+      "end_timecode": "00:44.308",
+      "description": "预备段 (滤波扫频渐开，军鼓推进)"
+    },
+    {
+      "section_name": "Chorus 1",
+      "type": "vocal",
+      "bar_range": "Bar 25 - Bar 40",
+      "start_s": 44.308,
+      "end_s": 73.846,
+      "duration_s": 29.538,
+      "start_timecode": "00:44.308",
+      "end_timecode": "01:13.846",
+      "description": "第一副歌 (Vital 16-Voice SuperSaw 爆发，飞流大旋律)"
+    },
+    {
+      "section_name": "Interlude",
+      "type": "instrumental",
+      "bar_range": "Bar 41 - Bar 48",
+      "start_s": 73.846,
+      "end_s": 88.615,
+      "duration_s": 14.769,
+      "start_timecode": "01:13.846",
+      "end_timecode": "01:28.615",
+      "description": "间奏 (Vital 赛博主音 SOLO + Funk 切音吉他)"
+    },
+    {
+      "section_name": "Bridge",
+      "type": "vocal",
+      "bar_range": "Bar 49 - Bar 56",
+      "start_s": 88.615,
+      "end_s": 103.385,
+      "duration_s": 14.769,
+      "start_timecode": "01:28.615",
+      "end_timecode": "01:43.385",
+      "description": "过门段 (半速空灵滤波下潜 + 升调大引信)"
+    },
+    {
+      "section_name": "Grand Modulated Chorus",
+      "type": "vocal",
+      "bar_range": "Bar 57 - Bar 68",
+      "start_s": 103.385,
+      "end_s": 125.538,
+      "duration_s": 22.154,
+      "start_timecode": "01:43.385",
+      "end_timecode": "02:05.538",
+      "description": "+2 升调终极副歌 (C# minor / E Major 绝唱，双呼吸闭环)"
+    },
+    {
+      "section_name": "Outro Ad-lib & Strip-Down",
+      "type": "fade_out",
+      "bar_range": "Bar 69 - Bar 78",
+      "start_s": 125.538,
+      "end_s": 144.0,
+      "duration_s": 18.462,
+      "start_timecode": "02:05.538",
+      "end_timecode": "02:24.000",
+      "description": "尾奏消融 (人声 C#6 长音托底 + Ad-lib 隐退 + 伴奏剥离滤波淡出)"
+    }
+  ],
+  "lyrics_timeline": [
+    {
+      "bar_range": "Bar 9 - Bar 10",
+      "start_s": 14.769,
+      "end_s": 18.462,
+      "duration_s": 3.692,
+      "start_timecode": "00:14.769",
+      "end_timecode": "00:18.462",
+      "text_jp": "夜の街 光るネオンの海",
+      "text_romaji": "yoru no machi hikaru neon no umi",
+      "text_cn": "夜晚的街道 闪烁着霓虹的海洋",
+      "syllable_count": 13,
+      "characters": [
+        {
+          "char": "よ",
+          "pitch_midi": 62,
+          "start_s": 14.769,
+          "end_s": 15.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:14.769",
+          "end_timecode": "00:15.000"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 66,
+          "start_s": 15.0,
+          "end_s": 15.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:15.000",
+          "end_timecode": "00:15.231"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 71,
+          "start_s": 15.231,
+          "end_s": 15.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:15.231",
+          "end_timecode": "00:15.462"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 74,
+          "start_s": 15.462,
+          "end_s": 15.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:15.462",
+          "end_timecode": "00:15.692"
+        },
+        {
+          "char": "ち",
+          "pitch_midi": 71,
+          "start_s": 15.692,
+          "end_s": 16.154,
+          "duration_s": 0.462,
+          "start_timecode": "00:15.692",
+          "end_timecode": "00:16.154"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 66,
+          "start_s": 16.154,
+          "end_s": 16.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:16.154",
+          "end_timecode": "00:16.385"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 62,
+          "start_s": 16.385,
+          "end_s": 16.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:16.385",
+          "end_timecode": "00:16.615"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 67,
+          "start_s": 16.615,
+          "end_s": 17.077,
+          "duration_s": 0.462,
+          "start_timecode": "00:16.615",
+          "end_timecode": "00:17.077"
+        },
+        {
+          "char": "ね",
+          "pitch_midi": 71,
+          "start_s": 17.077,
+          "end_s": 17.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:17.077",
+          "end_timecode": "00:17.308"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 74,
+          "start_s": 17.308,
+          "end_s": 17.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:17.308",
+          "end_timecode": "00:17.538"
+        },
+        {
+          "char": "ん",
+          "pitch_midi": 78,
+          "start_s": 17.538,
+          "end_s": 18.0,
+          "duration_s": 0.462,
+          "start_timecode": "00:17.538",
+          "end_timecode": "00:18.000"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 74,
+          "start_s": 18.0,
+          "end_s": 18.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:18.000",
+          "end_timecode": "00:18.231"
+        },
+        {
+          "char": "う",
+          "pitch_midi": 71,
+          "start_s": 18.231,
+          "end_s": 18.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:18.231",
+          "end_timecode": "00:18.462"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 11 - Bar 12",
+      "start_s": 18.462,
+      "end_s": 22.154,
+      "duration_s": 3.692,
+      "start_timecode": "00:18.462",
+      "end_timecode": "00:22.154",
+      "text_jp": "風を切り裂いて 走る",
+      "text_romaji": "kaze o kirisaite hashiru",
+      "text_cn": "撕裂长风 肆意奔跑",
+      "syllable_count": 12,
+      "characters": [
+        {
+          "char": "み",
+          "pitch_midi": 69,
+          "start_s": 18.462,
+          "end_s": 18.923,
+          "duration_s": 0.462,
+          "start_timecode": "00:18.462",
+          "end_timecode": "00:18.923"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 73,
+          "start_s": 18.923,
+          "end_s": 19.154,
+          "duration_s": 0.231,
+          "start_timecode": "00:18.923",
+          "end_timecode": "00:19.154"
+        },
+        {
+          "char": "ぜ",
+          "pitch_midi": 76,
+          "start_s": 19.154,
+          "end_s": 19.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:19.154",
+          "end_timecode": "00:19.385"
+        },
+        {
+          "char": "料",
+          "pitch_midi": 73,
+          "start_s": 19.385,
+          "end_s": 19.846,
+          "duration_s": 0.462,
+          "start_timecode": "00:19.385",
+          "end_timecode": "00:19.846"
+        },
+        {
+          "char": "き",
+          "pitch_midi": 69,
+          "start_s": 19.846,
+          "end_s": 20.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:19.846",
+          "end_timecode": "00:20.077"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 73,
+          "start_s": 20.077,
+          "end_s": 20.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:20.077",
+          "end_timecode": "00:20.308"
+        },
+        {
+          "char": "さ",
+          "pitch_midi": 73,
+          "start_s": 20.308,
+          "end_s": 20.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:20.308",
+          "end_timecode": "00:20.538"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 69,
+          "start_s": 20.538,
+          "end_s": 20.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:20.538",
+          "end_timecode": "00:20.769"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 66,
+          "start_s": 20.769,
+          "end_s": 21.231,
+          "duration_s": 0.462,
+          "start_timecode": "00:20.769",
+          "end_timecode": "00:21.231"
+        },
+        {
+          "char": "は",
+          "pitch_midi": 69,
+          "start_s": 21.231,
+          "end_s": 21.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:21.231",
+          "end_timecode": "00:21.462"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 73,
+          "start_s": 21.462,
+          "end_s": 21.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:21.462",
+          "end_timecode": "00:21.692"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 76,
+          "start_s": 21.692,
+          "end_s": 22.154,
+          "duration_s": 0.462,
+          "start_timecode": "00:21.692",
+          "end_timecode": "00:22.154"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 13 - Bar 14",
+      "start_s": 22.154,
+      "end_s": 25.846,
+      "duration_s": 3.692,
+      "start_timecode": "00:22.154",
+      "end_timecode": "00:25.846",
+      "text_jp": "僕らの鼓動が 鳴り響く",
+      "text_romaji": "bokura no kodou ga narihibiku",
+      "text_cn": "我们的心跳 轰鸣回响",
+      "syllable_count": 13,
+      "characters": [
+        {
+          "char": "ぼ",
+          "pitch_midi": 62,
+          "start_s": 22.154,
+          "end_s": 22.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:22.154",
+          "end_timecode": "00:22.385"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 66,
+          "start_s": 22.385,
+          "end_s": 22.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:22.385",
+          "end_timecode": "00:22.615"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 71,
+          "start_s": 22.615,
+          "end_s": 22.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:22.615",
+          "end_timecode": "00:22.846"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 74,
+          "start_s": 22.846,
+          "end_s": 23.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:22.846",
+          "end_timecode": "00:23.077"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 71,
+          "start_s": 23.077,
+          "end_s": 23.538,
+          "duration_s": 0.462,
+          "start_timecode": "00:23.077",
+          "end_timecode": "00:23.538"
+        },
+        {
+          "char": "ど",
+          "pitch_midi": 66,
+          "start_s": 23.538,
+          "end_s": 23.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:23.538",
+          "end_timecode": "00:23.769"
+        },
+        {
+          "char": "う",
+          "pitch_midi": 62,
+          "start_s": 23.769,
+          "end_s": 24.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:23.769",
+          "end_timecode": "00:24.000"
+        },
+        {
+          "char": "が",
+          "pitch_midi": 67,
+          "start_s": 24.0,
+          "end_s": 24.462,
+          "duration_s": 0.462,
+          "start_timecode": "00:24.000",
+          "end_timecode": "00:24.462"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 71,
+          "start_s": 24.462,
+          "end_s": 24.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:24.462",
+          "end_timecode": "00:24.692"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 74,
+          "start_s": 24.692,
+          "end_s": 24.923,
+          "duration_s": 0.231,
+          "start_timecode": "00:24.692",
+          "end_timecode": "00:24.923"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 78,
+          "start_s": 24.923,
+          "end_s": 25.385,
+          "duration_s": 0.462,
+          "start_timecode": "00:24.923",
+          "end_timecode": "00:25.385"
+        },
+        {
+          "char": "び",
+          "pitch_midi": 74,
+          "start_s": 25.385,
+          "end_s": 25.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:25.385",
+          "end_timecode": "00:25.615"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 71,
+          "start_s": 25.615,
+          "end_s": 25.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:25.615",
+          "end_timecode": "00:25.846"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 15 - Bar 16",
+      "start_s": 25.846,
+      "end_s": 29.077,
+      "duration_s": 3.231,
+      "start_timecode": "00:25.846",
+      "end_timecode": "00:29.077",
+      "text_jp": "明日を照らしてゆくよ",
+      "text_romaji": "asu o terashite yuku yo",
+      "text_cn": "照亮崭新的明天",
+      "syllable_count": 10,
+      "characters": [
+        {
+          "char": "あ",
+          "pitch_midi": 69,
+          "start_s": 25.846,
+          "end_s": 26.308,
+          "duration_s": 0.462,
+          "start_timecode": "00:25.846",
+          "end_timecode": "00:26.308"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 73,
+          "start_s": 26.308,
+          "end_s": 26.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:26.308",
+          "end_timecode": "00:26.538"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 76,
+          "start_s": 26.538,
+          "end_s": 26.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:26.538",
+          "end_timecode": "00:26.769"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 79,
+          "start_s": 26.769,
+          "end_s": 27.231,
+          "duration_s": 0.462,
+          "start_timecode": "00:26.769",
+          "end_timecode": "00:27.231"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 76,
+          "start_s": 27.231,
+          "end_s": 27.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:27.231",
+          "end_timecode": "00:27.462"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 73,
+          "start_s": 27.462,
+          "end_s": 27.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:27.462",
+          "end_timecode": "00:27.692"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 70,
+          "start_s": 27.692,
+          "end_s": 28.154,
+          "duration_s": 0.462,
+          "start_timecode": "00:27.692",
+          "end_timecode": "00:28.154"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 73,
+          "start_s": 28.154,
+          "end_s": 28.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:28.154",
+          "end_timecode": "00:28.385"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 76,
+          "start_s": 28.385,
+          "end_s": 28.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:28.385",
+          "end_timecode": "00:28.615"
+        },
+        {
+          "char": "よ",
+          "pitch_midi": 78,
+          "start_s": 28.615,
+          "end_s": 29.077,
+          "duration_s": 0.462,
+          "start_timecode": "00:28.615",
+          "end_timecode": "00:29.077"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 17 - Bar 18",
+      "start_s": 29.538,
+      "end_s": 33.231,
+      "duration_s": 3.692,
+      "start_timecode": "00:29.538",
+      "end_timecode": "00:33.231",
+      "text_jp": "遠く消えそうな 夢を抱きしめて",
+      "text_romaji": "tooku kiesou na yume o dakishimete",
+      "text_cn": "紧紧拥抱 那看似遥远将逝的梦想",
+      "syllable_count": 13,
+      "characters": [
+        {
+          "char": "と",
+          "pitch_midi": 64,
+          "start_s": 29.538,
+          "end_s": 29.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:29.538",
+          "end_timecode": "00:29.769"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 67,
+          "start_s": 29.769,
+          "end_s": 30.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:29.769",
+          "end_timecode": "00:30.000"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 71,
+          "start_s": 30.0,
+          "end_s": 30.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:30.000",
+          "end_timecode": "00:30.231"
+        },
+        {
+          "char": "き",
+          "pitch_midi": 74,
+          "start_s": 30.231,
+          "end_s": 30.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:30.231",
+          "end_timecode": "00:30.462"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 71,
+          "start_s": 30.462,
+          "end_s": 30.923,
+          "duration_s": 0.462,
+          "start_timecode": "00:30.462",
+          "end_timecode": "00:30.923"
+        },
+        {
+          "char": "そ",
+          "pitch_midi": 67,
+          "start_s": 30.923,
+          "end_s": 31.154,
+          "duration_s": 0.231,
+          "start_timecode": "00:30.923",
+          "end_timecode": "00:31.154"
+        },
+        {
+          "char": "う",
+          "pitch_midi": 71,
+          "start_s": 31.154,
+          "end_s": 31.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:31.154",
+          "end_timecode": "00:31.385"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 69,
+          "start_s": 31.385,
+          "end_s": 31.846,
+          "duration_s": 0.462,
+          "start_timecode": "00:31.385",
+          "end_timecode": "00:31.846"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 73,
+          "start_s": 31.846,
+          "end_s": 32.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:31.846",
+          "end_timecode": "00:32.077"
+        },
+        {
+          "char": "め",
+          "pitch_midi": 76,
+          "start_s": 32.077,
+          "end_s": 32.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:32.077",
+          "end_timecode": "00:32.308"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 78,
+          "start_s": 32.308,
+          "end_s": 32.769,
+          "duration_s": 0.462,
+          "start_timecode": "00:32.308",
+          "end_timecode": "00:32.769"
+        },
+        {
+          "char": "だ",
+          "pitch_midi": 76,
+          "start_s": 32.769,
+          "end_s": 33.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:32.769",
+          "end_timecode": "00:33.000"
+        },
+        {
+          "char": "き",
+          "pitch_midi": 73,
+          "start_s": 33.0,
+          "end_s": 33.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:33.000",
+          "end_timecode": "00:33.231"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 19 - Bar 20",
+      "start_s": 33.231,
+      "end_s": 36.923,
+      "duration_s": 3.692,
+      "start_timecode": "00:33.231",
+      "end_timecode": "00:36.923",
+      "text_jp": "今 飛び出す未来へ",
+      "text_romaji": "ima tobi dasu mirai e",
+      "text_cn": "此刻 跃向辽阔的未来",
+      "syllable_count": 12,
+      "characters": [
+        {
+          "char": "し",
+          "pitch_midi": 67,
+          "start_s": 33.231,
+          "end_s": 33.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:33.231",
+          "end_timecode": "00:33.462"
+        },
+        {
+          "char": "め",
+          "pitch_midi": 71,
+          "start_s": 33.462,
+          "end_s": 33.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:33.462",
+          "end_timecode": "00:33.692"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 74,
+          "start_s": 33.692,
+          "end_s": 33.923,
+          "duration_s": 0.231,
+          "start_timecode": "00:33.692",
+          "end_timecode": "00:33.923"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 78,
+          "start_s": 33.923,
+          "end_s": 34.154,
+          "duration_s": 0.231,
+          "start_timecode": "00:33.923",
+          "end_timecode": "00:34.154"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 74,
+          "start_s": 34.154,
+          "end_s": 34.615,
+          "duration_s": 0.462,
+          "start_timecode": "00:34.154",
+          "end_timecode": "00:34.615"
+        },
+        {
+          "char": "と",
+          "pitch_midi": 71,
+          "start_s": 34.615,
+          "end_s": 34.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:34.615",
+          "end_timecode": "00:34.846"
+        },
+        {
+          "char": "び",
+          "pitch_midi": 74,
+          "start_s": 34.846,
+          "end_s": 35.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:34.846",
+          "end_timecode": "00:35.077"
+        },
+        {
+          "char": "だ",
+          "pitch_midi": 76,
+          "start_s": 35.077,
+          "end_s": 35.538,
+          "duration_s": 0.462,
+          "start_timecode": "00:35.077",
+          "end_timecode": "00:35.538"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 79,
+          "start_s": 35.538,
+          "end_s": 35.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:35.538",
+          "end_timecode": "00:35.769"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 81,
+          "start_s": 35.769,
+          "end_s": 36.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:35.769",
+          "end_timecode": "00:36.000"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 79,
+          "start_s": 36.0,
+          "end_s": 36.462,
+          "duration_s": 0.462,
+          "start_timecode": "00:36.000",
+          "end_timecode": "00:36.462"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 76,
+          "start_s": 36.462,
+          "end_s": 36.923,
+          "duration_s": 0.462,
+          "start_timecode": "00:36.462",
+          "end_timecode": "00:36.923"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 21 - Bar 22",
+      "start_s": 36.923,
+      "end_s": 40.615,
+      "duration_s": 3.692,
+      "start_timecode": "00:36.923",
+      "end_timecode": "00:40.615",
+      "text_jp": "振り向かずにゆけ この夜を越えて",
+      "text_romaji": "furimukazu ni yuke kono yoru o koete",
+      "text_cn": "不再回头 跨越这片漫漫长夜",
+      "syllable_count": 13,
+      "characters": [
+        {
+          "char": "ふ",
+          "pitch_midi": 64,
+          "start_s": 36.923,
+          "end_s": 37.154,
+          "duration_s": 0.231,
+          "start_timecode": "00:36.923",
+          "end_timecode": "00:37.154"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 67,
+          "start_s": 37.154,
+          "end_s": 37.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:37.154",
+          "end_timecode": "00:37.385"
+        },
+        {
+          "char": "む",
+          "pitch_midi": 71,
+          "start_s": 37.385,
+          "end_s": 37.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:37.385",
+          "end_timecode": "00:37.615"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 74,
+          "start_s": 37.615,
+          "end_s": 37.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:37.615",
+          "end_timecode": "00:37.846"
+        },
+        {
+          "char": "ず",
+          "pitch_midi": 71,
+          "start_s": 37.846,
+          "end_s": 38.308,
+          "duration_s": 0.462,
+          "start_timecode": "00:37.846",
+          "end_timecode": "00:38.308"
+        },
+        {
+          "char": "に",
+          "pitch_midi": 67,
+          "start_s": 38.308,
+          "end_s": 38.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:38.308",
+          "end_timecode": "00:38.538"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 71,
+          "start_s": 38.538,
+          "end_s": 38.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:38.538",
+          "end_timecode": "00:38.769"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 69,
+          "start_s": 38.769,
+          "end_s": 39.231,
+          "duration_s": 0.462,
+          "start_timecode": "00:38.769",
+          "end_timecode": "00:39.231"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 73,
+          "start_s": 39.231,
+          "end_s": 39.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:39.231",
+          "end_timecode": "00:39.462"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 76,
+          "start_s": 39.462,
+          "end_s": 39.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:39.462",
+          "end_timecode": "00:39.692"
+        },
+        {
+          "char": "よ",
+          "pitch_midi": 78,
+          "start_s": 39.692,
+          "end_s": 40.154,
+          "duration_s": 0.462,
+          "start_timecode": "00:39.692",
+          "end_timecode": "00:40.154"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 76,
+          "start_s": 40.154,
+          "end_s": 40.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:40.154",
+          "end_timecode": "00:40.385"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 73,
+          "start_s": 40.385,
+          "end_s": 40.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:40.385",
+          "end_timecode": "00:40.615"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 23 - Bar 24",
+      "start_s": 40.615,
+      "end_s": 44.308,
+      "duration_s": 3.692,
+      "start_timecode": "00:40.615",
+      "end_timecode": "00:44.308",
+      "text_jp": "今 光放て",
+      "text_romaji": "ima hikari hanate",
+      "text_cn": "此刻 绽放耀眼光芒",
+      "syllable_count": 13,
+      "characters": [
+        {
+          "char": "こ",
+          "pitch_midi": 67,
+          "start_s": 40.615,
+          "end_s": 40.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:40.615",
+          "end_timecode": "00:40.846"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 71,
+          "start_s": 40.846,
+          "end_s": 41.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:40.846",
+          "end_timecode": "00:41.077"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 74,
+          "start_s": 41.077,
+          "end_s": 41.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:41.077",
+          "end_timecode": "00:41.308"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 78,
+          "start_s": 41.308,
+          "end_s": 41.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:41.308",
+          "end_timecode": "00:41.538"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 81,
+          "start_s": 41.538,
+          "end_s": 42.0,
+          "duration_s": 0.462,
+          "start_timecode": "00:41.538",
+          "end_timecode": "00:42.000"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 78,
+          "start_s": 42.0,
+          "end_s": 42.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:42.000",
+          "end_timecode": "00:42.231"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 74,
+          "start_s": 42.231,
+          "end_s": 42.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:42.231",
+          "end_timecode": "00:42.462"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 78,
+          "start_s": 42.462,
+          "end_s": 42.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:42.462",
+          "end_timecode": "00:42.692"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 82,
+          "start_s": 42.692,
+          "end_s": 42.923,
+          "duration_s": 0.231,
+          "start_timecode": "00:42.692",
+          "end_timecode": "00:42.923"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 83,
+          "start_s": 42.923,
+          "end_s": 43.385,
+          "duration_s": 0.462,
+          "start_timecode": "00:42.923",
+          "end_timecode": "00:43.385"
+        },
+        {
+          "char": "は",
+          "pitch_midi": 78,
+          "start_s": 43.385,
+          "end_s": 43.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:43.385",
+          "end_timecode": "00:43.615"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 74,
+          "start_s": 43.615,
+          "end_s": 43.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:43.615",
+          "end_timecode": "00:43.846"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 78,
+          "start_s": 43.846,
+          "end_s": 44.308,
+          "duration_s": 0.462,
+          "start_timecode": "00:43.846",
+          "end_timecode": "00:44.308"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 25 - Bar 28",
+      "start_s": 44.308,
+      "end_s": 51.692,
+      "duration_s": 7.385,
+      "start_timecode": "00:44.308",
+      "end_timecode": "00:51.692",
+      "text_jp": "ネオンパルスのなかで 踊る僕らの声よ 響いてゆけ",
+      "text_romaji": "neon parusu no naka de odoru bokura no koe yo hibiite yuke",
+      "text_cn": "在霓虹脉冲之中 跃动的我们之声 回荡远方吧",
+      "syllable_count": 26,
+      "characters": [
+        {
+          "char": "ね",
+          "pitch_midi": 67,
+          "start_s": 44.308,
+          "end_s": 44.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:44.308",
+          "end_timecode": "00:44.538"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 71,
+          "start_s": 44.538,
+          "end_s": 44.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:44.538",
+          "end_timecode": "00:44.769"
+        },
+        {
+          "char": "ん",
+          "pitch_midi": 74,
+          "start_s": 44.769,
+          "end_s": 45.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:44.769",
+          "end_timecode": "00:45.000"
+        },
+        {
+          "char": "ぱ",
+          "pitch_midi": 78,
+          "start_s": 45.0,
+          "end_s": 45.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:45.000",
+          "end_timecode": "00:45.231"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 81,
+          "start_s": 45.231,
+          "end_s": 45.692,
+          "duration_s": 0.462,
+          "start_timecode": "00:45.231",
+          "end_timecode": "00:45.692"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 78,
+          "start_s": 45.692,
+          "end_s": 45.923,
+          "duration_s": 0.231,
+          "start_timecode": "00:45.692",
+          "end_timecode": "00:45.923"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 74,
+          "start_s": 45.923,
+          "end_s": 46.154,
+          "duration_s": 0.231,
+          "start_timecode": "00:45.923",
+          "end_timecode": "00:46.154"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 76,
+          "start_s": 46.154,
+          "end_s": 46.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:46.154",
+          "end_timecode": "00:46.385"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 81,
+          "start_s": 46.385,
+          "end_s": 46.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:46.385",
+          "end_timecode": "00:46.615"
+        },
+        {
+          "char": "で",
+          "pitch_midi": 83,
+          "start_s": 46.615,
+          "end_s": 47.077,
+          "duration_s": 0.462,
+          "start_timecode": "00:46.615",
+          "end_timecode": "00:47.077"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 81,
+          "start_s": 47.077,
+          "end_s": 47.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:47.077",
+          "end_timecode": "00:47.308"
+        },
+        {
+          "char": "ど",
+          "pitch_midi": 76,
+          "start_s": 47.308,
+          "end_s": 47.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:47.308",
+          "end_timecode": "00:47.538"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 73,
+          "start_s": 47.538,
+          "end_s": 48.0,
+          "duration_s": 0.462,
+          "start_timecode": "00:47.538",
+          "end_timecode": "00:48.000"
+        },
+        {
+          "char": "ぼ",
+          "pitch_midi": 66,
+          "start_s": 48.0,
+          "end_s": 48.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:48.000",
+          "end_timecode": "00:48.231"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 69,
+          "start_s": 48.231,
+          "end_s": 48.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:48.231",
+          "end_timecode": "00:48.462"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 73,
+          "start_s": 48.462,
+          "end_s": 48.692,
+          "duration_s": 0.231,
+          "start_timecode": "00:48.462",
+          "end_timecode": "00:48.692"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 76,
+          "start_s": 48.692,
+          "end_s": 48.923,
+          "duration_s": 0.231,
+          "start_timecode": "00:48.692",
+          "end_timecode": "00:48.923"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 73,
+          "start_s": 48.923,
+          "end_s": 49.385,
+          "duration_s": 0.462,
+          "start_timecode": "00:48.923",
+          "end_timecode": "00:49.385"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 69,
+          "start_s": 49.385,
+          "end_s": 49.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:49.385",
+          "end_timecode": "00:49.615"
+        },
+        {
+          "char": "よ",
+          "pitch_midi": 66,
+          "start_s": 49.615,
+          "end_s": 49.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:49.615",
+          "end_timecode": "00:49.846"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 71,
+          "start_s": 49.846,
+          "end_s": 50.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:49.846",
+          "end_timecode": "00:50.077"
+        },
+        {
+          "char": "び",
+          "pitch_midi": 74,
+          "start_s": 50.077,
+          "end_s": 50.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:50.077",
+          "end_timecode": "00:50.308"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 78,
+          "start_s": 50.308,
+          "end_s": 50.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:50.308",
+          "end_timecode": "00:50.538"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 81,
+          "start_s": 50.538,
+          "end_s": 50.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:50.538",
+          "end_timecode": "00:50.769"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 83,
+          "start_s": 50.769,
+          "end_s": 51.231,
+          "duration_s": 0.462,
+          "start_timecode": "00:50.769",
+          "end_timecode": "00:51.231"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 78,
+          "start_s": 51.231,
+          "end_s": 51.692,
+          "duration_s": 0.462,
+          "start_timecode": "00:51.231",
+          "end_timecode": "00:51.692"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 29 - Bar 32",
+      "start_s": 51.692,
+      "end_s": 59.077,
+      "duration_s": 7.385,
+      "start_timecode": "00:51.692",
+      "end_timecode": "00:59.077",
+      "text_jp": "この手伸ばして 掴む未来だけを見つめて走る",
+      "text_romaji": "kono te nobashite tsukamu mirai dake o mitsumete hashiru",
+      "text_cn": "伸出双手 仅凝视着紧握的未来奋力奔跑",
+      "syllable_count": 23,
+      "characters": [
+        {
+          "char": "こ",
+          "pitch_midi": 64,
+          "start_s": 51.692,
+          "end_s": 51.923,
+          "duration_s": 0.231,
+          "start_timecode": "00:51.692",
+          "end_timecode": "00:51.923"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 67,
+          "start_s": 51.923,
+          "end_s": 52.154,
+          "duration_s": 0.231,
+          "start_timecode": "00:51.923",
+          "end_timecode": "00:52.154"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 71,
+          "start_s": 52.154,
+          "end_s": 52.385,
+          "duration_s": 0.231,
+          "start_timecode": "00:52.154",
+          "end_timecode": "00:52.385"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 74,
+          "start_s": 52.385,
+          "end_s": 52.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:52.385",
+          "end_timecode": "00:52.615"
+        },
+        {
+          "char": "ば",
+          "pitch_midi": 78,
+          "start_s": 52.615,
+          "end_s": 53.077,
+          "duration_s": 0.462,
+          "start_timecode": "00:52.615",
+          "end_timecode": "00:53.077"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 74,
+          "start_s": 53.077,
+          "end_s": 53.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:53.077",
+          "end_timecode": "00:53.308"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 71,
+          "start_s": 53.308,
+          "end_s": 53.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:53.308",
+          "end_timecode": "00:53.538"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 76,
+          "start_s": 53.538,
+          "end_s": 54.0,
+          "duration_s": 0.462,
+          "start_timecode": "00:53.538",
+          "end_timecode": "00:54.000"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 78,
+          "start_s": 54.0,
+          "end_s": 54.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:54.000",
+          "end_timecode": "00:54.231"
+        },
+        {
+          "char": "む",
+          "pitch_midi": 82,
+          "start_s": 54.231,
+          "end_s": 54.462,
+          "duration_s": 0.231,
+          "start_timecode": "00:54.231",
+          "end_timecode": "00:54.462"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 83,
+          "start_s": 54.462,
+          "end_s": 54.923,
+          "duration_s": 0.462,
+          "start_timecode": "00:54.462",
+          "end_timecode": "00:54.923"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 78,
+          "start_s": 54.923,
+          "end_s": 55.385,
+          "duration_s": 0.462,
+          "start_timecode": "00:54.923",
+          "end_timecode": "00:55.385"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 66,
+          "start_s": 55.385,
+          "end_s": 55.615,
+          "duration_s": 0.231,
+          "start_timecode": "00:55.385",
+          "end_timecode": "00:55.615"
+        },
+        {
+          "char": "だ",
+          "pitch_midi": 71,
+          "start_s": 55.615,
+          "end_s": 55.846,
+          "duration_s": 0.231,
+          "start_timecode": "00:55.615",
+          "end_timecode": "00:55.846"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 74,
+          "start_s": 55.846,
+          "end_s": 56.077,
+          "duration_s": 0.231,
+          "start_timecode": "00:55.846",
+          "end_timecode": "00:56.077"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 78,
+          "start_s": 56.077,
+          "end_s": 56.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:56.077",
+          "end_timecode": "00:56.308"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 74,
+          "start_s": 56.308,
+          "end_s": 56.769,
+          "duration_s": 0.462,
+          "start_timecode": "00:56.308",
+          "end_timecode": "00:56.769"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 71,
+          "start_s": 56.769,
+          "end_s": 57.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:56.769",
+          "end_timecode": "00:57.000"
+        },
+        {
+          "char": "め",
+          "pitch_midi": 66,
+          "start_s": 57.0,
+          "end_s": 57.231,
+          "duration_s": 0.231,
+          "start_timecode": "00:57.000",
+          "end_timecode": "00:57.231"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 74,
+          "start_s": 57.231,
+          "end_s": 57.692,
+          "duration_s": 0.462,
+          "start_timecode": "00:57.231",
+          "end_timecode": "00:57.692"
+        },
+        {
+          "char": "は",
+          "pitch_midi": 78,
+          "start_s": 57.692,
+          "end_s": 58.154,
+          "duration_s": 0.462,
+          "start_timecode": "00:57.692",
+          "end_timecode": "00:58.154"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 81,
+          "start_s": 58.154,
+          "end_s": 58.615,
+          "duration_s": 0.462,
+          "start_timecode": "00:58.154",
+          "end_timecode": "00:58.615"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 78,
+          "start_s": 58.615,
+          "end_s": 59.077,
+          "duration_s": 0.462,
+          "start_timecode": "00:58.615",
+          "end_timecode": "00:59.077"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 33 - Bar 36",
+      "start_s": 59.077,
+      "end_s": 66.462,
+      "duration_s": 7.385,
+      "start_timecode": "00:59.077",
+      "end_timecode": "01:06.462",
+      "text_jp": "限界を越えてゆけ 今すぐ輝く明日へと 止まらない",
+      "text_romaji": "genkai o koete yuke ima sugu kagayaku asu e to tomaranai",
+      "text_cn": "冲破极限吧 直奔此刻璀璨的明日 永不停歇",
+      "syllable_count": 26,
+      "characters": [
+        {
+          "char": "げ",
+          "pitch_midi": 67,
+          "start_s": 59.077,
+          "end_s": 59.308,
+          "duration_s": 0.231,
+          "start_timecode": "00:59.077",
+          "end_timecode": "00:59.308"
+        },
+        {
+          "char": "ん",
+          "pitch_midi": 71,
+          "start_s": 59.308,
+          "end_s": 59.538,
+          "duration_s": 0.231,
+          "start_timecode": "00:59.308",
+          "end_timecode": "00:59.538"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 74,
+          "start_s": 59.538,
+          "end_s": 59.769,
+          "duration_s": 0.231,
+          "start_timecode": "00:59.538",
+          "end_timecode": "00:59.769"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 78,
+          "start_s": 59.769,
+          "end_s": 60.0,
+          "duration_s": 0.231,
+          "start_timecode": "00:59.769",
+          "end_timecode": "01:00.000"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 81,
+          "start_s": 60.0,
+          "end_s": 60.462,
+          "duration_s": 0.462,
+          "start_timecode": "01:00.000",
+          "end_timecode": "01:00.462"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 78,
+          "start_s": 60.462,
+          "end_s": 60.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:00.462",
+          "end_timecode": "01:00.692"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 74,
+          "start_s": 60.692,
+          "end_s": 60.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:00.692",
+          "end_timecode": "01:00.923"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 81,
+          "start_s": 60.923,
+          "end_s": 61.385,
+          "duration_s": 0.462,
+          "start_timecode": "01:00.923",
+          "end_timecode": "01:01.385"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 69,
+          "start_s": 61.385,
+          "end_s": 61.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:01.385",
+          "end_timecode": "01:01.615"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 69,
+          "start_s": 61.615,
+          "end_s": 61.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:01.615",
+          "end_timecode": "01:01.846"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 73,
+          "start_s": 61.846,
+          "end_s": 62.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:01.846",
+          "end_timecode": "01:02.077"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 76,
+          "start_s": 62.077,
+          "end_s": 62.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:02.077",
+          "end_timecode": "01:02.308"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 81,
+          "start_s": 62.308,
+          "end_s": 62.769,
+          "duration_s": 0.462,
+          "start_timecode": "01:02.308",
+          "end_timecode": "01:02.769"
+        },
+        {
+          "char": "ぐ",
+          "pitch_midi": 76,
+          "start_s": 62.769,
+          "end_s": 63.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:02.769",
+          "end_timecode": "01:03.000"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 73,
+          "start_s": 63.0,
+          "end_s": 63.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:03.000",
+          "end_timecode": "01:03.231"
+        },
+        {
+          "char": "が",
+          "pitch_midi": 76,
+          "start_s": 63.231,
+          "end_s": 63.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:03.231",
+          "end_timecode": "01:03.462"
+        },
+        {
+          "char": "や",
+          "pitch_midi": 73,
+          "start_s": 63.462,
+          "end_s": 63.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:03.462",
+          "end_timecode": "01:03.692"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 69,
+          "start_s": 63.692,
+          "end_s": 63.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:03.692",
+          "end_timecode": "01:03.923"
+        },
+        {
+          "char": "あ",
+          "pitch_midi": 66,
+          "start_s": 63.923,
+          "end_s": 64.385,
+          "duration_s": 0.462,
+          "start_timecode": "01:03.923",
+          "end_timecode": "01:04.385"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 69,
+          "start_s": 64.385,
+          "end_s": 64.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:04.385",
+          "end_timecode": "01:04.615"
+        },
+        {
+          "char": "へ",
+          "pitch_midi": 71,
+          "start_s": 64.615,
+          "end_s": 64.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:04.615",
+          "end_timecode": "01:04.846"
+        },
+        {
+          "char": "と",
+          "pitch_midi": 74,
+          "start_s": 64.846,
+          "end_s": 65.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:04.846",
+          "end_timecode": "01:05.077"
+        },
+        {
+          "char": "と",
+          "pitch_midi": 78,
+          "start_s": 65.077,
+          "end_s": 65.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:05.077",
+          "end_timecode": "01:05.308"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 81,
+          "start_s": 65.308,
+          "end_s": 65.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:05.308",
+          "end_timecode": "01:05.538"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 83,
+          "start_s": 65.538,
+          "end_s": 66.0,
+          "duration_s": 0.462,
+          "start_timecode": "01:05.538",
+          "end_timecode": "01:06.000"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 85,
+          "start_s": 66.0,
+          "end_s": 66.462,
+          "duration_s": 0.462,
+          "start_timecode": "01:06.000",
+          "end_timecode": "01:06.462"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 37 - Bar 40",
+      "start_s": 66.462,
+      "end_s": 73.846,
+      "duration_s": 7.385,
+      "start_timecode": "01:06.462",
+      "end_timecode": "01:13.846",
+      "text_jp": "思いだけで 響け声よ つないで行け 未来へつなげ",
+      "text_romaji": "omoi dake de hibike koe yo tsunaide yuke mirai e tsunage",
+      "text_cn": "仅凭这份执念 回响吧声音 紧紧相连 直通未来",
+      "syllable_count": 26,
+      "characters": [
+        {
+          "char": "い",
+          "pitch_midi": 78,
+          "start_s": 66.462,
+          "end_s": 66.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:06.462",
+          "end_timecode": "01:06.692"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 74,
+          "start_s": 66.692,
+          "end_s": 66.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:06.692",
+          "end_timecode": "01:06.923"
+        },
+        {
+          "char": "も",
+          "pitch_midi": 71,
+          "start_s": 66.923,
+          "end_s": 67.154,
+          "duration_s": 0.231,
+          "start_timecode": "01:06.923",
+          "end_timecode": "01:07.154"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 74,
+          "start_s": 67.154,
+          "end_s": 67.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:07.154",
+          "end_timecode": "01:07.385"
+        },
+        {
+          "char": "だ",
+          "pitch_midi": 78,
+          "start_s": 67.385,
+          "end_s": 67.846,
+          "duration_s": 0.462,
+          "start_timecode": "01:07.385",
+          "end_timecode": "01:07.846"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 74,
+          "start_s": 67.846,
+          "end_s": 68.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:07.846",
+          "end_timecode": "01:08.077"
+        },
+        {
+          "char": "で",
+          "pitch_midi": 81,
+          "start_s": 68.077,
+          "end_s": 68.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:08.077",
+          "end_timecode": "01:08.308"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 76,
+          "start_s": 68.308,
+          "end_s": 68.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:08.308",
+          "end_timecode": "01:08.538"
+        },
+        {
+          "char": "び",
+          "pitch_midi": 78,
+          "start_s": 68.538,
+          "end_s": 68.769,
+          "duration_s": 0.231,
+          "start_timecode": "01:08.538",
+          "end_timecode": "01:08.769"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 82,
+          "start_s": 68.769,
+          "end_s": 69.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:08.769",
+          "end_timecode": "01:09.000"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 78,
+          "start_s": 69.0,
+          "end_s": 69.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:09.000",
+          "end_timecode": "01:09.231"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 76,
+          "start_s": 69.231,
+          "end_s": 69.692,
+          "duration_s": 0.462,
+          "start_timecode": "01:09.231",
+          "end_timecode": "01:09.692"
+        },
+        {
+          "char": "よ",
+          "pitch_midi": 70,
+          "start_s": 69.692,
+          "end_s": 70.154,
+          "duration_s": 0.462,
+          "start_timecode": "01:09.692",
+          "end_timecode": "01:10.154"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 66,
+          "start_s": 70.154,
+          "end_s": 70.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:10.154",
+          "end_timecode": "01:10.385"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 71,
+          "start_s": 70.385,
+          "end_s": 70.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:10.385",
+          "end_timecode": "01:10.615"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 74,
+          "start_s": 70.615,
+          "end_s": 70.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:10.615",
+          "end_timecode": "01:10.846"
+        },
+        {
+          "char": "で",
+          "pitch_midi": 78,
+          "start_s": 70.846,
+          "end_s": 71.308,
+          "duration_s": 0.462,
+          "start_timecode": "01:10.846",
+          "end_timecode": "01:11.308"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 81,
+          "start_s": 71.308,
+          "end_s": 71.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:11.308",
+          "end_timecode": "01:11.538"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 83,
+          "start_s": 71.538,
+          "end_s": 72.0,
+          "duration_s": 0.462,
+          "start_timecode": "01:11.538",
+          "end_timecode": "01:12.000"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 83,
+          "start_s": 72.0,
+          "end_s": 72.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:12.000",
+          "end_timecode": "01:12.231"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 81,
+          "start_s": 72.231,
+          "end_s": 72.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:12.231",
+          "end_timecode": "01:12.462"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 78,
+          "start_s": 72.462,
+          "end_s": 72.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:12.462",
+          "end_timecode": "01:12.692"
+        },
+        {
+          "char": "へ",
+          "pitch_midi": 74,
+          "start_s": 72.692,
+          "end_s": 73.154,
+          "duration_s": 0.462,
+          "start_timecode": "01:12.692",
+          "end_timecode": "01:13.154"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 71,
+          "start_s": 73.154,
+          "end_s": 73.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:13.154",
+          "end_timecode": "01:13.385"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 66,
+          "start_s": 73.385,
+          "end_s": 73.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:13.385",
+          "end_timecode": "01:13.615"
+        },
+        {
+          "char": "げ",
+          "pitch_midi": 62,
+          "start_s": 73.615,
+          "end_s": 73.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:13.615",
+          "end_timecode": "01:13.846"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 49 - Bar 52",
+      "start_s": 88.615,
+      "end_s": 96.0,
+      "duration_s": 7.385,
+      "start_timecode": "01:28.615",
+      "end_timecode": "01:36.000",
+      "text_jp": "朝の光包む この手握りしめて 走り出す未来",
+      "text_romaji": "asa no hikari tsutsumu kono te nigirishimete hashiridasu mirai",
+      "text_cn": "晨光拥抱 紧紧握住这双手 奔向未来",
+      "syllable_count": 25,
+      "characters": [
+        {
+          "char": "あ",
+          "pitch_midi": 64,
+          "start_s": 88.615,
+          "end_s": 88.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:28.615",
+          "end_timecode": "01:28.846"
+        },
+        {
+          "char": "さ",
+          "pitch_midi": 67,
+          "start_s": 88.846,
+          "end_s": 89.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:28.846",
+          "end_timecode": "01:29.077"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 71,
+          "start_s": 89.077,
+          "end_s": 89.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:29.077",
+          "end_timecode": "01:29.308"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 74,
+          "start_s": 89.308,
+          "end_s": 89.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:29.308",
+          "end_timecode": "01:29.538"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 71,
+          "start_s": 89.538,
+          "end_s": 90.0,
+          "duration_s": 0.462,
+          "start_timecode": "01:29.538",
+          "end_timecode": "01:30.000"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 67,
+          "start_s": 90.0,
+          "end_s": 90.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:30.000",
+          "end_timecode": "01:30.231"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 71,
+          "start_s": 90.231,
+          "end_s": 90.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:30.231",
+          "end_timecode": "01:30.462"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 69,
+          "start_s": 90.462,
+          "end_s": 90.923,
+          "duration_s": 0.462,
+          "start_timecode": "01:30.462",
+          "end_timecode": "01:30.923"
+        },
+        {
+          "char": "む",
+          "pitch_midi": 73,
+          "start_s": 90.923,
+          "end_s": 91.154,
+          "duration_s": 0.231,
+          "start_timecode": "01:30.923",
+          "end_timecode": "01:31.154"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 76,
+          "start_s": 91.154,
+          "end_s": 91.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:31.154",
+          "end_timecode": "01:31.385"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 78,
+          "start_s": 91.385,
+          "end_s": 91.846,
+          "duration_s": 0.462,
+          "start_timecode": "01:31.385",
+          "end_timecode": "01:31.846"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 76,
+          "start_s": 91.846,
+          "end_s": 92.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:31.846",
+          "end_timecode": "01:32.077"
+        },
+        {
+          "char": "に",
+          "pitch_midi": 73,
+          "start_s": 92.077,
+          "end_s": 92.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:32.077",
+          "end_timecode": "01:32.308"
+        },
+        {
+          "char": "ぎ",
+          "pitch_midi": 67,
+          "start_s": 92.308,
+          "end_s": 92.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:32.308",
+          "end_timecode": "01:32.538"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 71,
+          "start_s": 92.538,
+          "end_s": 92.769,
+          "duration_s": 0.231,
+          "start_timecode": "01:32.538",
+          "end_timecode": "01:32.769"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 74,
+          "start_s": 92.769,
+          "end_s": 93.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:32.769",
+          "end_timecode": "01:33.000"
+        },
+        {
+          "char": "め",
+          "pitch_midi": 78,
+          "start_s": 93.0,
+          "end_s": 93.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:33.000",
+          "end_timecode": "01:33.231"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 74,
+          "start_s": 93.231,
+          "end_s": 93.692,
+          "duration_s": 0.462,
+          "start_timecode": "01:33.231",
+          "end_timecode": "01:33.692"
+        },
+        {
+          "char": "走",
+          "pitch_midi": 71,
+          "start_s": 93.692,
+          "end_s": 93.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:33.692",
+          "end_timecode": "01:33.923"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 74,
+          "start_s": 93.923,
+          "end_s": 94.154,
+          "duration_s": 0.231,
+          "start_timecode": "01:33.923",
+          "end_timecode": "01:34.154"
+        },
+        {
+          "char": "だ",
+          "pitch_midi": 76,
+          "start_s": 94.154,
+          "end_s": 94.615,
+          "duration_s": 0.462,
+          "start_timecode": "01:34.154",
+          "end_timecode": "01:34.615"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 79,
+          "start_s": 94.615,
+          "end_s": 94.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:34.615",
+          "end_timecode": "01:34.846"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 81,
+          "start_s": 94.846,
+          "end_s": 95.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:34.846",
+          "end_timecode": "01:35.077"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 79,
+          "start_s": 95.077,
+          "end_s": 95.538,
+          "duration_s": 0.462,
+          "start_timecode": "01:35.077",
+          "end_timecode": "01:35.538"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 76,
+          "start_s": 95.538,
+          "end_s": 96.0,
+          "duration_s": 0.462,
+          "start_timecode": "01:35.538",
+          "end_timecode": "01:36.000"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 53 - Bar 55",
+      "start_s": 96.0,
+      "end_s": 101.538,
+      "duration_s": 5.538,
+      "start_timecode": "01:36.000",
+      "end_timecode": "01:41.538",
+      "text_jp": "君とならば どこまでも行けると信じている",
+      "text_romaji": "kimi to naraba dokomademo yukeru to shinjite iru",
+      "text_cn": "若与你同行 我坚信无论多远都能抵达",
+      "syllable_count": 20,
+      "characters": [
+        {
+          "char": "き",
+          "pitch_midi": 62,
+          "start_s": 96.0,
+          "end_s": 96.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:36.000",
+          "end_timecode": "01:36.231"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 66,
+          "start_s": 96.231,
+          "end_s": 96.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:36.231",
+          "end_timecode": "01:36.462"
+        },
+        {
+          "char": "と",
+          "pitch_midi": 71,
+          "start_s": 96.462,
+          "end_s": 96.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:36.462",
+          "end_timecode": "01:36.692"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 74,
+          "start_s": 96.692,
+          "end_s": 96.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:36.692",
+          "end_timecode": "01:36.923"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 71,
+          "start_s": 96.923,
+          "end_s": 97.385,
+          "duration_s": 0.462,
+          "start_timecode": "01:36.923",
+          "end_timecode": "01:37.385"
+        },
+        {
+          "char": "ば",
+          "pitch_midi": 66,
+          "start_s": 97.385,
+          "end_s": 97.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:37.385",
+          "end_timecode": "01:37.615"
+        },
+        {
+          "char": "ど",
+          "pitch_midi": 71,
+          "start_s": 97.615,
+          "end_s": 97.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:37.615",
+          "end_timecode": "01:37.846"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 67,
+          "start_s": 97.846,
+          "end_s": 98.308,
+          "duration_s": 0.462,
+          "start_timecode": "01:37.846",
+          "end_timecode": "01:38.308"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 71,
+          "start_s": 98.308,
+          "end_s": 98.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:38.308",
+          "end_timecode": "01:38.538"
+        },
+        {
+          "char": "で",
+          "pitch_midi": 74,
+          "start_s": 98.538,
+          "end_s": 98.769,
+          "duration_s": 0.231,
+          "start_timecode": "01:38.538",
+          "end_timecode": "01:38.769"
+        },
+        {
+          "char": "も",
+          "pitch_midi": 78,
+          "start_s": 98.769,
+          "end_s": 99.231,
+          "duration_s": 0.462,
+          "start_timecode": "01:38.769",
+          "end_timecode": "01:39.231"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 74,
+          "start_s": 99.231,
+          "end_s": 99.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:39.231",
+          "end_timecode": "01:39.462"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 71,
+          "start_s": 99.462,
+          "end_s": 99.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:39.462",
+          "end_timecode": "01:39.692"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 69,
+          "start_s": 99.692,
+          "end_s": 99.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:39.692",
+          "end_timecode": "01:39.923"
+        },
+        {
+          "char": "と",
+          "pitch_midi": 73,
+          "start_s": 99.923,
+          "end_s": 100.154,
+          "duration_s": 0.231,
+          "start_timecode": "01:39.923",
+          "end_timecode": "01:40.154"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 76,
+          "start_s": 100.154,
+          "end_s": 100.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:40.154",
+          "end_timecode": "01:40.385"
+        },
+        {
+          "char": "ん",
+          "pitch_midi": 79,
+          "start_s": 100.385,
+          "end_s": 100.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:40.385",
+          "end_timecode": "01:40.615"
+        },
+        {
+          "char": "じ",
+          "pitch_midi": 81,
+          "start_s": 100.615,
+          "end_s": 101.077,
+          "duration_s": 0.462,
+          "start_timecode": "01:40.615",
+          "end_timecode": "01:41.077"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 79,
+          "start_s": 101.077,
+          "end_s": 101.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:41.077",
+          "end_timecode": "01:41.308"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 76,
+          "start_s": 101.308,
+          "end_s": 101.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:41.308",
+          "end_timecode": "01:41.538"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 56 - Bar 56",
+      "start_s": 101.538,
+      "end_s": 103.385,
+      "duration_s": 1.846,
+      "start_timecode": "01:41.538",
+      "end_timecode": "01:43.385",
+      "text_jp": "光を突き",
+      "text_romaji": "hikari o tsuki",
+      "text_cn": "刺破光芒",
+      "syllable_count": 6,
+      "characters": [
+        {
+          "char": "ひ",
+          "pitch_midi": 78,
+          "start_s": 101.538,
+          "end_s": 101.769,
+          "duration_s": 0.231,
+          "start_timecode": "01:41.538",
+          "end_timecode": "01:41.769"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 82,
+          "start_s": 101.769,
+          "end_s": 102.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:41.769",
+          "end_timecode": "01:42.000"
+        },
+        {
+          "char": "り",
+          "pitch_midi": 83,
+          "start_s": 102.0,
+          "end_s": 102.462,
+          "duration_s": 0.462,
+          "start_timecode": "01:42.000",
+          "end_timecode": "01:42.462"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 77,
+          "start_s": 102.462,
+          "end_s": 102.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:42.462",
+          "end_timecode": "01:42.692"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 74,
+          "start_s": 102.692,
+          "end_s": 102.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:42.692",
+          "end_timecode": "01:42.923"
+        },
+        {
+          "char": "き",
+          "pitch_midi": 78,
+          "start_s": 102.923,
+          "end_s": 103.385,
+          "duration_s": 0.462,
+          "start_timecode": "01:42.923",
+          "end_timecode": "01:43.385"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 57 - Bar 60",
+      "start_s": 103.385,
+      "end_s": 110.769,
+      "duration_s": 7.385,
+      "start_timecode": "01:43.385",
+      "end_timecode": "01:50.769",
+      "text_jp": "ネオンパルスのなかで 踊る僕らの声よ 響いてゆけ",
+      "text_romaji": "neon parusu no naka de odoru bokura no koe yo hibiite yuke",
+      "text_cn": "在霓虹脉冲之中 跃动的我们之声 回荡远方吧",
+      "syllable_count": 26,
+      "characters": [
+        {
+          "char": "ね",
+          "pitch_midi": 69,
+          "start_s": 103.385,
+          "end_s": 103.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:43.385",
+          "end_timecode": "01:43.615"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 73,
+          "start_s": 103.615,
+          "end_s": 103.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:43.615",
+          "end_timecode": "01:43.846"
+        },
+        {
+          "char": "ん",
+          "pitch_midi": 76,
+          "start_s": 103.846,
+          "end_s": 104.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:43.846",
+          "end_timecode": "01:44.077"
+        },
+        {
+          "char": "ぱ",
+          "pitch_midi": 80,
+          "start_s": 104.077,
+          "end_s": 104.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:44.077",
+          "end_timecode": "01:44.308"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 83,
+          "start_s": 104.308,
+          "end_s": 104.769,
+          "duration_s": 0.462,
+          "start_timecode": "01:44.308",
+          "end_timecode": "01:44.769"
+        },
+        {
+          "char": "す",
+          "pitch_midi": 80,
+          "start_s": 104.769,
+          "end_s": 105.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:44.769",
+          "end_timecode": "01:45.000"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 76,
+          "start_s": 105.0,
+          "end_s": 105.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:45.000",
+          "end_timecode": "01:45.231"
+        },
+        {
+          "char": "な",
+          "pitch_midi": 78,
+          "start_s": 105.231,
+          "end_s": 105.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:45.231",
+          "end_timecode": "01:45.462"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 83,
+          "start_s": 105.462,
+          "end_s": 105.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:45.462",
+          "end_timecode": "01:45.692"
+        },
+        {
+          "char": "で",
+          "pitch_midi": 85,
+          "start_s": 105.692,
+          "end_s": 106.154,
+          "duration_s": 0.462,
+          "start_timecode": "01:45.692",
+          "end_timecode": "01:46.154"
+        },
+        {
+          "char": "お",
+          "pitch_midi": 83,
+          "start_s": 106.154,
+          "end_s": 106.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:46.154",
+          "end_timecode": "01:46.385"
+        },
+        {
+          "char": "ど",
+          "pitch_midi": 78,
+          "start_s": 106.385,
+          "end_s": 106.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:46.385",
+          "end_timecode": "01:46.615"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 75,
+          "start_s": 106.615,
+          "end_s": 107.077,
+          "duration_s": 0.462,
+          "start_timecode": "01:46.615",
+          "end_timecode": "01:47.077"
+        },
+        {
+          "char": "ぼ",
+          "pitch_midi": 68,
+          "start_s": 107.077,
+          "end_s": 107.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:47.077",
+          "end_timecode": "01:47.308"
+        },
+        {
+          "char": "く",
+          "pitch_midi": 71,
+          "start_s": 107.308,
+          "end_s": 107.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:47.308",
+          "end_timecode": "01:47.538"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 75,
+          "start_s": 107.538,
+          "end_s": 107.769,
+          "duration_s": 0.231,
+          "start_timecode": "01:47.538",
+          "end_timecode": "01:47.769"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 78,
+          "start_s": 107.769,
+          "end_s": 108.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:47.769",
+          "end_timecode": "01:48.000"
+        },
+        {
+          "char": "こ",
+          "pitch_midi": 75,
+          "start_s": 108.0,
+          "end_s": 108.462,
+          "duration_s": 0.462,
+          "start_timecode": "01:48.000",
+          "end_timecode": "01:48.462"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 71,
+          "start_s": 108.462,
+          "end_s": 108.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:48.462",
+          "end_timecode": "01:48.692"
+        },
+        {
+          "char": "よ",
+          "pitch_midi": 68,
+          "start_s": 108.692,
+          "end_s": 108.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:48.692",
+          "end_timecode": "01:48.923"
+        },
+        {
+          "char": "ひ",
+          "pitch_midi": 73,
+          "start_s": 108.923,
+          "end_s": 109.154,
+          "duration_s": 0.231,
+          "start_timecode": "01:48.923",
+          "end_timecode": "01:49.154"
+        },
+        {
+          "char": "び",
+          "pitch_midi": 76,
+          "start_s": 109.154,
+          "end_s": 109.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:49.154",
+          "end_timecode": "01:49.385"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 80,
+          "start_s": 109.385,
+          "end_s": 109.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:49.385",
+          "end_timecode": "01:49.615"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 83,
+          "start_s": 109.615,
+          "end_s": 109.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:49.615",
+          "end_timecode": "01:49.846"
+        },
+        {
+          "char": "ゆ",
+          "pitch_midi": 85,
+          "start_s": 109.846,
+          "end_s": 110.308,
+          "duration_s": 0.462,
+          "start_timecode": "01:49.846",
+          "end_timecode": "01:50.308"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 80,
+          "start_s": 110.308,
+          "end_s": 110.769,
+          "duration_s": 0.462,
+          "start_timecode": "01:50.308",
+          "end_timecode": "01:50.769"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 61 - Bar 64",
+      "start_s": 110.769,
+      "end_s": 118.154,
+      "duration_s": 7.385,
+      "start_timecode": "01:50.769",
+      "end_timecode": "01:58.154",
+      "text_jp": "この手伸ばして 掴む未来だけを見つめて走る",
+      "text_romaji": "kono te nobashite tsukamu mirai dake o mitsumete hashiru",
+      "text_cn": "伸出双手 仅凝视着紧握的未来奋力奔跑",
+      "syllable_count": 23,
+      "characters": [
+        {
+          "char": "こ",
+          "pitch_midi": 66,
+          "start_s": 110.769,
+          "end_s": 111.0,
+          "duration_s": 0.231,
+          "start_timecode": "01:50.769",
+          "end_timecode": "01:51.000"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 69,
+          "start_s": 111.0,
+          "end_s": 111.231,
+          "duration_s": 0.231,
+          "start_timecode": "01:51.000",
+          "end_timecode": "01:51.231"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 73,
+          "start_s": 111.231,
+          "end_s": 111.462,
+          "duration_s": 0.231,
+          "start_timecode": "01:51.231",
+          "end_timecode": "01:51.462"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 76,
+          "start_s": 111.462,
+          "end_s": 111.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:51.462",
+          "end_timecode": "01:51.692"
+        },
+        {
+          "char": "ば",
+          "pitch_midi": 80,
+          "start_s": 111.692,
+          "end_s": 112.154,
+          "duration_s": 0.462,
+          "start_timecode": "01:51.692",
+          "end_timecode": "01:52.154"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 76,
+          "start_s": 112.154,
+          "end_s": 112.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:52.154",
+          "end_timecode": "01:52.385"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 73,
+          "start_s": 112.385,
+          "end_s": 112.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:52.385",
+          "end_timecode": "01:52.615"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 78,
+          "start_s": 112.615,
+          "end_s": 113.077,
+          "duration_s": 0.462,
+          "start_timecode": "01:52.615",
+          "end_timecode": "01:53.077"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 80,
+          "start_s": 113.077,
+          "end_s": 113.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:53.077",
+          "end_timecode": "01:53.308"
+        },
+        {
+          "char": "む",
+          "pitch_midi": 84,
+          "start_s": 113.308,
+          "end_s": 113.538,
+          "duration_s": 0.231,
+          "start_timecode": "01:53.308",
+          "end_timecode": "01:53.538"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 85,
+          "start_s": 113.538,
+          "end_s": 114.0,
+          "duration_s": 0.462,
+          "start_timecode": "01:53.538",
+          "end_timecode": "01:54.000"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 80,
+          "start_s": 114.0,
+          "end_s": 114.462,
+          "duration_s": 0.462,
+          "start_timecode": "01:54.000",
+          "end_timecode": "01:54.462"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 68,
+          "start_s": 114.462,
+          "end_s": 114.692,
+          "duration_s": 0.231,
+          "start_timecode": "01:54.462",
+          "end_timecode": "01:54.692"
+        },
+        {
+          "char": "だ",
+          "pitch_midi": 73,
+          "start_s": 114.692,
+          "end_s": 114.923,
+          "duration_s": 0.231,
+          "start_timecode": "01:54.692",
+          "end_timecode": "01:54.923"
+        },
+        {
+          "char": "け",
+          "pitch_midi": 76,
+          "start_s": 114.923,
+          "end_s": 115.154,
+          "duration_s": 0.231,
+          "start_timecode": "01:54.923",
+          "end_timecode": "01:55.154"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 80,
+          "start_s": 115.154,
+          "end_s": 115.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:55.154",
+          "end_timecode": "01:55.385"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 76,
+          "start_s": 115.385,
+          "end_s": 115.846,
+          "duration_s": 0.462,
+          "start_timecode": "01:55.385",
+          "end_timecode": "01:55.846"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 73,
+          "start_s": 115.846,
+          "end_s": 116.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:55.846",
+          "end_timecode": "01:56.077"
+        },
+        {
+          "char": "め",
+          "pitch_midi": 68,
+          "start_s": 116.077,
+          "end_s": 116.308,
+          "duration_s": 0.231,
+          "start_timecode": "01:56.077",
+          "end_timecode": "01:56.308"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 76,
+          "start_s": 116.308,
+          "end_s": 116.769,
+          "duration_s": 0.462,
+          "start_timecode": "01:56.308",
+          "end_timecode": "01:56.769"
+        },
+        {
+          "char": "は",
+          "pitch_midi": 80,
+          "start_s": 116.769,
+          "end_s": 117.231,
+          "duration_s": 0.462,
+          "start_timecode": "01:56.769",
+          "end_timecode": "01:57.231"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 83,
+          "start_s": 117.231,
+          "end_s": 117.692,
+          "duration_s": 0.462,
+          "start_timecode": "01:57.231",
+          "end_timecode": "01:57.692"
+        },
+        {
+          "char": "る",
+          "pitch_midi": 80,
+          "start_s": 117.692,
+          "end_s": 118.154,
+          "duration_s": 0.462,
+          "start_timecode": "01:57.692",
+          "end_timecode": "01:58.154"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 65 - Bar 66",
+      "start_s": 118.154,
+      "end_s": 121.846,
+      "duration_s": 3.692,
+      "start_timecode": "01:58.154",
+      "end_timecode": "02:01.846",
+      "text_jp": "この手のばして 掴む未来へ！",
+      "text_romaji": "kono te nobashite tsukamu mirai e!",
+      "text_cn": "伸出双手 奔向抓紧的未来！",
+      "syllable_count": 12,
+      "characters": [
+        {
+          "char": "こ",
+          "pitch_midi": 69,
+          "start_s": 118.154,
+          "end_s": 118.385,
+          "duration_s": 0.231,
+          "start_timecode": "01:58.154",
+          "end_timecode": "01:58.385"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 73,
+          "start_s": 118.385,
+          "end_s": 118.615,
+          "duration_s": 0.231,
+          "start_timecode": "01:58.385",
+          "end_timecode": "01:58.615"
+        },
+        {
+          "char": "て",
+          "pitch_midi": 76,
+          "start_s": 118.615,
+          "end_s": 118.846,
+          "duration_s": 0.231,
+          "start_timecode": "01:58.615",
+          "end_timecode": "01:58.846"
+        },
+        {
+          "char": "の",
+          "pitch_midi": 80,
+          "start_s": 118.846,
+          "end_s": 119.077,
+          "duration_s": 0.231,
+          "start_timecode": "01:58.846",
+          "end_timecode": "01:59.077"
+        },
+        {
+          "char": "ば",
+          "pitch_midi": 83,
+          "start_s": 119.077,
+          "end_s": 119.538,
+          "duration_s": 0.462,
+          "start_timecode": "01:59.077",
+          "end_timecode": "01:59.538"
+        },
+        {
+          "char": "し",
+          "pitch_midi": 80,
+          "start_s": 119.538,
+          "end_s": 120.0,
+          "duration_s": 0.462,
+          "start_timecode": "01:59.538",
+          "end_timecode": "02:00.000"
+        },
+        {
+          "char": "つ",
+          "pitch_midi": 71,
+          "start_s": 120.0,
+          "end_s": 120.231,
+          "duration_s": 0.231,
+          "start_timecode": "02:00.000",
+          "end_timecode": "02:00.231"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 75,
+          "start_s": 120.231,
+          "end_s": 120.462,
+          "duration_s": 0.231,
+          "start_timecode": "02:00.231",
+          "end_timecode": "02:00.462"
+        },
+        {
+          "char": "む",
+          "pitch_midi": 78,
+          "start_s": 120.462,
+          "end_s": 120.692,
+          "duration_s": 0.231,
+          "start_timecode": "02:00.462",
+          "end_timecode": "02:00.692"
+        },
+        {
+          "char": "み",
+          "pitch_midi": 81,
+          "start_s": 120.692,
+          "end_s": 120.923,
+          "duration_s": 0.231,
+          "start_timecode": "02:00.692",
+          "end_timecode": "02:00.923"
+        },
+        {
+          "char": "ら",
+          "pitch_midi": 83,
+          "start_s": 120.923,
+          "end_s": 121.385,
+          "duration_s": 0.462,
+          "start_timecode": "02:00.923",
+          "end_timecode": "02:01.385"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 81,
+          "start_s": 121.385,
+          "end_s": 121.846,
+          "duration_s": 0.462,
+          "start_timecode": "02:01.385",
+          "end_timecode": "02:01.846"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 67 - Bar 69",
+      "start_s": 121.846,
+      "end_s": 126.462,
+      "duration_s": 4.615,
+      "start_timecode": "02:01.846",
+      "end_timecode": "02:06.462",
+      "text_jp": "二度と迷わず 限界を超えて行けーーー！",
+      "text_romaji": "nidoto mayowazu genkai o koete yukeeee!",
+      "text_cn": "不再迷惘 彻底冲破极限翱翔吧！",
+      "syllable_count": 13,
+      "characters": [
+        {
+          "char": "に",
+          "pitch_midi": 71,
+          "start_s": 121.846,
+          "end_s": 122.077,
+          "duration_s": 0.231,
+          "start_timecode": "02:01.846",
+          "end_timecode": "02:02.077"
+        },
+        {
+          "char": "ど",
+          "pitch_midi": 75,
+          "start_s": 122.077,
+          "end_s": 122.308,
+          "duration_s": 0.231,
+          "start_timecode": "02:02.077",
+          "end_timecode": "02:02.308"
+        },
+        {
+          "char": "と",
+          "pitch_midi": 78,
+          "start_s": 122.308,
+          "end_s": 122.538,
+          "duration_s": 0.231,
+          "start_timecode": "02:02.308",
+          "end_timecode": "02:02.538"
+        },
+        {
+          "char": "ま",
+          "pitch_midi": 80,
+          "start_s": 122.538,
+          "end_s": 122.769,
+          "duration_s": 0.231,
+          "start_timecode": "02:02.538",
+          "end_timecode": "02:02.769"
+        },
+        {
+          "char": "よ",
+          "pitch_midi": 83,
+          "start_s": 122.769,
+          "end_s": 123.231,
+          "duration_s": 0.462,
+          "start_timecode": "02:02.769",
+          "end_timecode": "02:03.231"
+        },
+        {
+          "char": "わ",
+          "pitch_midi": 80,
+          "start_s": 123.231,
+          "end_s": 123.692,
+          "duration_s": 0.462,
+          "start_timecode": "02:03.231",
+          "end_timecode": "02:03.692"
+        },
+        {
+          "char": "ず",
+          "pitch_midi": 73,
+          "start_s": 123.692,
+          "end_s": 123.923,
+          "duration_s": 0.231,
+          "start_timecode": "02:03.692",
+          "end_timecode": "02:03.923"
+        },
+        {
+          "char": "げ",
+          "pitch_midi": 76,
+          "start_s": 123.923,
+          "end_s": 124.154,
+          "duration_s": 0.231,
+          "start_timecode": "02:03.923",
+          "end_timecode": "02:04.154"
+        },
+        {
+          "char": "ん",
+          "pitch_midi": 80,
+          "start_s": 124.154,
+          "end_s": 124.385,
+          "duration_s": 0.231,
+          "start_timecode": "02:04.154",
+          "end_timecode": "02:04.385"
+        },
+        {
+          "char": "か",
+          "pitch_midi": 83,
+          "start_s": 124.385,
+          "end_s": 124.615,
+          "duration_s": 0.231,
+          "start_timecode": "02:04.385",
+          "end_timecode": "02:04.615"
+        },
+        {
+          "char": "い",
+          "pitch_midi": 85,
+          "start_s": 124.615,
+          "end_s": 125.077,
+          "duration_s": 0.462,
+          "start_timecode": "02:04.615",
+          "end_timecode": "02:05.077"
+        },
+        {
+          "char": "を",
+          "pitch_midi": 85,
+          "start_s": 125.077,
+          "end_s": 125.538,
+          "duration_s": 0.462,
+          "start_timecode": "02:05.077",
+          "end_timecode": "02:05.538"
+        },
+        {
+          "char": "え",
+          "pitch_midi": 85,
+          "start_s": 125.538,
+          "end_s": 126.462,
+          "duration_s": 0.923,
+          "start_timecode": "02:05.538",
+          "end_timecode": "02:06.462"
+        }
+      ]
+    },
+    {
+      "bar_range": "Bar 70 - Bar 72",
+      "start_s": 127.385,
+      "end_s": 132.0,
+      "duration_s": 4.615,
+      "start_timecode": "02:07.385",
+      "end_timecode": "02:12.000",
+      "text_jp": "Ah〜 (Neon Pulse...)",
+      "text_romaji": "Ah~ (Neon Pulse...)",
+      "text_cn": "啊〜（霓虹脉冲…）",
+      "syllable_count": 5,
+      "characters": [
+        {
+          "char": "あ",
+          "pitch_midi": 83,
+          "start_s": 127.385,
+          "end_s": 127.846,
+          "duration_s": 0.462,
+          "start_timecode": "02:07.385",
+          "end_timecode": "02:07.846"
+        },
+        {
+          "char": "あ",
+          "pitch_midi": 80,
+          "start_s": 127.846,
+          "end_s": 128.308,
+          "duration_s": 0.462,
+          "start_timecode": "02:07.846",
+          "end_timecode": "02:08.308"
+        },
+        {
+          "char": "あ",
+          "pitch_midi": 80,
+          "start_s": 129.231,
+          "end_s": 129.692,
+          "duration_s": 0.462,
+          "start_timecode": "02:09.231",
+          "end_timecode": "02:09.692"
+        },
+        {
+          "char": "あ",
+          "pitch_midi": 75,
+          "start_s": 129.692,
+          "end_s": 130.154,
+          "duration_s": 0.462,
+          "start_timecode": "02:09.692",
+          "end_timecode": "02:10.154"
+        },
+        {
+          "char": "あ",
+          "pitch_midi": 73,
+          "start_s": 131.077,
+          "end_s": 132.0,
+          "duration_s": 0.923,
+          "start_timecode": "02:11.077",
+          "end_timecode": "02:12.000"
+        }
+      ]
+    }
+  ]
+}
