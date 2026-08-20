@@ -9,105 +9,185 @@
 
 1. 🎛️ **双层 REAPER 宿主工程自动化（Dual-Layer Architecture）**：
    - 自动生成 `.rpp` 宿主工程，内嵌 24-bit 无损分轨音频（Stems），**双击打开按空格键直接响**。
-   - 每条乐器轨道下方并行内嵌标准 **MIDI 卷帘**（钢琴、贝斯、鼓点、吉他、合成器），支持随时二次精修或更换音源插件。
+   - 每条乐器轨道下方并行内嵌标准 **MIDI 卷帘**（钢琴、贝斯、鼓点、合成器），支持随时挂载自己的顶级 VSTi 乐器插件。
 
-2. 🎤 **OpenUtau 原生多轨工程生成（.ustx）**：
-   - 原生支持 OpenUtau v0.6+ 标准 YAML 工程格式，自动排布歌词假名、音高曲线、颤音与音素化器绑定。
-   - 无论是否预装目标声库均可安全加载，支持在 OpenUtau 中一键切换任意 UTAU 或 DiffSinger 音源。
+2. 🎤 **原生虚拟歌手真实人声直出（One-Step Vocal Synthesis）**：
+   - 内置多线程重采样切片引擎，自动探测本地 UTAU 声库（如重音 Teto），一键直出带真人发音咬字的干声与成品母带！
+   - 同步输出 OpenUtau v0.6+ YAML 工程格式（`.ustx`），方便进阶用户在 OpenUtau 软件中二次精细调教。
 
-3. 🎼 **SoundQuest 现代和声矩阵与时钟锁定**：
+3. 📁 **工业级结构化工程目录（Structured Export）**：
+   - 每首歌拥有专属独立文件夹，内部采用便携式相对路径，无论拷贝到哪台电脑或 Mac，REAPER 均可 100% 免弹窗秒开。
+
+4. 🎼 **SoundQuest 现代和声矩阵与时钟锁定**：
    - 严格遵循 1920 ticks/bar 时钟对齐（$480\text{ PPQ} \times 4$），彻底杜绝 MIDI 音符错位。
-   - 遵循功能和声学与避音规则，支持主属副属、同主音借用（Modal Interchange）等高级曲式。
+   - 遵循功能和声学与避音规则，自动生成真实伴奏织体。
 
-4. 🎚️ **母带级 DSP 渲染链**：
-   - 模拟磁带胶水饱和度建模（`tanh` 软削波算法）。
-   - True-Peak 真实峰值砖墙限制器，死锁在 $-0.3\text{ dBFS}$，自动优化动态响度。
+5. 🎚️ **母带级 DSP 渲染链**：
+   - 模拟磁带胶水饱和度建模（`tanh` 软削波算法）+ True-Peak $-0.3\text{ dBFS}$ 真实峰值砖墙限制器。
 
-5. 💡 **零外部软件强依赖（Zero-Dependency Core）**：
-   - 生成 `.rpp`、`.ustx` 与 24-bit 试听音频完全基于纯 Python 数学计算，**即使电脑上完全没有安装 REAPER 或 UTAU 也绝不会报错**。
+6. 💡 **零外部软件强依赖（Zero-Dependency Core）**：
+   - 纯 Python 物理声学兜底计算，**即使全新电脑完全没装 REAPER/UTAU，也能 100% 成功生成可听可用的成品音乐与工程**。
 
 ---
 
-## 🚀 小白极速上手教程
+## 🚀 极速上手：一键生成完整歌曲
 
-### 第一步：环境配置（只需运行一次）
-在终端（PowerShell 或 CMD）中运行：
+### 1. 安装依赖（只需一次）
 ```bash
 pip install -r requirements.txt
 ```
-*(依赖库：`pyyaml`, `numpy`, `soundfile`, `mido`, `scipy`)*
 
----
-
-### 第二步：一键生成全套音乐资产
-运行主程序并传入蓝图文件：
+### 2. 一键运行生成
 ```bash
 python make_song.py examples/neon_pulse/song_blueprint.json
 ```
 
-**运行完成后，你会在 `export/` 文件夹中收获 4 样交付物**：
-* 🎼 **`project.ustx`**：**OpenUtau 虚拟歌手工程**（双击在 OpenUtau 软件中打开精修）；
-* 🎛️ **`project.rpp`**：**REAPER 编曲宿主工程**（双击在 REAPER 中打开播放与混音）；
-* 🎤 **`vocal_dry.wav`**：**24-bit 无损人声干声**；
-* 🎵 **`master.wav`**：**母带级完整歌曲音频**（直接双击用系统播放器听或发给朋友）。
+### 3. 生成的专业工程目录结构
+运行完成后，`export/` 目录下会自动生成以歌曲命名的专属文件夹：
+```
+export/NEON PULSE v2 (霓虹脉冲 v2) - Definitive Master/
+│
+├── 🎵 NEON PULSE v2_Master.wav         ➔ 【直接播放】母带级成品音频（带真人声与完整混音）
+├── 🎛️ NEON PULSE v2.rpp                ➔ 【双击秒开】REAPER 5 轨双层宿主工程
+├── 🎤 NEON PULSE v2.ustx               ➔ 【双击秒开】OpenUtau 歌姬工程
+│
+├── 🎧 stems/                           ➔ 【24-bit 无损分轨音频库】
+│   ├── 01_Lead_Vocal.wav               (主唱人声干声)
+│   ├── 02_Grand_Piano.wav              (钢琴伴奏波形)
+│   ├── 03_Bass.wav                     (贝斯律动波形)
+│   ├── 04_Drums.wav                    (完整鼓组波形)
+│   └── 05_Synth_Lead.wav               (合成器琶音波形)
+│
+└── 🎹 midi/                            ➔ 【标准 MIDI 序列库】
+    ├── 01_Lead_Vocal.mid               (人声主旋律 MIDI)
+    ├── 02_Grand_Piano.mid              (4声部和弦织体 MIDI)
+    ├── 03_Bass.mid                     (低频根音与律动 MIDI)
+    ├── 04_Drums.mid                    (标准 GM 打击乐 MIDI)
+    └── 05_Synth_Lead.mid               (合成器副旋律 MIDI)
+```
 
 ---
 
-## 📝 进阶：如何定制你自己的歌？
+## 🎹 核心教程一：如何换用你自己的 REAPER 乐器音色？
 
-只需用记事本打开 `song_blueprint.json`，修改参数即可：
+导出的 REAPER 伴奏轨（钢琴、贝斯、鼓组、合成器）**完全支持替换为你自己的顶级第三方 VSTi 乐器插件**（如 Addictive Keys、Ample Bass、Kontakt、Serum、Vital、MT-PowerDrumKit 等）。
 
+### 方式 A：在 REAPER 界面中一键挂载（即插即用）
+1. 双击打开导出的 `<歌曲名>.rpp`；
+2. 点击要换音色的轨道（例如 `02_Grand_Piano`）上的 **`FX`** 按钮；
+3. 选择你电脑里安装的乐器插件（例如 `Addictive Keys`）；
+4. 将该轨道自带的音频块静音（选中音频块按 `Alt + M`）或直接删除；
+5. **底下的 MIDI 卷帘就会立刻驱动你的顶级乐器插件发出华丽真实的音色！**
+
+### 方式 B：在蓝图中全自动注入插件
+在 `song_blueprint.json` 中配置乐器对应的 VST 名称：
 ```json
 {
-  "title": "My_First_Song",
+  "title": "My Song",
+  "instruments": {
+    "piano": { "vst": "Addictive Keys" },
+    "bass":  { "vst": "ABPL.vst3" },
+    "drums": { "vst": "MT-PowerDrumKit" },
+    "synth": { "vst": "Serum" }
+  }
+}
+```
+
+---
+
+## 🎤 核心教程二：如何使用自定义歌手 / 你自己的音色？
+
+### 1. 使用你自己的 UTAU 录音声库（一键直出真人声音）
+如果你有自己录制制作的声库（或任意包含 `.wav` 和 `oto.ini` 的声库文件夹）：
+* **命令行传参法**：
+  ```bash
+  python make_song.py blueprint.json export/ "D:/MyVoicebanks/我的自定义声库"
+  ```
+* **蓝图配置法**：
+  在 `song_blueprint.json` 中指定路径：
+  ```json
+  {
+    "title": "My Song",
+    "singer": "我的声库名",
+    "voicebank_dir": "D:/MyVoicebanks/我的自定义声库"
+  }
+  ```
+
+### 2. 使用你训练的 DiffSinger AI 神经网络模型
+在 `song_blueprint.json` 中指定模型与音素化器：
+```json
+{
+  "title": "My Song",
+  "singer": "My_DiffSinger_Model",
+  "phoneticizer": "OpenUtau.Core.DiffSinger.DiffSingerPhoneticizer"
+}
+```
+运行后双击打开生成的 `.ustx`，OpenUtau 会自动调用你的深度学习模型进行极致逼真的拟人歌唱。
+
+---
+
+## 📝 进阶：如何写一首自己的歌（蓝图说明）
+
+只需新建一个 `my_song.json`：
+```json
+{
+  "title": "星空之城",
   "bpm": 128.0,
-  "total_bars": 32,
+  "total_bars": 16,
+  "chords": {
+    "0-7": ["Gmaj7", "A7", "F#m7", "Bm7", "Gmaj7", "A7", "F#m7", "F#7"],
+    "8-15": ["Bm", "Gmaj7", "A", "F#m7", "Bm", "Gmaj7", "A", "F#7"]
+  },
   "vocal_score": {
     "0": [
-      ["こ", 480, 68, 100],
-      ["ん", 480, 71, 100],
-      ["に", 480, 73, 100],
-      ["ち", 480, 75, 100]
+      ["よ", 240, 62, 100],
+      ["る", 240, 66, 105],
+      ["の", 240, 71, 108],
+      ["ま", 240, 74, 112],
+      ["ち", 480, 71, 108],
+      ["ひ", 240, 66, 102],
+      ["か", 240, 62, 100]
+    ],
+    "1": [
+      ["る", 480, 67, 105],
+      ["R", 480, 60, 0]
     ]
   }
 }
 ```
-* **`title`**：歌曲名称
-* **`bpm`**：歌曲速度
-* **`vocal_score`**：歌词与旋律格式为 `[歌词假名, 持续时长ticks, 音高MIDI号, 力度]`（例如 60 是中央 C，68 是 G#4）。
-
-保存后重新运行 `python make_song.py your_blueprint.json`，你的专属新歌即刻生成！
+* **`chords`**：指定每个小节的和弦进行（和声矩阵会自动推导钢琴、贝斯、合成器和声）。
+* **`vocal_score`**：按小节排布歌词与旋律，单音格式为 `[歌词假名, ticks时长, MIDI音高, 力度]`（480 ticks = 1 拍四分音符，中央 C = 60）。
 
 ---
 
 ## ❓ 常见疑问解答 (FAQ)
 
-#### Q1：如果我电脑里没装 REAPER 或 OpenUtau，运行会报错吗？
-> **答：绝对不会！**  
-> 整个生成引擎是纯代码编写的，不需要启动宿主软件。导出的 `.wav` 音频在任何电脑/手机上都能直接听，工程文件（`.rpp` / `.ustx`）则会完好保存在本地，随时备用。
+#### Q1：在全新电脑上运行会发生什么？
+> **答：100% 成功生成，绝不报错！**  
+> 伴奏（钢琴、贝斯、鼓组、合成器）完整无缺，人声会自动触发声学物理合成算法（准确的旋律与音准），同时工程文件（`.rpp` / `.ustx`）完好生成，随时可带到任何环境继续制作。
 
-#### Q2：它怎么知道我用什么歌姬？如果我没装这个歌姬怎么办？
-> **答：乐谱与声库完全解耦。**  
-> `.ustx` 本质是一张通用的工程乐谱。如果在 OpenUtau 里打开未安装的歌姬，界面不会报错，所有音符和假名依然整齐排布，只需在 OpenUtau 下拉菜单中换成你本地现有的任意歌姬，音符就会立刻自动套用并演唱。
+#### Q2：为什么 REAPER 打开不会报错丢失文件？
+> **答：便携式相对路径。**  
+> 所有轨道引用的音频与 MIDI 均使用 `stems/` 和 `midi/` 相对路径，即使将整个歌曲文件夹复制到他人电脑或 Mac 上，REAPER 也能直接找到全部文件。
 
 ---
 
-## 📂 项目结构全景
+## 📂 项目架构
 
 ```
 OpenVocal-DAW/
 ├── core/
-│   ├── openutau_ustx_builder.py    # 现代 OpenUtau .ustx YAML 工程生成器
-│   ├── harmony_matrix.py           # SoundQuest 和声矩阵 (1920 ticks/bar 时钟锁定)
+│   ├── openutau_ustx_builder.py    # OpenUtau .ustx YAML 工程生成器
+│   ├── harmony_matrix.py           # SoundQuest 和声矩阵与 5 轨 MIDI/音频生成器
 │   ├── reaper_project_builder.py   # 双层 REAPER .rpp 宿主工程生成器
-│   ├── utau_vocal_engine.py        # 人声声学物理合成与共振峰渲染器
-│   └── mastering_dsp.py            # 磁带胶水饱和度与 -0.3 dBFS 限制器
+│   ├── utau_vocal_engine.py        # 多线程真实声库切片重采样与物理合成引擎
+│   └── mastering_dsp.py            # 磁带胶水饱和度与 -0.3 dBFS 真实峰值限制器
 ├── examples/
-│   └── neon_pulse/                 # 示例歌曲蓝图、REAPER 与 OpenUtau 工程
+│   └── neon_pulse/                 # 示例歌曲完整蓝图与工程
 │       ├── song_blueprint.json
 │       ├── project_neon_pulse.rpp
 │       └── project_neon_pulse.ustx
-├── make_song.py                    # 全自动端到端歌曲生产主程序
+├── make_song.py                    # 一键全自动歌曲生成命令行入口
 ├── requirements.txt
 ├── LICENSE                         # MIT 开源协议
 └── README.md
@@ -115,10 +195,5 @@ OpenVocal-DAW/
 
 ---
 
-## 🔗 相关生态生态扩展
-* 🤖 **[OpenUtau-MCP](https://github.com/turboegg1145/OpenUtau-MCP)**：专为 Claude Desktop / Cursor / Antigravity 打造的 OpenUtau 智能体调教插件。
-
----
-
 ## 📄 License
-MIT License (c) 2026 turboegg1145
+Released under the **MIT License**.
