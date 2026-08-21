@@ -1,6 +1,7 @@
 """
-OpenVocal-DAW: SoundQuest Harmonic Matrix & Backing Track Engine
-Generates multi-track MIDI and rendered acoustic stems for Grand Piano, Bass, Drums, and Synth.
+OpenVocal-DAW: SoundQuest Harmonic Matrix & Dynamic Arranging Engine
+Generates multi-track MIDI and rendered acoustic stems with intelligent
+section dynamics (Intro, Verse, Pre-Chorus, Chorus, Climax, Outro decay).
 """
 
 import os
@@ -98,6 +99,32 @@ class HarmonyMatrix:
                         pass
         return chord_list
 
+    def determine_section_type(self, bar_idx, total_bars):
+        """
+        Determines arrangement dynamic role based on standard song structure:
+        - intro: Bars 0 ~ 7
+        - verse: Bars 8 ~ 15, 40 ~ 47
+        - pre_chorus: Bars 16 ~ 23, 48 ~ 55
+        - chorus: Bars 24 ~ 39
+        - climax_chorus: Bars 56 ~ 67 (Modulated +2, full intensity)
+        - outro_tail: Bars 68 ~ 71 (Vocal tail)
+        - outro_fade: Bars 72 ~ total_bars (Clean resolution & acoustic decay)
+        """
+        if bar_idx < 8:
+            return "intro"
+        elif 8 <= bar_idx < 16 or 40 <= bar_idx < 48:
+            return "verse"
+        elif 16 <= bar_idx < 24 or 48 <= bar_idx < 56:
+            return "pre_chorus"
+        elif 24 <= bar_idx < 40:
+            return "chorus"
+        elif 56 <= bar_idx < 68:
+            return "climax_chorus"
+        elif 68 <= bar_idx < 72:
+            return "outro_tail"
+        else:
+            return "outro_fade"
+
     def generate_full_arrangement(self, blueprint, song_dir):
         stems_dir = os.path.join(song_dir, "stems")
         midi_dir = os.path.join(song_dir, "midi")
@@ -138,7 +165,7 @@ class HarmonyMatrix:
         d_trk.append(mido.MetaMessage('set_tempo', tempo=mido.bpm2tempo(bpm), time=0))
         d_audio = np.zeros(total_samples, dtype=np.float32)
 
-        # 4. SYNTH LEAD
+        # 4. SYNTH LEAD / ARP
         synth_mid_path = os.path.join(midi_dir, "05_Synth_Lead.mid")
         synth_wav_path = os.path.join(stems_dir, "05_Synth_Lead.wav")
         synth_mid = MidiFile(ticks_per_beat=self.ppq)
@@ -152,82 +179,133 @@ class HarmonyMatrix:
         sixteenth_samples = quarter_samples // 4
 
         for bar_idx in range(total_bars):
+            sec_type = self.determine_section_type(bar_idx, total_bars)
             chord_name = chords_per_bar[bar_idx]
             root_pc, intervals = parse_chord_name(chord_name)
             bar_start_sample = int(round(bar_idx * sec_per_bar * self.sr))
 
-            # --- PIANO ---
+            # --- PIANO ARRANGEMENT ---
             if root_pc is not None:
                 chord_pitches = [60 + root_pc + iv for iv in intervals]
-                for beat in range(4):
-                    dur_ticks = self.ppq - 20
-                    for idx, p in enumerate(chord_pitches):
-                        p_trk.append(Message('note_on', note=p, velocity=88, time=0))
-                    for idx, p in enumerate(chord_pitches):
-                        delta = dur_ticks if idx == 0 else 0
-                        p_trk.append(Message('note_off', note=p, velocity=0, time=delta))
+                if sec_type == "outro_fade" and bar_idx == total_bars - 1:
+                    # Final sustained resolving chord
+                    for p in chord_pitches:
+                        p_trk.append(Message('note_on', note=p, velocity=90, time=0))
+                    for p in chord_pitches:
+                        p_trk.append(Message('note_off', note=p, velocity=0, time=self.bar_ticks - 20))
                     p_trk.append(Message('note_off', note=0, velocity=0, time=20))
 
-                    b_sample = bar_start_sample + beat * quarter_samples
-                    env_len = min(quarter_samples * 2, total_samples - b_sample)
+                    env_len = min(quarter_samples * 8, total_samples - bar_start_sample)
                     if env_len > 0:
                         t = np.linspace(0, env_len / self.sr, env_len, endpoint=False)
-                        decay = np.exp(-4.5 * t)
+                        decay = np.exp(-1.2 * t)  # Long warm sustain
                         wave = np.zeros(env_len, dtype=np.float32)
                         for p in chord_pitches:
                             freq = 440.0 * (2.0 ** ((p - 69) / 12.0))
-                            wave += 0.4 * np.sin(2 * np.pi * freq * t) + 0.2 * np.sin(2 * np.pi * 2 * freq * t)
-                        p_audio[b_sample:b_sample+env_len] += (wave * decay * 0.25).astype(np.float32)
+                            wave += 0.5 * np.sin(2 * np.pi * freq * t) + 0.25 * np.sin(2 * np.pi * 2 * freq * t)
+                        p_audio[bar_start_sample:bar_start_sample+env_len] += (wave * decay * 0.35).astype(np.float32)
+                else:
+                    # Dynamic comping
+                    vel = 95 if "chorus" in sec_type else (75 if sec_type == "intro" else 85)
+                    for beat in range(4):
+                        dur_ticks = self.ppq - 20
+                        for idx, p in enumerate(chord_pitches):
+                            p_trk.append(Message('note_on', note=p, velocity=vel, time=0))
+                        for idx, p in enumerate(chord_pitches):
+                            delta = dur_ticks if idx == 0 else 0
+                            p_trk.append(Message('note_off', note=p, velocity=0, time=delta))
+                        p_trk.append(Message('note_off', note=0, velocity=0, time=20))
 
-            # --- BASS ---
-            if root_pc is not None:
-                bass_pitch = 36 + root_pc
-                for e_idx in range(8):
-                    dur_ticks = (self.ppq // 2) - 15
-                    b_trk.append(Message('note_on', note=bass_pitch, velocity=95, time=0))
-                    b_trk.append(Message('note_off', note=bass_pitch, velocity=0, time=dur_ticks))
-                    b_trk.append(Message('note_off', note=0, velocity=0, time=15))
+                        b_sample = bar_start_sample + beat * quarter_samples
+                        env_len = min(quarter_samples * 2, total_samples - b_sample)
+                        if env_len > 0:
+                            t = np.linspace(0, env_len / self.sr, env_len, endpoint=False)
+                            decay = np.exp(-4.2 * t)
+                            wave = np.zeros(env_len, dtype=np.float32)
+                            for p in chord_pitches:
+                                freq = 440.0 * (2.0 ** ((p - 69) / 12.0))
+                                wave += 0.4 * np.sin(2 * np.pi * freq * t) + 0.2 * np.sin(2 * np.pi * 2 * freq * t)
+                            p_audio[b_sample:b_sample+env_len] += (wave * decay * (vel / 100.0) * 0.28).astype(np.float32)
 
-                    b_sample = bar_start_sample + e_idx * eighth_samples
-                    env_len = min(eighth_samples * 2, total_samples - b_sample)
-                    if env_len > 0:
+            # --- BASS ARRANGEMENT ---
+            if root_pc is not None and sec_type not in ["outro_fade"]:
+                bass_pitch = 36 + root_pc if "climax" not in sec_type else 38 + root_pc
+                b_vel = 105 if "chorus" in sec_type else 88
+                # In intro, only play on whole notes (bars 4-7)
+                if sec_type == "intro":
+                    if bar_idx >= 4:
+                        b_trk.append(Message('note_on', note=bass_pitch, velocity=75, time=0))
+                        b_trk.append(Message('note_off', note=bass_pitch, velocity=0, time=self.bar_ticks - 20))
+                        b_trk.append(Message('note_off', note=0, velocity=0, time=20))
+                        env_len = min(quarter_samples * 4, total_samples - bar_start_sample)
                         t = np.linspace(0, env_len / self.sr, env_len, endpoint=False)
                         freq = 440.0 * (2.0 ** ((bass_pitch - 69) / 12.0))
-                        decay = np.exp(-3.0 * t)
-                        wave = np.sin(2 * np.pi * freq * t) + 0.45 * np.sin(2 * np.pi * 2 * freq * t)
-                        b_audio[b_sample:b_sample+env_len] += (wave * decay * 0.35).astype(np.float32)
+                        b_audio[bar_start_sample:bar_start_sample+env_len] += (np.sin(2 * np.pi * freq * t) * np.exp(-1.5 * t) * 0.3).astype(np.float32)
+                else:
+                    for e_idx in range(8):
+                        dur_ticks = (self.ppq // 2) - 15
+                        b_trk.append(Message('note_on', note=bass_pitch, velocity=b_vel, time=0))
+                        b_trk.append(Message('note_off', note=bass_pitch, velocity=0, time=dur_ticks))
+                        b_trk.append(Message('note_off', note=0, velocity=0, time=15))
 
-            # --- DRUMS ---
-            for beat in range(4):
-                d_trk.append(Message('note_on', channel=9, note=36, velocity=105, time=0))
-                d_trk.append(Message('note_off', channel=9, note=36, velocity=0, time=120))
-                if beat in [1, 3]:
-                    d_trk.append(Message('note_on', channel=9, note=38, velocity=100, time=0))
-                    d_trk.append(Message('note_off', channel=9, note=38, velocity=0, time=120))
-                d_trk.append(Message('note_off', channel=9, note=0, velocity=0, time=self.ppq - 120))
+                        b_sample = bar_start_sample + e_idx * eighth_samples
+                        env_len = min(eighth_samples * 2, total_samples - b_sample)
+                        if env_len > 0:
+                            t = np.linspace(0, env_len / self.sr, env_len, endpoint=False)
+                            freq = 440.0 * (2.0 ** ((bass_pitch - 69) / 12.0))
+                            decay = np.exp(-3.0 * t)
+                            wave = np.sin(2 * np.pi * freq * t) + 0.45 * np.sin(2 * np.pi * 2 * freq * t)
+                            b_audio[b_sample:b_sample+env_len] += (wave * decay * (b_vel / 100.0) * 0.35).astype(np.float32)
 
-                k_sample = bar_start_sample + beat * quarter_samples
-                k_len = min(int(0.25 * self.sr), total_samples - k_sample)
-                if k_len > 0:
-                    t_k = np.linspace(0, k_len / self.sr, k_len, endpoint=False)
-                    f_env = 140.0 * np.exp(-25.0 * t_k) + 45.0
-                    phase = 2 * np.pi * np.cumsum(f_env) / self.sr
-                    d_audio[k_sample:k_sample+k_len] += (np.sin(phase) * np.exp(-12.0 * t_k) * 0.55).astype(np.float32)
-                if beat in [1, 3]:
-                    s_len = min(int(0.22 * self.sr), total_samples - k_sample)
-                    if s_len > 0:
-                        t_s = np.linspace(0, s_len / self.sr, s_len, endpoint=False)
-                        noise = np.random.uniform(-1, 1, s_len) * np.exp(-18.0 * t_s)
-                        tone = np.sin(2 * np.pi * 180.0 * t_s) * np.exp(-22.0 * t_s)
-                        d_audio[k_sample:k_sample+s_len] += ((noise * 0.4 + tone * 0.3) * 0.5).astype(np.float32)
+            # --- DRUMS ARRANGEMENT ---
+            if sec_type in ["verse", "pre_chorus", "chorus", "climax_chorus", "outro_tail"]:
+                for beat in range(4):
+                    is_snare = beat in [1, 3]
+                    is_kick = True if "chorus" in sec_type else (beat in [0, 2])
+                    
+                    if sec_type == "pre_chorus" and bar_idx in [23, 55]:
+                        # Snare build up roll on all 4 beats
+                        is_snare = True
+                        is_kick = True
 
-            # --- SYNTH LEAD ---
-            if root_pc is not None:
+                    if is_kick:
+                        d_trk.append(Message('note_on', channel=9, note=36, velocity=108, time=0))
+                        d_trk.append(Message('note_off', channel=9, note=36, velocity=0, time=120))
+                    if is_snare:
+                        d_trk.append(Message('note_on', channel=9, note=38, velocity=102, time=0))
+                        d_trk.append(Message('note_off', channel=9, note=38, velocity=0, time=120))
+                    
+                    d_trk.append(Message('note_off', channel=9, note=0, velocity=0, time=self.ppq - 120))
+
+                    k_sample = bar_start_sample + beat * quarter_samples
+                    if is_kick:
+                        k_len = min(int(0.25 * self.sr), total_samples - k_sample)
+                        if k_len > 0:
+                            t_k = np.linspace(0, k_len / self.sr, k_len, endpoint=False)
+                            f_env = 140.0 * np.exp(-25.0 * t_k) + 45.0
+                            phase = 2 * np.pi * np.cumsum(f_env) / self.sr
+                            d_audio[k_sample:k_sample+k_len] += (np.sin(phase) * np.exp(-12.0 * t_k) * 0.55).astype(np.float32)
+                    if is_snare:
+                        s_len = min(int(0.22 * self.sr), total_samples - k_sample)
+                        if s_len > 0:
+                            t_s = np.linspace(0, s_len / self.sr, s_len, endpoint=False)
+                            noise = np.random.uniform(-1, 1, s_len) * np.exp(-18.0 * t_s)
+                            tone = np.sin(2 * np.pi * 180.0 * t_s) * np.exp(-22.0 * t_s)
+                            d_audio[k_sample:k_sample+s_len] += ((noise * 0.4 + tone * 0.3) * 0.5).astype(np.float32)
+            elif sec_type == "intro" and bar_idx == 7:
+                # Pre-verse drum fill
+                for beat in [2, 3]:
+                    d_trk.append(Message('note_on', channel=9, note=38, velocity=95, time=0))
+                    d_trk.append(Message('note_off', channel=9, note=38, velocity=0, time=self.ppq // 2))
+
+            # --- SYNTH LEAD / ARP ARRANGEMENT ---
+            if root_pc is not None and sec_type not in ["outro_fade"]:
                 arp_tones = [72 + root_pc + iv for iv in intervals]
+                s_vel = 88 if "chorus" in sec_type else 65
                 for s_idx in range(16):
                     cur_p = arp_tones[s_idx % len(arp_tones)]
                     dur_ticks = (self.ppq // 4) - 10
-                    s_trk.append(Message('note_on', note=cur_p, velocity=80, time=0))
+                    s_trk.append(Message('note_on', note=cur_p, velocity=s_vel, time=0))
                     s_trk.append(Message('note_off', note=cur_p, velocity=0, time=dur_ticks))
                     s_trk.append(Message('note_off', note=0, velocity=0, time=10))
 
@@ -238,7 +316,7 @@ class HarmonyMatrix:
                         freq = 440.0 * (2.0 ** ((cur_p - 69) / 12.0))
                         decay = np.exp(-10.0 * t)
                         saw = 2.0 * (t * freq - np.floor(0.5 + t * freq))
-                        s_audio[s_sample:s_sample+env_len] += (saw * decay * 0.15).astype(np.float32)
+                        s_audio[s_sample:s_sample+env_len] += (saw * decay * (s_vel / 100.0) * 0.16).astype(np.float32)
 
         for audio, path in [(p_audio, piano_wav_path), (b_audio, bass_wav_path), (d_audio, drums_wav_path), (s_audio, synth_wav_path)]:
             pk = np.max(np.abs(audio))
@@ -269,7 +347,6 @@ class HarmonyMatrix:
                     v_trk.append(Message('note_off', note=0, velocity=0, time=ticks))
         v_mid.save(vocal_mid_path)
 
-        # Tracks metadata with portable relative paths
         tracks_meta = [
             {"name": "01_Lead_Vocal", "wav": "stems/01_Lead_Vocal.wav", "mid": "midi/01_Lead_Vocal.mid", "vol": "1.0000", "pan": "0.0000"},
             {"name": "02_Grand_Piano", "wav": "stems/02_Grand_Piano.wav", "mid": "midi/02_Grand_Piano.mid", "vol": "0.8500", "pan": "-0.2000"},

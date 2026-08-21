@@ -1,7 +1,7 @@
 """
 OpenVocal-DAW CLI Entrypoint
 Autonomous AI Vocal & Music Production Pipeline.
-Creates clean, portable, dedicated song project folders.
+Supports custom voicebanks via CLI or blueprint JSON.
 """
 
 import os
@@ -27,11 +27,12 @@ def main():
     print("   OpenVocal-DAW: Autonomous AI Vocal & Music Production Toolkit")
     print("=" * 70)
     if len(sys.argv) < 2:
-        print("Usage: python make_song.py <path_to_song_blueprint.json> [export_base_dir]")
+        print("Usage: python make_song.py <blueprint.json> [export_base_dir] [custom_voicebank_dir]")
         return
 
     blueprint_path = sys.argv[1]
     export_base_dir = sys.argv[2] if len(sys.argv) > 2 else "export"
+    custom_vb_cli = sys.argv[3] if len(sys.argv) > 3 else None
 
     with open(blueprint_path, "r", encoding="utf-8") as f:
         blueprint = json.load(f)
@@ -40,7 +41,11 @@ def main():
     safe_title = sanitize_filename(title)
     bpm = float(blueprint.get("bpm", 128.0))
     total_bars = int(blueprint.get("total_bars", 88))
+    singer_name = blueprint.get("singer", "Kasane Teto [UTAU]")
+    custom_vb = custom_vb_cli or blueprint.get("voicebank_dir")
+    
     print(f"Loaded Song: {title} | BPM: {bpm} | Total Bars: {total_bars}")
+    print(f"Assigned Singer: {singer_name}")
 
     # Create dedicated song directory: export/<safe_title>/
     song_dir = os.path.join(export_base_dir, safe_title)
@@ -53,7 +58,7 @@ def main():
     # --- STEP 1: OPENUTAU (.USTX) GENERATION ---
     print("[1/5] Compiling OpenUtau (.ustx) Project...")
     ustx_builder = OpenUtauUstxBuilder(title=title, bpm=bpm)
-    t_lead = ustx_builder.add_track("Lead Vocal", singer="Kasane Teto [UTAU]", phoneticizer="OpenUtau.Core.DefaultPhoneticizer")
+    t_lead = ustx_builder.add_track("Lead Vocal", singer=singer_name, phoneticizer=blueprint.get("phoneticizer", "OpenUtau.Core.DefaultPhoneticizer"))
     
     notes_flat = []
     vocal_score = blueprint.get("vocal_score", {})
@@ -69,7 +74,7 @@ def main():
 
     # --- STEP 2: VOCAL AUDIO SYNTHESIS ---
     print("[2/5] Synthesizing 24-bit Lead Vocal Audio...")
-    vocal_engine = UtauVocalEngine("", "")
+    vocal_engine = UtauVocalEngine(voicebank_dir=custom_vb)
     vocal_wav_path = os.path.join(stems_dir, "01_Lead_Vocal.wav")
     vocal_engine.render_blueprint(blueprint, vocal_wav_path)
     print(f"  [OK] Exported Lead Vocal Stem: {vocal_wav_path}")
