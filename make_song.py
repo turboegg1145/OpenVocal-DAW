@@ -104,7 +104,7 @@ def main():
     print("[5/5] Building Dual-Layer REAPER DAW Session (.rpp)...")
     rpp_builder = ReaperProjectBuilder(bpm=bpm, total_bars=total_bars)
     rpp_path = os.path.join(song_dir, f"{safe_title}.rpp")
-    rpp_builder.build_session(tracks_config, rpp_path, f"{safe_title}_Master.wav")
+    rpp_builder.build_from_blueprint(blueprint, rpp_path, f"{safe_title}_Master.wav", fallback_tracks=tracks_config)
     print(f"  [OK] Saved REAPER Project: {rpp_path}")
 
     print("=" * 70)
