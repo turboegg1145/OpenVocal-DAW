@@ -1,7 +1,7 @@
 """
 OpenVocal-DAW: REAPER Project Builder
 Generates professional Dual-Layer DAW project files (.rpp) with audio stems,
-full MIDI sequence takes, and rich VST FX Chains declared in the blueprint.
+full MIDI sequence takes, and perfectly balanced VST FX Chains.
 """
 
 import os
@@ -31,11 +31,11 @@ class ReaperProjectBuilder:
             mid_file = t.get("midi")
             fxchain_raw = t.get("fxchain_raw")
 
-            items_str = ""
+            items_list = []
             if wav_file:
                 wav_path_str = wav_file.replace("\\", "/")
                 wav_base = os.path.basename(wav_file)
-                items_str += f"""    <ITEM
+                items_list.append(f"""    <ITEM
       POSITION 0.00000000000000
       LENGTH {self.total_seconds:.4f}
       MUTE 0
@@ -44,12 +44,11 @@ class ReaperProjectBuilder:
       <SOURCE WAVE
         FILE "{wav_path_str}"
       >
-    >
-"""
+    >""")
             if mid_file:
                 mid_path_str = mid_file.replace("\\", "/")
                 mid_base = os.path.basename(mid_file)
-                items_str += f"""    <ITEM
+                items_list.append(f"""    <ITEM
       POSITION 0.00000000000000
       LENGTH {self.total_seconds:.4f}
       MUTE 0
@@ -57,16 +56,17 @@ class ReaperProjectBuilder:
       <SOURCE MIDI
         FILE "{mid_path_str}"
       >
-    >
-"""
+    >""")
 
-            fx_str = f"\n{fxchain_raw}\n" if fxchain_raw else ""
+            items_str = "\n" + "\n".join(items_list) if items_list else ""
+            fx_str = f"\n    {fxchain_raw}" if fxchain_raw else ""
+            
             blk = f"""  <TRACK
     NAME "{name}"
     PEAKCOL {peakcol}
     VOLPAN {volpan}
-    MUTESOLO 0 0 0
-{items_str}{fx_str}  >"""
+    MUTESOLO 0 0 0{items_str}{fx_str}
+  >"""
             track_blocks.append(blk)
 
         tracks_joined = "\n".join(track_blocks)
@@ -99,10 +99,10 @@ class ReaperProjectBuilder:
             wav_base = os.path.basename(wav_file) if wav_file else ""
             mid_base = os.path.basename(mid_file) if mid_file else ""
 
-            items_str = ""
+            items_list = []
             if wav_file:
                 wav_path_str = wav_file.replace("\\", "/")
-                items_str += f"""    <ITEM
+                items_list.append(f"""    <ITEM
       POSITION 0.00000000000000
       LENGTH {self.total_seconds:.4f}
       MUTE 0
@@ -111,11 +111,10 @@ class ReaperProjectBuilder:
       <SOURCE WAVE
         FILE "{wav_path_str}"
       >
-    >
-"""
+    >""")
             if mid_file:
                 mid_path_str = mid_file.replace("\\", "/")
-                items_str += f"""    <ITEM
+                items_list.append(f"""    <ITEM
       POSITION 0.00000000000000
       LENGTH {self.total_seconds:.4f}
       MUTE 0
@@ -123,15 +122,15 @@ class ReaperProjectBuilder:
       <SOURCE MIDI
         FILE "{mid_path_str}"
       >
-    >
-"""
+    >""")
 
+            items_str = "\n" + "\n".join(items_list) if items_list else ""
             blk = f"""  <TRACK
     NAME "{name}"
     PEAKCOL 16576
     VOLPAN {vol} {pan} -1.0 -1.0 1.0
-    MUTESOLO 0 0 0
-{items_str}  >"""
+    MUTESOLO 0 0 0{items_str}
+  >"""
             track_blocks.append(blk)
 
         tracks_joined = "\n".join(track_blocks)
