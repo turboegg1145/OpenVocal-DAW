@@ -25,11 +25,10 @@ def prompt_path(prompt_text, default_val=None, is_dir=False, must_exist=False):
     default_str = f" [默认: {default_val}]" if default_val else ""
     while True:
         try:
-            val = input(f"{prompt_text}{default_str}
-👉 请输入 (按回车使用默认): ").strip()
+            print(f"\n{prompt_text}{default_str}")
+            val = input("👉 请输入 (按回车使用默认): ").strip()
         except (EOFError, KeyboardInterrupt):
-            print("
-[!] 取消输入，使用默认值。")
+            print("\n[!] 取消输入，使用默认值。")
             return default_val
         
         # Strip outer quotes if user dragged and dropped path from Windows Explorer
@@ -63,8 +62,7 @@ def run_interactive_wizard(auto_mode=False):
     print("      🎵 OpenVocal-DAW 制作环境初始化配置向导 (Setup Wizard)")
     print("=" * 70)
     print("欢迎使用 OpenVocal-DAW！本向导将帮助你绑定本地的 REAPER、UTAU 声库与插件。")
-    print("提示：在 Windows 下你可以直接从资源管理器【拖拽文件夹或文件】到终端中！
-")
+    print("提示：在 Windows 下你可以直接从资源管理器【拖拽文件夹或文件】到终端中！\n")
 
     # 1. First run auto-discovery to get intelligent defaults
     detected = EnvDetector.auto_discover(PROJECT_ROOT)
@@ -86,8 +84,7 @@ def run_interactive_wizard(auto_mode=False):
         }
     else:
         # Step 1: REAPER Executable Path
-        print("
-" + "-" * 70)
+        print("\n" + "-" * 70)
         print("【步骤 1/4】配置 REAPER 宿主软件路径")
         print("说明：用于关联 REAPER 宿主。如果未安装可直接回车跳过。")
         reaper_path = prompt_path(
@@ -97,8 +94,7 @@ def run_interactive_wizard(auto_mode=False):
         )
 
         # Step 2: UTAU Resampler Engine Path
-        print("
-" + "-" * 70)
+        print("\n" + "-" * 70)
         print("【步骤 2/4】配置 UTAU 重采样引擎路径 (moresampler.exe / resampler.exe)")
         print("说明：用于人声切片重采样。若无将自动切换为 Python 纯数学物理合成。")
         resampler_path = prompt_path(
@@ -108,8 +104,7 @@ def run_interactive_wizard(auto_mode=False):
         )
 
         # Step 3: Default Voicebank Directory Path
-        print("
-" + "-" * 70)
+        print("\n" + "-" * 70)
         print("【步骤 3/4】配置默认虚拟歌手声库文件夹 (Voicebank Directory)")
         print("说明：包含 .wav 和 oto.ini 的声库文件夹（如重音 Teto、初音未来或你自己的声库）。")
         vb_path = prompt_path(
@@ -119,8 +114,7 @@ def run_interactive_wizard(auto_mode=False):
         )
 
         # Step 4: VST Plugin Directory Path
-        print("
-" + "-" * 70)
+        print("\n" + "-" * 70)
         print("【步骤 4/4】配置常用 VST 乐器与效果器插件目录")
         print("说明：你的 VST3/VST2 乐器插件存放路径（如 MT-PowerDrumKit、Ample Bass 等）。")
         def_vst_str = ";".join(def_vsts) if def_vsts else None
@@ -150,8 +144,7 @@ def run_interactive_wizard(auto_mode=False):
     # Save to openvocal_config.json
     saved_file = EnvDetector.save_config(cfg, PROJECT_ROOT)
 
-    print("
-" + "=" * 70)
+    print("\n" + "=" * 70)
     print("🎉 配置完成！当前环境配置清单已保存：")
     print(f"📄 配置文件: {saved_file}")
     print(f"  • REAPER 路径      : {cfg['reaper_exe'] or '未配置 (纯代码模式)'}")
@@ -159,8 +152,7 @@ def run_interactive_wizard(auto_mode=False):
     print(f"  • 默认歌手声库路径 : {cfg['voicebank_dir'] or '未配置'}")
     print(f"  • VST 插件目录列表 : {cfg['vst_directories']}")
     print("=" * 70)
-    print("
-💡 下一步：现在你可以直接运行生成你的专属音乐了：")
+    print("\n💡 下一步：现在你可以直接运行生成你的专属音乐了：")
     print("   python make_song.py examples/neon_pulse/song_blueprint.json")
     print("=" * 70)
 
