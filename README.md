@@ -9,8 +9,7 @@
 
 1. ⚙️ **跨平台环境初始化向导（`init_env.py` Setup Wizard）**：
    - 交互式配置你的本地 REAPER 路径、UTAU 重采样器（moresampler / resampler）、歌手声库与 VST 插件目录。
-   - 绝无任何硬编码绝对路径，全自动生成本地环境配置清单 `openvocal_config.json`。
-
+   - 
 2. 🎛️ **声明式双层 REAPER 宿主工程（Declarative 10-Track DAW Architecture）**：
    - 自动生成满血 `.rpp` 宿主工程，内嵌 24-bit 无损分轨音频（Stems）与多轨 VST 插件链（`MT-PowerDrumKit`、`Ample Bass`、`NeoPiano`、`Ample Guitar`、`ValhallaSupermassive` 空间混响总线）。
    - 每条乐器轨道下方并行内嵌标准 **MIDI 卷帘**，随时可二次精修或更换音源。
