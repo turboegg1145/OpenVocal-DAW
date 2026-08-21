@@ -1,43 +1,46 @@
 # OpenVocal-DAW 🎵
 
 > **Autonomous AI Vocal & Multi-Track DAW Production Engine**  
-> 一套打通 **【AI 智能体 ➔ 现代虚拟歌手（OpenUtau/UTAU） ➔ 专业编曲宿主（REAPER DAW）】** 的全自动端到端工业级音乐生产线。
+> 一套打通 **【AI 智能体 ➔ 现代 OpenUtau 歌姬调教 ➔ 专业 REAPER 编曲混音宿主】** 的全自动端到端工业级音乐生产线。
 
 ---
 
-## 🌟 核心亮点与特性
+## 🌟 核心架构与设计哲学
 
-1. ⚙️ **跨平台环境初始化向导（`init_env.py` Setup Wizard）**：
-   - 交互式配置你的本地 REAPER 路径、UTAU 重采样器（moresampler / resampler）、歌手声库与 VST 插件目录。
-   - 
-2. 🎛️ **声明式双层 REAPER 宿主工程（Declarative 10-Track DAW Architecture）**：
+1. ⚙️ **用户自主输入驱动的环境配置（`init_env.py` Setup Wizard）**：
+   - 以用户输入为核心，在终端分步绑定你的本地 **OpenUtau 主程序路径**、**OpenUtau 歌手声库目录（Singers）**、**REAPER 宿主路径** 与 **VST 插件目录**。
+   - 支持直接从文件资源管理器【拖拽文件/文件夹】进终端输入；
+   - 彻底告别所有死板的硬编码绝对路径，全量配置保存在本地 `openvocal_config.json` 中。
+
+2. 🎤 **100% 现代 OpenUtau 深度生态集成**：
+   - 自动读取 OpenUtau 官方 Singers 声库与首选项，原生输出现代化 `.ustx`（YAML 架构）工程文件；
+   - 智能派发多语言音素化器（`JapaneseCVPhoneticizer`、`ChinesePinyinPhoneticizer`、`ArpasingPhoneticizer` 等），保留完整的表情控制与音高曲线；
+   - 支持并发声学切片直出 24-bit 无损人声干声，打通全自动出歌。
+
+3. 🎛️ **声明式双层 REAPER 宿主工程（Declarative 10-Track DAW Architecture）**：
    - 自动生成满血 `.rpp` 宿主工程，内嵌 24-bit 无损分轨音频（Stems）与多轨 VST 插件链（`MT-PowerDrumKit`、`Ample Bass`、`NeoPiano`、`Ample Guitar`、`ValhallaSupermassive` 空间混响总线）。
    - 每条乐器轨道下方并行内嵌标准 **MIDI 卷帘**，随时可二次精修或更换音源。
 
-3. 🎤 **原生虚拟歌手真实人声直出（One-Step Vocal Synthesis）**：
-   - 内置多线程重采样切片引擎，自动加载配置的声库与 `oto.ini` 原音设定，一键秒级直出带真人发音咬字的干声与成品母带！
-   - 同步输出 OpenUtau v0.6+ YAML 工程格式（`.ustx`）。
+4. 🎚️ **自适应多相滤波 DSP 重采样（Adaptive Resampler）**：
+   - 内置高阶多相滤波重采样算法，若接入 48kHz 或 96kHz 等非标采样率声库，自动平滑无损对齐至广播级 44.1kHz，保证音高与时间 100% 同步不跑调。
 
-4. 📁 **工业级结构化工程目录（Structured Export）**：
+5. 📁 **工业级结构化工程目录（Structured Export）**：
    - 每首歌专属独立文件夹，内部采用便携式相对路径，无论拷贝到哪台电脑或 Mac，REAPER 均可 100% 免弹窗秒开。
-
-5. 💡 **零外部软件强依赖（Zero-Dependency Core Fallback）**：
-   - 纯 Python 物理声学算法兜底，**即使全新电脑完全没装 REAPER/UTAU，也能 100% 成功生成可听可用的成品音乐与工程**。
 
 ---
 
 ## 🚀 极速上手：三步开启音乐制作
 
-### 第一步：安装 Python 依赖库（只需一次）
+### 第一步：安装 Python 依赖（只需一次）
 ```bash
 pip install -r requirements.txt
 ```
 
-### 第二步：运行环境初始化向导（配置你的本地路径）
+### 第二步：运行环境初始化向导（输入你的本地路径）
 ```bash
 python init_env.py
 ```
-👉 **交互式输入**：按终端提示输入或直接从资源管理器【拖拽】你的 `reaper.exe` 路径、`moresampler.exe` 引擎路径、声库文件夹或 VST 插件目录（如果未安装可直接回车跳过）。  
+👉 **交互式输入**：按终端提示输入或直接从资源管理器【拖拽】你的 `OpenUtau.exe` 路径、`Singers` 声库文件夹、`reaper.exe` 路径或 VST 插件目录（未安装的项目可直接回车跳过）。  
 *(提示：你也可以使用 `python init_env.py --auto` 进行全自动智能探测绑定)*
 
 ---
@@ -94,26 +97,19 @@ export/NEON PULSE v2 (霓虹脉冲 v2) - Definitive Master/
 
 ---
 
-## 🎤 核心教程二：如何使用自定义歌手 / 你自己的音色？
+## 🎤 核心教程二：如何使用自定义 OpenUtau 歌手 / 你自己的音色？
 
-### 1. 使用你自己的 UTAU 录音声库（一键直出真人声音）
-运行 `python init_env.py` 指定你的声库文件夹，或者在命令行/蓝图中直接传参：
-* **命令行传参法**：
-  ```bash
-  python make_song.py blueprint.json export/ "D:/MyVoicebanks/我的自定义声库"
-  ```
-* **蓝图配置法**：
-  在 `song_blueprint.json` 中指定路径：
-  ```json
-  {
-    "title": "My Song",
-    "singer": "我的声库名",
-    "voicebank_dir": "D:/MyVoicebanks/我的自定义声库"
-  }
-  ```
+### 1. 使用你存放在 OpenUtau 里的任意声库
+运行 `python init_env.py` 指定你的 OpenUtau `Singers` 文件夹，或在蓝图中指定声库名：
+```json
+{
+  "title": "My Song",
+  "singer": "你的声库文件夹名 (如 guzhengxing / teto_tandoku)"
+}
+```
 
-### 2. 使用你训练的 DiffSinger AI 神经网络模型
-在 `song_blueprint.json` 中指定模型与音素化器：
+### 2. 使用 DiffSinger AI 神经网络模型
+在 `song_blueprint.json` 中指定 DiffSinger 模型名与音素化器：
 ```json
 {
   "title": "My Song",
@@ -129,16 +125,16 @@ export/NEON PULSE v2 (霓虹脉冲 v2) - Definitive Master/
 ```
 OpenVocal-DAW/
 ├── core/
-│   ├── env_detector.py             # 智能环境探测器与配置管理器
+│   ├── env_detector.py             # 用户环境配置管理器 (openvocal_config.json)
 │   ├── openutau_ustx_builder.py    # OpenUtau .ustx YAML 工程生成器
 │   ├── harmony_matrix.py           # 现代和声矩阵与多轨音符/音频合成器
 │   ├── reaper_project_builder.py   # 声明式 REAPER .rpp 10 轨宿主工程生成器
-│   ├── utau_vocal_engine.py        # 多线程真实声库切片重采样引擎
-│   └── mastering_dsp.py            # 磁带胶水饱和度与 -0.3 dBFS 真实峰值限制器
+│   ├── utau_vocal_engine.py        # OpenUtau 多线程真实声库切片重采样引擎
+│   └── mastering_dsp.py            # 自适应多相重采样与 -0.3 dBFS 限制器
 ├── examples/
 │   └── neon_pulse/                 # 1:1 完整示例歌曲蓝图与工程
 │       └── song_blueprint.json
-├── init_env.py                     # 交互式环境配置向导 (Setup Wizard)
+├── init_env.py                     # 交互式用户输入配置向导 (User Setup Wizard)
 ├── make_song.py                    # 一键全自动歌曲生成主程序
 ├── requirements.txt
 ├── LICENSE                         # MIT 开源协议
