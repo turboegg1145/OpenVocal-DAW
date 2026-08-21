@@ -1,7 +1,8 @@
 """
 OpenVocal-DAW CLI Entrypoint
 Autonomous AI Vocal & Music Production Pipeline.
-Supports custom voicebanks via CLI or blueprint JSON.
+Supports custom voicebanks via CLI or blueprint JSON, with automatic
+adaptive sample rate conversion (44.1k/48k/96k alignment).
 """
 
 import os
@@ -10,6 +11,10 @@ import json
 import re
 import soundfile as sf
 import numpy as np
+
+# Ensure UTF-8 stdout
+if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 from core.utau_vocal_engine import UtauVocalEngine
 from core.openutau_ustx_builder import OpenUtauUstxBuilder
@@ -43,6 +48,7 @@ def main():
     total_bars = int(blueprint.get("total_bars", 88))
     singer_name = blueprint.get("singer", "Kasane Teto [UTAU]")
     custom_vb = custom_vb_cli or blueprint.get("voicebank_dir")
+    target_sr = 44100
     
     print(f"Loaded Song: {title} | BPM: {bpm} | Total Bars: {total_bars}")
     print(f"Assigned Singer: {singer_name}")
@@ -76,7 +82,7 @@ def main():
     print("[2/5] Synthesizing 24-bit Lead Vocal Audio...")
     vocal_engine = UtauVocalEngine(voicebank_dir=custom_vb)
     vocal_wav_path = os.path.join(stems_dir, "01_Lead_Vocal.wav")
-    vocal_engine.render_blueprint(blueprint, vocal_wav_path)
+    vocal_engine.render_blueprint(blueprint, vocal_wav_path, sample_rate=target_sr)
     print(f"  [OK] Exported Lead Vocal Stem: {vocal_wav_path}")
 
     # --- STEP 3: HARMONY MATRIX BACKING TRACKS (MIDI + STEMS) ---
@@ -86,10 +92,15 @@ def main():
     print(f"  [OK] Generated {len(tracks_config)} Multi-Track Stems in {stems_dir}")
     print(f"  [OK] Generated {len(tracks_config)} MIDI Sequences in {midi_dir}")
 
-    # --- STEP 4: MASTERING DSP ---
-    print("[4/5] Mastering DSP (Tape Glue Saturation & -0.3 dBFS True-Peak Limiter)...")
-    vocal_audio, sr = sf.read(vocal_wav_path)
+    # --- STEP 4: MASTERING DSP WITH ADAPTIVE RESAMPLING ---
+    print("[4/5] Mastering DSP (Adaptive Resampling Alignment, Tape Glue Saturation & Limiter)...")
+    vocal_audio, vocal_sr = sf.read(vocal_wav_path)
     if len(vocal_audio.shape) > 1: vocal_audio = vocal_audio[:, 0]
+
+    # Adaptive sample rate conversion safeguard
+    if vocal_sr != target_sr:
+        print(f"  [DSP Resampler] Adaptively converting vocal stem from {vocal_sr}Hz to {target_sr}Hz...")
+        vocal_audio = MasteringDSP.resample_audio(vocal_audio, vocal_sr, target_sr)
     
     max_len = max(len(vocal_audio), len(backing_audio))
     full_mix = np.zeros(max_len, dtype=np.float32)
@@ -97,8 +108,8 @@ def main():
     full_mix[:len(vocal_audio)] += vocal_audio * 0.85
     
     master_wav_path = os.path.join(song_dir, f"{safe_title}_Master.wav")
-    MasteringDSP.export_master(full_mix, master_wav_path, sample_rate=sr)
-    print(f"  [OK] Exported 24-bit Master Audio: {master_wav_path}")
+    MasteringDSP.export_master(full_mix, master_wav_path, sample_rate=target_sr)
+    print(f"  [OK] Exported 24-bit Master Audio (Locked {target_sr}Hz / -0.3 dBFS): {master_wav_path}")
 
     # --- STEP 5: REAPER DUAL-LAYER SESSION ---
     print("[5/5] Building Dual-Layer REAPER DAW Session (.rpp)...")
@@ -113,8 +124,8 @@ def main():
     print(f"  ├── {safe_title}_Master.wav        [Direct Play Master]")
     print(f"  ├── {safe_title}.rpp               [REAPER DAW Session]")
     print(f"  ├── {safe_title}.ustx              [OpenUtau Project]")
-    print(f"  ├── stems/                         [5x 24-bit Lossless Stems]")
-    print(f"  └── midi/                          [5x Standard MIDI Sequences]")
+    print(f"  ├── stems/                         [6x 24-bit Lossless Stems]")
+    print(f"  └── midi/                          [6x Standard MIDI Sequences]")
     print("=" * 70)
 
 
