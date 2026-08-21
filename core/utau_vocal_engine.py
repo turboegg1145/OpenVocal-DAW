@@ -1,8 +1,9 @@
 """
 OpenVocal-DAW: UTAU Vocal Synthesis Engine
 High-fidelity vocal rendering pipeline supporting:
-1. Direct multithreaded acoustic concatenative resampling via Moresampler / Resampler + real Voicebanks (e.g. Kasane Teto)
+1. Direct multithreaded concatenative resampling via Moresampler / Resampler + real Voicebanks.
 2. Zero-dependency additive physical harmonic acoustic engine fallback.
+100% dynamically configured via EnvDetector (Zero hardcoded paths).
 """
 
 import os
@@ -14,20 +15,7 @@ import concurrent.futures
 import numpy as np
 import soundfile as sf
 
-DEFAULT_VB_CANDIDATES = [
-    r"F:\antigravity lol\antigravity-p\voicebanks\teto_tandoku",
-    r"voicebanks\teto_tandoku",
-    r"..\voicebanks\teto_tandoku",
-    r"F:\antigravity lol\voicebanks\teto_tandoku"
-]
-
-DEFAULT_RESAMPLER_CANDIDATES = [
-    r"F:\antigravity lol\antigravity-p\utau_engines\moresampler.exe",
-    r"utau_engines\moresampler.exe",
-    r"..\utau_engines\moresampler.exe",
-    r"F:\antigravity lol\utau_engines\moresampler.exe",
-    r"F:\antigravity lol\antigravity-p\utau_engines\resampler.exe"
-]
+from core.env_detector import EnvDetector
 
 
 def midi_num_to_tone(m):
@@ -37,6 +25,8 @@ def midi_num_to_tone(m):
 
 
 def parse_oto_ini(vb_dir):
+    if not vb_dir or not os.path.exists(vb_dir):
+        return {}
     oto_path = os.path.join(vb_dir, "oto.ini")
     if not os.path.exists(oto_path):
         return {}
@@ -73,23 +63,19 @@ def parse_oto_ini(vb_dir):
 
 class UtauVocalEngine:
     def __init__(self, voicebank_dir=None, resampler_exe=None):
-        self.vb_dir = None
+        cfg = EnvDetector.load_config()
+        
+        # 1. Voicebank Path Resolution
         if voicebank_dir and os.path.exists(voicebank_dir):
             self.vb_dir = voicebank_dir
         else:
-            for c in DEFAULT_VB_CANDIDATES:
-                if os.path.exists(c):
-                    self.vb_dir = c
-                    break
+            self.vb_dir = cfg.get("voicebank_dir")
 
-        self.resampler_exe = None
+        # 2. Resampler Path Resolution
         if resampler_exe and os.path.exists(resampler_exe):
             self.resampler_exe = resampler_exe
         else:
-            for c in DEFAULT_RESAMPLER_CANDIDATES:
-                if os.path.exists(c):
-                    self.resampler_exe = c
-                    break
+            self.resampler_exe = cfg.get("resampler_exe")
 
         self.oto_map = parse_oto_ini(self.vb_dir) if self.vb_dir else {}
 
@@ -108,137 +94,148 @@ class UtauVocalEngine:
         cur_tick = 0
         note_idx = 0
 
-        temp_cache_dir = os.path.join(os.path.dirname(os.path.abspath(output_wav_path)), ".vocal_cache")
-        if use_real_voicebank:
-            os.makedirs(temp_cache_dir, exist_ok=True)
-            print(f"  [Real Voicebank Engine] Detected Voicebank at '{self.vb_dir}'")
-            print(f"  [Real Voicebank Engine] Using Resampler '{self.resampler_exe}' with {len(self.oto_map)} aliases.")
-
         for b in range(total_bars):
             bar_notes = vocal_score.get(str(b), vocal_score.get(b, []))
             for item in bar_notes:
-                lyric, ticks, pitch, vel = item[0], int(item[1]), int(item[2]), int(item[3])
-                start_tick = cur_tick
-                end_tick = cur_tick + ticks
-                dur_ms = int(round((ticks / 480.0) * sec_per_beat * 1000.0))
-                s_sample = int(round(start_tick * (sec_per_beat / 480.0) * sample_rate))
-                e_sample = int(round(end_tick * (sec_per_beat / 480.0) * sample_rate))
+                lyric = item[0]
+                dur_ticks = int(item[1])
+                pitch_num = int(item[2])
+                vel = int(item[3])
 
-                if lyric not in ["R", "r", "", "-"]:
-                    if use_real_voicebank:
-                        oto_info = self.oto_map.get(lyric)
-                        if not oto_info:
-                            for k in self.oto_map:
-                                if lyric in k:
-                                    oto_info = self.oto_map[k]
-                                    break
-                        if not oto_info:
-                            oto_info = self.oto_map.get("あ", list(self.oto_map.values())[0])
-
-                        out_chunk_path = os.path.join(temp_cache_dir, f"note_{note_idx:04d}.wav")
-                        tone_name = midi_num_to_tone(pitch)
-                        cmd = [
-                            self.resampler_exe,
-                            oto_info["wav"],
-                            out_chunk_path,
-                            tone_name,
-                            str(vel),
-                            flags,
-                            str(int(oto_info["offset"])),
-                            str(max(50, dur_ms)),
-                            str(int(oto_info["consonant"])),
-                            str(int(oto_info["cutoff"])),
-                            "100",
-                            "0",
-                            f"!{bpm:.1f}",
-                            "AA"
-                        ]
-                        notes_tasks.append({
-                            "idx": note_idx,
-                            "cmd": cmd,
-                            "out_wav": out_chunk_path,
-                            "s_sample": s_sample,
-                            "e_sample": e_sample,
-                            "dur_samples": e_sample - s_sample
-                        })
-                    else:
-                        # Fallback math synthesizer
-                        notes_tasks.append({
-                            "idx": note_idx,
-                            "lyric": lyric,
-                            "pitch": pitch,
-                            "vel": vel,
-                            "s_sample": s_sample,
-                            "e_sample": e_sample,
-                            "dur_samples": e_sample - s_sample
-                        })
-                cur_tick += ticks
-                note_idx += 1
+                if lyric not in ["R", "r", "", "-"] and vel > 0:
+                    start_sec = (cur_tick / (bpm * 480.0)) * 60.0
+                    dur_sec = (dur_ticks / (bpm * 480.0)) * 60.0
+                    tone_name = midi_num_to_tone(pitch_num)
+                    notes_tasks.append({
+                        "id": note_idx,
+                        "lyric": lyric,
+                        "pitch_num": pitch_num,
+                        "tone_name": tone_name,
+                        "start_sec": start_sec,
+                        "dur_sec": dur_sec,
+                        "vel": vel,
+                        "dur_ticks": dur_ticks
+                    })
+                    note_idx += 1
+                cur_tick += dur_ticks
 
         if use_real_voicebank:
+            print(f"  [Real Voicebank Engine] Detected Voicebank at '{self.vb_dir}'")
+            print(f"  [Real Voicebank Engine] Using Resampler '{self.resampler_exe}' with {len(self.oto_map)} aliases.")
             print(f"  [Real Voicebank Engine] Resampling {len(notes_tasks)} real notes concurrently...")
-            def worker(task):
-                subprocess.run(task["cmd"], capture_output=True, text=True)
-                return task["idx"]
+            
+            temp_render_dir = os.path.join(os.path.dirname(output_wav_path), "_temp_utau_render")
+            os.makedirs(temp_render_dir, exist_ok=True)
 
-            with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-                list(pool.map(worker, notes_tasks))
+            def render_single_note(task):
+                lyric = task["lyric"]
+                oto = self.oto_map.get(lyric)
+                if not oto:
+                    return task["id"], None
 
-            # Splice and crossfade real voicebank chunks
-            fade_samples = int(0.025 * sample_rate)
+                out_slice_wav = os.path.join(temp_render_dir, f"note_{task['id']:04d}.wav")
+                req_len_ms = task["dur_sec"] * 1000.0
+                cmd = [
+                    self.resampler_exe,
+                    oto["wav"],
+                    out_slice_wav,
+                    task["tone_name"],
+                    str(task["vel"]),
+                    flags,
+                    str(oto["offset"]),
+                    str(req_len_ms),
+                    str(oto["consonant"]),
+                    str(oto["cutoff"]),
+                    "100",
+                    "0",
+                    str(bpm),
+                    ""
+                ]
+                try:
+                    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True, timeout=10)
+                    if os.path.exists(out_slice_wav):
+                        data, sr = sf.read(out_slice_wav)
+                        if len(data.shape) > 1: data = data[:, 0]
+                        return task["id"], (data, sr)
+                except Exception:
+                    pass
+                return task["id"], None
+
+            rendered_slices = {}
+            with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+                futures = [executor.submit(render_single_note, t) for t in notes_tasks]
+                for f in concurrent.futures.as_completed(futures):
+                    nid, res = f.result()
+                    if res is not None:
+                        rendered_slices[nid] = res
+
             for task in notes_tasks:
-                out_wav = task["out_wav"]
-                s = task["s_sample"]
-                if os.path.exists(out_wav) and os.path.getsize(out_wav) > 100:
-                    audio, chunk_sr = sf.read(out_wav)
-                    if len(audio.shape) > 1: audio = audio[:, 0]
-                    dur = task["dur_samples"]
-                    chunk = audio[:dur] if len(audio) >= dur else np.pad(audio, (0, dur - len(audio)))
-                    f_len = min(fade_samples, len(chunk) // 4)
-                    if f_len > 0:
-                        t_in = np.linspace(0, 1, f_len, endpoint=False)
-                        chunk[:f_len] *= (np.sin(0.5 * np.pi * t_in) ** 2)
-                        t_out = np.linspace(0, 1, f_len, endpoint=True)
-                        chunk[-f_len:] *= (np.cos(0.5 * np.pi * t_out) ** 2)
+                nid = task["id"]
+                s_sample = int(round(task["start_sec"] * sample_rate))
+                if nid in rendered_slices:
+                    audio_slice, sr = rendered_slices[nid]
+                    slice_len = len(audio_slice)
+                    end_sample = min(s_sample + slice_len, total_samples)
+                    actual_len = end_sample - s_sample
+                    if actual_len > 0:
+                        # Cosine crossfade
+                        fade_samples = min(int(0.015 * sample_rate), actual_len // 2)
+                        env = np.ones(actual_len, dtype=np.float32)
+                        if fade_samples > 0:
+                            env[:fade_samples] = np.sin(np.linspace(0, np.pi/2, fade_samples)) ** 2
+                            env[-fade_samples:] = np.cos(np.linspace(0, np.pi/2, fade_samples)) ** 2
+                        master_vocal[s_sample:end_sample] += (audio_slice[:actual_len] * env * (task["vel"] / 100.0)).astype(np.float32)
+                else:
+                    # Single note mathematical harmonic fallback
+                    dur_samples = int(round(task["dur_sec"] * sample_rate))
+                    end_sample = min(s_sample + dur_samples, total_samples)
+                    actual_len = end_sample - s_sample
+                    if actual_len > 0:
+                        t = np.linspace(0, actual_len / sample_rate, actual_len, endpoint=False)
+                        f0 = 440.0 * (2.0 ** ((task["pitch_num"] - 69) / 12.0))
+                        sig = (0.6 * np.sin(2 * np.pi * f0 * t) +
+                               0.3 * np.sin(2 * np.pi * 2 * f0 * t) +
+                               0.15 * np.sin(2 * np.pi * 3 * f0 * t))
+                        fade_len = min(int(0.01 * sample_rate), actual_len // 4)
+                        env = np.ones(actual_len, dtype=np.float32)
+                        if fade_len > 0:
+                            env[:fade_len] = np.linspace(0, 1, fade_len)
+                            env[-fade_len:] = np.linspace(1, 0, fade_len)
+                        master_vocal[s_sample:end_sample] += (sig * env * 0.5 * (task["vel"] / 100.0)).astype(np.float32)
 
-                    actual_e = min(total_samples, s + len(chunk))
-                    valid_len = actual_e - s
-                    master_vocal[s:actual_e] += chunk[:valid_len]
+            # Cleanup temp slices
+            try:
+                shutil.rmtree(temp_render_dir, ignore_errors=True)
+            except Exception:
+                pass
 
-            # Clean cache
-            import shutil
-            try: shutil.rmtree(temp_cache_dir, ignore_errors=True)
-            except Exception: pass
         else:
-            print(f"  [Acoustic Fallback] Synthesizing {len(notes_tasks)} notes via harmonic modeling...")
-            fade_samples = int(0.025 * sample_rate)
+            # Full mathematical acoustic harmonic oscillator fallback
+            print("  [Vocal Acoustic Engine] Using zero-dependency additive harmonic oscillator fallback...")
             for task in notes_tasks:
-                s = task["s_sample"]
-                dur_samples = task["dur_samples"]
-                if dur_samples <= 0 or s >= total_samples: continue
-                dur_t = dur_samples / sample_rate
-                t = np.linspace(0, dur_t, dur_samples, endpoint=False)
-                freq = 440.0 * (2.0 ** ((task["pitch"] - 69) / 12.0))
-                harmonics = (
-                    0.52 * np.sin(2 * np.pi * freq * t) +
-                    0.26 * np.sin(2 * np.pi * 2 * freq * t) +
-                    0.14 * np.sin(2 * np.pi * 3 * freq * t) +
-                    0.08 * np.sin(2 * np.pi * 4 * freq * t)
-                ).astype(np.float32) * (task["vel"] / 100.0)
+                s_sample = int(round(task["start_sec"] * sample_rate))
+                dur_samples = int(round(task["dur_sec"] * sample_rate))
+                end_sample = min(s_sample + dur_samples, total_samples)
+                actual_len = end_sample - s_sample
+                if actual_len > 0:
+                    t = np.linspace(0, actual_len / sample_rate, actual_len, endpoint=False)
+                    f0 = 440.0 * (2.0 ** ((task["pitch_num"] - 69) / 12.0))
+                    sig = (0.55 * np.sin(2 * np.pi * f0 * t) +
+                           0.30 * np.sin(2 * np.pi * 2 * f0 * t) +
+                           0.18 * np.sin(2 * np.pi * 3 * f0 * t) +
+                           0.08 * np.sin(2 * np.pi * 4 * f0 * t))
+                    fade_len = min(int(0.015 * sample_rate), actual_len // 4)
+                    env = np.ones(actual_len, dtype=np.float32)
+                    if fade_len > 0:
+                        env[:fade_len] = np.linspace(0, 1, fade_len)
+                        env[-fade_len:] = np.linspace(1, 0, fade_len)
+                    master_vocal[s_sample:end_sample] += (sig * env * 0.65 * (task["vel"] / 100.0)).astype(np.float32)
 
-                f_len = min(fade_samples, dur_samples // 3)
-                if f_len > 0:
-                    t_in = np.linspace(0, 1, f_len, endpoint=False)
-                    harmonics[:f_len] *= (np.sin(0.5 * np.pi * t_in) ** 2)
-                    t_out = np.linspace(0, 1, f_len, endpoint=True)
-                    harmonics[-f_len:] *= (np.cos(0.5 * np.pi * t_out) ** 2)
-
-                actual_e = min(total_samples, s + dur_samples)
-                valid_len = actual_e - s
-                master_vocal[s:actual_e] += harmonics[:valid_len]
-
-        pk = np.max(np.abs(master_vocal))
-        if pk > 0: master_vocal = (master_vocal / pk) * 0.90
+        # Normalize to -1.0 dBFS
+        peak = np.max(np.abs(master_vocal))
+        if peak > 0:
+            target_peak = 10.0 ** (-1.0 / 20.0)
+            master_vocal = (master_vocal / peak) * target_peak
 
         os.makedirs(os.path.dirname(os.path.abspath(output_wav_path)), exist_ok=True)
         sf.write(output_wav_path, master_vocal, sample_rate, subtype='PCM_24')
