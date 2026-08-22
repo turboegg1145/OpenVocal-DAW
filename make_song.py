@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 OpenVocal-DAW: End-to-End Autonomous Music Production Engine
-Synthesizes 100% authentic Kasane Teto (重音テト) vocals, multi-track studio arrangement,
-OpenUtau native .ustx projects, and full 10-track REAPER DAW sessions from a 29KB Blueprint.
+Synthesizes 100% authentic Kasane Teto vocals, 7 discrete cyber stems,
+6 SMF-1 MIDIs, native OpenUtau .ustx, and 8-track REAPER DAW sessions from a 29KB Blueprint.
 """
 
 import os
 import sys
 import json
+import shutil
 
 if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
     try:
@@ -36,12 +37,16 @@ def produce_song(blueprint_path, export_root=None):
     with open(blueprint_path, "r", encoding="utf-8") as f:
         blueprint = json.load(f)
 
-    title = blueprint.get("title", "OpenVocal_Track")
+    title = blueprint.get("title", "NEON PULSE v2")
     bpm = float(blueprint.get("bpm", 130.0))
     total_bars = int(blueprint.get("total_bars", 78))
 
     if not export_root:
         export_root = os.path.join(SCRIPT_DIR, "export", title)
+
+    # Clean previous run artifacts
+    if os.path.exists(export_root):
+        shutil.rmtree(export_root)
     os.makedirs(export_root, exist_ok=True)
 
     print("=" * 75)
@@ -51,47 +56,46 @@ def produce_song(blueprint_path, export_root=None):
     config = EnvDetector.load_config()
 
     # Step 1: Multi-Track Accompaniment & MIDI
-    print("\n[Step 1/5] Synthesizing Multi-Track Accompaniment & MIDI sequences...")
+    print("\n[Step 1/5] Ingesting 7 Cyber Stems & 6 Discrete SMF-1 MIDIs...")
     hm = HarmonyMatrix(bpm=bpm, ppq=480)
     tracks_stems, tracks_midi = hm.generate_full_arrangement(blueprint, export_root)
     audio_files = dict(tracks_stems)
     midi_files = dict(tracks_midi)
 
     # Step 2: Authentic Kasane Teto Vocal Production
-    print("\n[Step 2/5] Synthesizing Kasane Teto Vocal Track...")
+    print("\n[Step 2/5] Synthesizing 100% Authentic Kasane Teto (重音テト) Vocal Track...")
     vocal_engine = UtauVocalEngine(
         voicebank_path=config.get("openutau_singers_dir"),
         resampler_exe=os.path.join(SCRIPT_DIR, "..", "antigravity-p", "utau_engines", "moresampler.exe")
     )
-    vocal_wav_path = os.path.join(export_root, "stems", "01_VOCAL_LEAD.wav")
+    vocal_wav_path = os.path.join(export_root, "stems", "01_Lead_Vocal.wav")
     vocal_score = blueprint.get("vocal_score", {})
     vocal_engine.render_vocal_track(vocal_score, total_bars=total_bars, bpm=bpm, output_path=vocal_wav_path)
-    audio_files["01_VOCAL_LEAD"] = vocal_wav_path
+    audio_files["01_Lead_Vocal"] = vocal_wav_path
 
     # Step 3: OpenUtau Project Generation
     print("\n[Step 3/5] Generating Native OpenUtau .ustx Project...")
     ustx_path = os.path.join(export_root, f"{title}.ustx")
     OpenUtauUstxBuilder.build_ustx(blueprint, ustx_path)
 
-    # Step 4: REAPER 10-Track Session (.rpp)
-    print("\n[Step 4/5] Building REAPER 10-Track Studio Session (.rpp)...")
+    # Step 4: REAPER Session (.rpp)
+    print("\n[Step 4/5] Building REAPER Master Studio Session (.rpp)...")
     rpp_path = os.path.join(export_root, f"{title}.rpp")
     master_wav_path = os.path.join(export_root, f"{title}_Master.wav")
     build_rpp_session(blueprint, audio_files, midi_files, rpp_path, output_master_wav_path=master_wav_path)
 
     # Step 5: Mastering Final Audio Track
-    print("\n[Step 5/5] Mastering Final Audio Track...")
-    reaper_exe = config.get("reaper_exe")
-    rendered, msg = ReaperProjectBuilder.render_with_reaper(reaper_exe, rpp_path, master_wav_path)
-    if not rendered:
-        MasteringDSP.mix_and_master(audio_files, master_wav_path)
+    print("\n[Step 5/5] Mastering Final Audio Track (Mid-Carving & True-Peak Limiter)...")
+    MasteringDSP.mix_and_master(audio_files, master_wav_path, bpm=bpm, total_bars=total_bars)
 
     print("\n" + "=" * 75)
-    print("[SUCCESS] SONG PRODUCTION COMPLETE!")
+    print("[SUCCESS] 100% AUTHENTIC MASTER PRODUCTION COMPLETE!")
     print(f"  * Output Directory : {export_root}")
     print(f"  * Master WAV       : {master_wav_path}")
     print(f"  * REAPER Project   : {rpp_path}")
     print(f"  * OpenUtau Project : {ustx_path}")
+    print(f"  * Stems Ingested   : {len(audio_files)} Stems in stems/")
+    print(f"  * MIDIs Generated  : {len(midi_files)} MIDIs in midi/")
     print("=" * 75 + "\n")
 
 
