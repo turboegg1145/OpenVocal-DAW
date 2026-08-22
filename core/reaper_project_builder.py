@@ -1,82 +1,37 @@
 """
-OpenVocal-DAW: Rich REAPER Session (.rpp) Generator
-Constructs complete multi-track REAPER DAW sessions with embedded Audio Items,
-MIDI Takes, VST Instrument/FX Chains, and Render Configurations.
+OpenVocal-DAW: Master REAPER Session (.rpp) Generator
+Constructs 10-track commercial-grade REAPER studio sessions visible in BOTH
+Arrange View (TCP) and Mixer, with embedded Audio Waveforms, MIDI Takes, and VST Plugin Chains.
 """
 
 import os
 import sys
 import subprocess
 
-DEFAULT_TRACK_SPECS = {
-    "01_Lead_Vocal": {
-        "name": "01_LEAD_VOCAL",
-        "color": 16744448,
-        "vol": 1.15,
-        "pan": 0.0,
-        "vst": [
-            'VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729',
-            'VST "VST: ReaComp (Cockos)" reacomp.dll 0 "" 1919246960'
-        ]
-    },
-    "02_SuperSaw_Pad": {
-        "name": "02_SUPERSAW_PAD",
-        "color": 33023,
-        "vol": 0.85,
-        "pan": -0.15,
-        "vst": [
-            'VST "VSTi: NeoPiano (SoundMagic (Wang YiChi))" Neo_Piano_x64.dll 0 "" 1313884466'
-        ]
-    },
-    "03_Cyber_Pluck": {
-        "name": "03_CYBER_PLUCK",
-        "color": 65535,
-        "vol": 0.80,
-        "pan": 0.20,
-        "vst": [
-            'VST "VST: ReaDelay (Cockos)" readelay.dll 0 "" 1919247212'
-        ]
-    },
-    "04_Reese_Bass": {
-        "name": "04_REESE_BASS",
-        "color": 16711680,
-        "vol": 0.95,
-        "pan": 0.0,
-        "vst": [
-            'VST "VSTi: Ample Bass P Lite II (Ample Sound)" ABPL_64.dll 0 "" 1094930514'
-        ]
-    },
-    "05_Cyber_Drums": {
-        "name": "05_CYBER_DRUMS",
-        "color": 255,
-        "vol": 1.00,
-        "pan": 0.0,
-        "vst": [
-            'VST "VSTi: MT-PowerDrumKit (MANDA AUDIO)" MT-PowerDrumKit.dll 0 "" 1297371211'
-        ]
-    },
-    "06_Funk_Guitar": {
-        "name": "06_FUNK_GUITAR",
-        "color": 65280,
-        "vol": 0.75,
-        "pan": -0.20,
-        "vst": [
-            'VST "VSTi: Ample Guitar M Lite II (Ample Sound)" AGML_64.dll 0 "" 1095322962'
-        ]
-    }
-}
+TRACK_10_SPECS = [
+    {"id": "01_VOCAL_LEAD", "name": "01_VOCAL_LEAD", "color": 16576, "vol": 1.45, "pan": 0.0, "vst": ['VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729', 'VST "VST: ReaComp (Cockos)" reacomp.dll 0 "" 1919246960']},
+    {"id": "02_CYBER_PLUCK", "name": "02_CYBER_PLUCK", "color": 65535, "vol": 0.80, "pan": 0.20, "vst": ['VST "VST: ReaDelay (Cockos)" readelay.dll 0 "" 1919247212']},
+    {"id": "03_SUPERSAW_PAD", "name": "03_SUPERSAW_PAD", "color": 33023, "vol": 0.85, "pan": -0.15, "vst": ['VST "VSTi: NeoPiano (SoundMagic (Wang YiChi))" Neo_Piano_x64.dll 0 "" 1313884466']},
+    {"id": "04_REESE_BASS", "name": "04_REESE_BASS", "color": 16711680, "vol": 0.95, "pan": 0.0, "vst": ['VST "VSTi: Ample Bass P Lite II (Ample Sound)" ABPL_64.dll 0 "" 1094930514']},
+    {"id": "05_FUNK_GUITAR", "name": "05_FUNK_GUITAR", "color": 65280, "vol": 0.75, "pan": -0.20, "vst": ['VST "VSTi: Ample Guitar M Lite II (Ample Sound)" AGML_64.dll 0 "" 1095322962']},
+    {"id": "06_DRUMS_KICK", "name": "06_DRUMS_KICK", "color": 255, "vol": 1.05, "pan": 0.0, "vst": ['VST "VSTi: MT-PowerDrumKit (MANDA AUDIO)" MT-PowerDrumKit.dll 0 "" 1297371211']},
+    {"id": "07_DRUMS_SNARE", "name": "07_DRUMS_SNARE", "color": 255, "vol": 1.00, "pan": 0.0, "vst": ['VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729']},
+    {"id": "08_DRUMS_HIHATS", "name": "08_DRUMS_HIHATS", "color": 255, "vol": 0.75, "pan": 0.15, "vst": ['VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729']},
+    {"id": "09_PIANO_BACKING", "name": "09_PIANO_BACKING", "color": 16777215, "vol": 0.85, "pan": -0.10, "vst": ['VST "VSTi: NeoPiano (SoundMagic (Wang YiChi))" Neo_Piano_x64.dll 0 "" 1313884466']},
+    {"id": "10_STRINGS_PAD", "name": "10_STRINGS_PAD", "color": 8421631, "vol": 0.70, "pan": 0.10, "vst": ['VST "VST: ReaDelay (Cockos)" readelay.dll 0 "" 1919247212']}
+]
 
 
 def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, output_master_wav_path=None):
-    bpm = float(blueprint.get("bpm", 128.0))
+    bpm = float(blueprint.get("bpm", 130.0))
     total_bars = int(blueprint.get("total_bars", 78))
-    dur_sec = (total_bars * 4 * (60.0 / bpm))
+    dur_sec = (total_bars * 4.0 * 60.0) / bpm
 
     if not output_master_wav_path:
         output_master_wav_path = os.path.splitext(output_rpp_path)[0] + "_Master.wav"
 
     rpp_dir = os.path.dirname(os.path.abspath(output_rpp_path))
-    rel_render_file = os.path.relpath(output_master_wav_path, rpp_dir).replace("/", "\\")
+    rel_render_file = os.path.relpath(output_master_wav_path, rpp_dir).replace("\\", "/")
 
     rpp = []
     rpp.append('<REAPER_PROJECT 0.1 "7.0" 1620000000')
@@ -104,23 +59,28 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
     rpp.append('    ZXZhdxgAAA==')
     rpp.append('  >')
 
-    all_track_keys = list(dict.fromkeys(list(audio_files.keys()) + list(midi_files.keys())))
-    if not all_track_keys:
-        all_track_keys = list(DEFAULT_TRACK_SPECS.keys())
-
-    for idx, tr_key in enumerate(all_track_keys, start=1):
-        spec = DEFAULT_TRACK_SPECS.get(tr_key, {
-            "name": tr_key,
-            "color": 16777215,
-            "vol": 1.0,
-            "pan": 0.0,
-            "vst": []
-        })
-
+    # Bind all available tracks
+    for spec in TRACK_10_SPECS:
+        tr_id = spec["id"]
         tr_name = spec["name"]
         tr_color = spec["color"]
         vol_linear = spec["vol"]
         pan = spec["pan"]
+
+        # Match audio stem and midi
+        matched_wav = None
+        matched_mid = None
+        for k, p in audio_files.items():
+            if tr_id.lower() in k.lower() or k.lower() in tr_id.lower() or (("pluck" in tr_id.lower() and "pluck" in k.lower()) or ("vocal" in tr_id.lower() and "vocal" in k.lower()) or ("reese" in tr_id.lower() and "bass" in k.lower()) or ("pad" in tr_id.lower() and "pad" in k.lower()) or ("guitar" in tr_id.lower() and "guitar" in k.lower()) or ("kick" in tr_id.lower() and "kick" in k.lower()) or ("snare" in tr_id.lower() and "snare" in k.lower()) or ("hihat" in tr_id.lower() and "hihat" in k.lower()) or ("drum" in tr_id.lower() and "drum" in k.lower())):
+                if os.path.exists(p):
+                    matched_wav = p
+                    break
+
+        for k, p in midi_files.items():
+            if tr_id.lower() in k.lower() or k.lower() in tr_id.lower() or (("pluck" in tr_id.lower() and "pluck" in k.lower()) or ("vocal" in tr_id.lower() and "vocal" in k.lower()) or ("reese" in tr_id.lower() and "bass" in k.lower()) or ("pad" in tr_id.lower() and "pad" in k.lower()) or ("guitar" in tr_id.lower() and "guitar" in k.lower()) or ("drum" in tr_id.lower() and "drum" in k.lower())):
+                if os.path.exists(p):
+                    matched_mid = p
+                    break
 
         rpp.append('  <TRACK')
         rpp.append(f'    NAME "{tr_name}"')
@@ -129,13 +89,11 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
         rpp.append('    MUTESOLO 0 0 0')
         rpp.append('    IPHASE 0')
         rpp.append('    ISBUS 0 0')
-        rpp.append('    SHOWINMIX 1 0.6 1 0.5 0 0 0')
         rpp.append('    REC 0 0 0 0 0 0 0')
 
-        # Link Stem WAV item
-        stem_path = audio_files.get(tr_key)
-        if stem_path and os.path.exists(stem_path):
-            rel_wav = os.path.relpath(stem_path, rpp_dir).replace("/", "\\")
+        # Link Stem WAV Item (Shows prominently on Arrange View timeline)
+        if matched_wav and os.path.exists(matched_wav):
+            rel_wav = os.path.relpath(matched_wav, rpp_dir).replace("\\", "/")
             rpp.append('    <ITEM')
             rpp.append('      POSITION 0.00000000000000')
             rpp.append('      SNAPOFFS 0.00000000000000')
@@ -143,7 +101,7 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
             rpp.append('      LOOP 0')
             rpp.append('      ALLTAKES 0')
             rpp.append('      MUTE 0')
-            rpp.append(f'      NAME "{os.path.basename(stem_path)}"')
+            rpp.append(f'      NAME "{os.path.basename(matched_wav)}"')
             rpp.append('      VOLPAN 1.00000000000000 0.00000000000000 1.00000000000000 1.00000000000000 0')
             rpp.append('      SOFFS 0.00000000000000')
             rpp.append('      PLAYRATE 1.00000000000000 1 0.00000000000000 -1')
@@ -153,10 +111,9 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
             rpp.append('      >')
             rpp.append('    >')
 
-        # Link MIDI item
-        mid_path = midi_files.get(tr_key)
-        if mid_path and os.path.exists(mid_path):
-            rel_mid = os.path.relpath(mid_path, rpp_dir).replace("/", "\\")
+        # Link MIDI Item
+        if matched_mid and os.path.exists(matched_mid):
+            rel_mid = os.path.relpath(matched_mid, rpp_dir).replace("\\", "/")
             rpp.append('    <ITEM')
             rpp.append('      POSITION 0.00000000000000')
             rpp.append('      SNAPOFFS 0.00000000000000')
@@ -164,7 +121,7 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
             rpp.append('      LOOP 0')
             rpp.append('      ALLTAKES 0')
             rpp.append('      MUTE 0')
-            rpp.append(f'      NAME "{os.path.basename(mid_path)}"')
+            rpp.append(f'      NAME "{os.path.basename(matched_mid)}"')
             rpp.append('      VOLPAN 1.00000000000000 0.00000000000000 1.00000000000000 1.00000000000000 0')
             rpp.append('      SOFFS 0.00000000000000')
             rpp.append('      PLAYRATE 1.00000000000000 1 0.00000000000000 -1')
