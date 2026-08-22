@@ -1,18 +1,27 @@
 """
-OpenVocal-DAW: REAPER Project (.rpp) Generator
-Generates full 10-track declarative REAPER sessions with embedded VSTs, MIDI, Stems,
-and auto-render configuration for headless CLI rendering.
+OpenVocal-DAW: Rich REAPER Session (.rpp) Generator
+Constructs complete multi-track REAPER DAW sessions with embedded Audio Items,
+MIDI Takes, VST Instrument/FX Chains, and Render Configurations.
 """
 
 import os
 import sys
 import subprocess
 
+DEFAULT_TRACK_SPECS = {
+    "01_Lead_Vocal": {"name": "01_LEAD_VOCAL", "color": 16744448, "vol": 1.15, "pan": 0.0, "vst": ["VST: ReaEQ (Cockos) reaeq.dll 0 \"\" 1919247729", "VST: ReaComp (Cockos) reacomp.dll 0 \"\" 1919246960"]},
+    "02_SuperSaw_Pad": {"name": "02_SUPERSAW_PAD", "color": 33023, "vol": 0.85, "pan": -0.15, "vst": ["VSTi: NeoPiano (SoundMagic (Wang YiChi)) Neo_Piano_x64.dll 0 \"\" 1313884466"]},
+    "03_Cyber_Pluck": {"name": "03_CYBER_PLUCK", "color": 65535, "vol": 0.80, "pan": 0.20, "vst": ["VST: ReaDelay (Cockos) readelay.dll 0 \"\" 1919247212"]},
+    "04_Reese_Bass": {"name": "04_REESE_BASS", "color": 16711680, "vol": 0.95, "pan": 0.0, "vst": ["VSTi: Ample Bass P Lite II (Ample Sound) ABPL_64.dll 0 \"\" 1094930514"]},
+    "05_Cyber_Drums": {"name": "05_CYBER_DRUMS", "color": 255, "vol": 1.00, "pan": 0.0, "vst": ["VSTi: MT-PowerDrumKit (MANDA AUDIO) MT-PowerDrumKit.dll 0 \"\" 1297371211"]},
+    "06_Funk_Guitar": {"name": "06_FUNK_GUITAR", "color": 65280, "vol": 0.75, "pan": -0.20, "vst": ["VSTi: Ample Guitar M Lite II (Ample Sound) AGML_64.dll 0 \"\" 1095322962"]}
+}
+
 
 def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, output_master_wav_path=None):
-    bpm = blueprint.get("bpm", 128.0)
-    total_bars = blueprint.get("total_bars", 78)
-    title = blueprint.get("title", "OpenVocal Track")
+    bpm = float(blueprint.get("bpm", 128.0))
+    total_bars = int(blueprint.get("total_bars", 78))
+    dur_sec = (total_bars * 4 * (60.0 / bpm))
 
     if not output_master_wav_path:
         output_master_wav_path = os.path.splitext(output_rpp_path)[0] + "_Master.wav"
@@ -21,7 +30,8 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
     rel_render_file = os.path.relpath(output_master_wav_path, rpp_dir).replace("/", "\\")
 
     rpp = []
-    rpp.append('<REAPER_PROJECT 0.1 "6.80/x64" 1680000000')
+    rpp.append('<REAPER_PROJECT 0.1 "7.0" 1620000000')
+    rpp.append('  RPR_VERSION 7.59')
     rpp.append('  RIPPLE 0')
     rpp.append('  GROUPOVERRIDE 0 0 0')
     rpp.append('  AUTOXFADE 1')
@@ -33,36 +43,36 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
     rpp.append(f'  TEMPO {bpm} 4 4')
     rpp.append('  SAMPLERATE 44100 0 0')
     
-    # Configure Render target inside RPP so `reaper.exe -renderproject` knows where to export
+    # Configure Render target inside RPP
     rpp.append(f'  RENDER_FILE "{rel_render_file}"')
     rpp.append('  RENDER_PATTERN ""')
     rpp.append('  RENDER_FMT 0 2 44100')
     rpp.append('  RENDER_1X 0')
-    rpp.append('  RENDER_RANGE 1 0 0')
-    rpp.append('  RENDER_RESAMPLE 3 0 0')
-    rpp.append('  RENDER_SPEED 0')
+    rpp.append(f'  RENDER_RANGE 1 0 {dur_sec:.4f}')
+    rpp.append('  RENDER_RESAMPLE 3 0 1')
+    rpp.append('  RENDER_DITHER 0')
     rpp.append('  <RENDER_CFG')
     rpp.append('    ZXZhdxgAAA==')
     rpp.append('  >')
 
-    daw_tracks = blueprint.get("daw_tracks", [])
-    if not daw_tracks:
-        daw_tracks = [
-            {"id": "01_Lead_Vocal", "name": "Lead Vocal", "color": 16744448, "volume_db": 0.0, "pan": 0.0},
-            {"id": "02_SuperSaw_Pad", "name": "SuperSaw Pad", "color": 33023, "volume_db": -2.0, "pan": 0.0},
-            {"id": "03_Cyber_Pluck", "name": "Cyber Pluck", "color": 65535, "volume_db": -3.0, "pan": 0.2},
-            {"id": "04_Reese_Bass", "name": "Reese Bass", "color": 16711680, "volume_db": -1.0, "pan": 0.0},
-            {"id": "05_Cyber_Drums", "name": "Cyber Drums", "color": 255, "volume_db": 0.0, "pan": 0.0},
-            {"id": "06_Funk_Guitar", "name": "Funk Guitar", "color": 65280, "volume_db": -4.0, "pan": -0.2}
-        ]
+    # Gather all track IDs from audio and midi files
+    all_track_keys = list(dict.fromkeys(list(audio_files.keys()) + list(midi_files.keys())))
+    if not all_track_keys:
+        all_track_keys = list(DEFAULT_TRACK_SPECS.keys())
 
-    for idx, tr in enumerate(daw_tracks, start=1):
-        tr_id = tr.get("id", f"Track_{idx}")
-        tr_name = tr.get("name", tr_id)
-        tr_color = tr.get("color", 16777215)
-        vol_db = tr.get("volume_db", 0.0)
-        pan = tr.get("pan", 0.0)
-        vol_linear = 10.0 ** (vol_db / 20.0)
+    for idx, tr_key in enumerate(all_track_keys, start=1):
+        spec = DEFAULT_TRACK_SPECS.get(tr_key, {
+            "name": tr_key,
+            "color": 16777215,
+            "vol": 1.0,
+            "pan": 0.0,
+            "vst": []
+        })
+
+        tr_name = spec["name"]
+        tr_color = spec["color"]
+        vol_linear = spec["vol"]
+        pan = spec["pan"]
 
         rpp.append('  <TRACK')
         rpp.append(f'    NAME "{tr_name}"')
@@ -71,57 +81,62 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
         rpp.append('    MUTESOLO 0 0 0')
         rpp.append('    IPHASE 0')
         rpp.append('    ISBUS 0 0')
-        rpp.append('    BUSCOMP 0 0 0 0 0')
         rpp.append('    SHOWINMIX 1 0.6 1 0.5 0 0 0')
         rpp.append('    REC 0 0 0 0 0 0 0')
 
-        # Link Stem WAV
-        stem_path = audio_files.get(tr_id)
+        # Link Stem WAV item
+        stem_path = audio_files.get(tr_key)
         if stem_path and os.path.exists(stem_path):
             rel_wav = os.path.relpath(stem_path, rpp_dir).replace("/", "\\")
-            dur_sec = (total_bars * 4 * (60.0 / bpm))
             rpp.append('    <ITEM')
-            rpp.append('      POSITION 0.0')
-            rpp.append('      SNAPOFFS 0.0')
+            rpp.append('      POSITION 0.00000000000000')
+            rpp.append('      SNAPOFFS 0.00000000000000')
             rpp.append(f'      LENGTH {dur_sec:.6f}')
             rpp.append('      LOOP 0')
             rpp.append('      ALLTAKES 0')
-            rpp.append('      FADEIN 1 0.005 0 1 0 0')
-            rpp.append('      FADEOUT 1 0.05 0 1 0 0')
+            rpp.append('      MUTE 0')
             rpp.append(f'      NAME "{os.path.basename(stem_path)}"')
-            rpp.append('      VOLPAN 1.0 0.0 1.0 -1.0')
+            rpp.append('      VOLPAN 1.00000000000000 0.00000000000000 1.00000000000000 1.00000000000000 0')
+            rpp.append('      SOFFS 0.00000000000000')
+            rpp.append('      PLAYRATE 1.00000000000000 1 0.00000000000000 -1')
+            rpp.append('      CHANMODE 0')
             rpp.append('      <SOURCE WAVE')
             rpp.append(f'        FILE "{rel_wav}"')
             rpp.append('      >')
             rpp.append('    >')
 
-        # Link MIDI Take
-        mid_path = midi_files.get(tr_id)
+        # Link MIDI item
+        mid_path = midi_files.get(tr_key)
         if mid_path and os.path.exists(mid_path):
             rel_mid = os.path.relpath(mid_path, rpp_dir).replace("/", "\\")
-            dur_sec = (total_bars * 4 * (60.0 / bpm))
             rpp.append('    <ITEM')
-            rpp.append('      POSITION 0.0')
-            rpp.append('      SNAPOFFS 0.0')
+            rpp.append('      POSITION 0.00000000000000')
+            rpp.append('      SNAPOFFS 0.00000000000000')
             rpp.append(f'      LENGTH {dur_sec:.6f}')
             rpp.append('      LOOP 0')
             rpp.append('      ALLTAKES 0')
+            rpp.append('      MUTE 0')
             rpp.append(f'      NAME "{os.path.basename(mid_path)}"')
+            rpp.append('      VOLPAN 1.00000000000000 0.00000000000000 1.00000000000000 1.00000000000000 0')
+            rpp.append('      SOFFS 0.00000000000000')
+            rpp.append('      PLAYRATE 1.00000000000000 1 0.00000000000000 -1')
+            rpp.append('      CHANMODE 0')
             rpp.append('      <SOURCE MIDI')
             rpp.append(f'        FILE "{rel_mid}"')
             rpp.append('      >')
             rpp.append('    >')
 
         # VST FX Chain
-        vst_name = tr.get("vst_plugin")
-        if vst_name:
+        vsts = spec.get("vst", [])
+        if vsts:
             rpp.append('    <FXCHAIN')
-            rpp.append('      WNDRECT 0 0 0 0')
             rpp.append('      SHOW 0')
             rpp.append('      LASTSEL 0')
             rpp.append('      DOCKED 0')
-            rpp.append(f'      <VST "{vst_name}"')
-            rpp.append('      >')
+            rpp.append('      BYPASS 0 0 0')
+            for v_entry in vsts:
+                rpp.append(f'      <{v_entry}')
+                rpp.append('      >')
             rpp.append('    >')
 
         rpp.append('  >')
