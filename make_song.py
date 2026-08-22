@@ -59,35 +59,33 @@ def produce_song(blueprint_path):
     reaper_exe = cfg.get("reaper_exe")
 
     # 1. Synthesize multi-track accompaniment stems and MIDI
-    print("
-[Step 1/5] Synthesizing Multi-Track Accompaniment & MIDI sequences...")
-    matrix = HarmonyMatrix(bpm=bpm, sample_rate=44100)
-    audio_files, midi_files = matrix.generate_full_arrangement(blueprint, stems_dir, midi_dir)
+    print("\n[Step 1/5] Synthesizing Multi-Track Accompaniment & MIDI sequences...")
+    matrix = HarmonyMatrix(bpm=bpm)
+    tracks_meta, backing_audio = matrix.generate_full_arrangement(blueprint, export_root)
+    
+    audio_files = {t["name"]: os.path.join(export_root, t["wav"]) for t in tracks_meta}
+    midi_files = {t["name"]: os.path.join(export_root, t["mid"]) for t in tracks_meta}
 
     # 2. Render Vocal with authentic Voicebank
-    print("
-[Step 2/5] Synthesizing Vocal Track using OpenUtau Voicebank...")
+    print("\n[Step 2/5] Synthesizing Vocal Track using OpenUtau Voicebank...")
     vocal_engine = UtauVocalEngine()
     vocal_wav_path = os.path.join(stems_dir, "01_Lead_Vocal.wav")
     vocal_engine.render_blueprint(blueprint, vocal_wav_path)
     audio_files["01_Lead_Vocal"] = vocal_wav_path
 
     # 3. Generate OpenUtau .ustx Project
-    print("
-[Step 3/5] Generating Native OpenUtau .ustx Project...")
+    print("\n[Step 3/5] Generating Native OpenUtau .ustx Project...")
     ustx_path = os.path.join(export_root, f"{safe_title}.ustx")
     OpenUtauUstxBuilder.build_ustx(blueprint, ustx_path)
 
     # 4. Generate REAPER 10-Track Session (.rpp)
-    print("
-[Step 4/5] Building REAPER 10-Track Session (.rpp)...")
+    print("\n[Step 4/5] Building REAPER 10-Track Session (.rpp)...")
     rpp_path = os.path.join(export_root, f"{safe_title}.rpp")
     master_wav_path = os.path.join(export_root, f"{safe_title}_Master.wav")
     build_rpp_session(blueprint, audio_files, midi_files, rpp_path, master_wav_path)
 
     # 5. Render Final Master (REAPER Headless Render -> DSP Limiter)
-    print("
-[Step 5/5] Mastering Final Audio Track...")
+    print("\n[Step 5/5] Mastering Final Audio Track...")
     rendered_via_reaper = False
     if reaper_exe and os.path.exists(reaper_exe):
         success, res = ReaperProjectBuilder.render_with_reaper(reaper_exe, rpp_path, master_wav_path)
@@ -101,8 +99,7 @@ def produce_song(blueprint_path):
         print("  🎚️ Mixing Stems into 24-bit PCM Master Audio...")
         MasteringDSP.mix_and_master(audio_files, master_wav_path)
 
-    print("
-" + "=" * 75)
+    print("\n" + "=" * 75)
     print("🎉 SONG PRODUCTION COMPLETE!")
     print(f"📁 Output Directory : {export_root}")
     print(f"🎵 Master WAV       : {master_wav_path}")

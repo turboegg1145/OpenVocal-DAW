@@ -117,3 +117,25 @@ class OpenUtauUstxBuilder:
         with open(output_path, "w", encoding="utf-8") as f:
             yaml.dump(ustx_data, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
         return output_path
+
+    @staticmethod
+    def build_ustx(blueprint, output_path):
+        title = blueprint.get("title", "OpenVocal Track")
+        bpm = float(blueprint.get("bpm", 128.0))
+        builder = OpenUtauUstxBuilder(title=title, bpm=bpm)
+        t_idx = builder.add_track("01_Lead_Vocal", singer=blueprint.get("singer", "Default Singer"))
+
+        vocal_score = blueprint.get("vocal_score", {})
+        total_bars = int(blueprint.get("total_bars", 78))
+        flat_notes = []
+        for b in range(total_bars):
+            bar_notes = vocal_score.get(str(b), vocal_score.get(b, []))
+            for item in bar_notes:
+                flat_notes.append({
+                    "lyric": item[0],
+                    "ticks": int(item[1]),
+                    "pitch": int(item[2]),
+                    "vel": int(item[3])
+                })
+        builder.add_voice_part(t_idx, "Lead Vocal Part", flat_notes, start_pos=0)
+        return builder.export_ustx_yaml(output_path)
