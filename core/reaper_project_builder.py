@@ -1,153 +1,148 @@
 """
-OpenVocal-DAW: REAPER Project Builder
-Generates professional Dual-Layer DAW project files (.rpp) with audio stems,
-full MIDI sequence takes, and perfectly balanced VST FX Chains.
+OpenVocal-DAW: REAPER Project (.rpp) Generator
+Generates full 10-track declarative REAPER sessions with embedded VSTs, MIDI, Stems,
+and auto-render configuration for headless CLI rendering.
 """
 
 import os
-import re
+import sys
+
+def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, output_master_wav_path=None):
+    bpm = blueprint.get("bpm", 128.0)
+    total_bars = blueprint.get("total_bars", 78)
+    title = blueprint.get("title", "OpenVocal Track")
+
+    if not output_master_wav_path:
+        output_master_wav_path = os.path.splitext(output_rpp_path)[0] + "_Master.wav"
+
+    rpp_dir = os.path.dirname(os.path.abspath(output_rpp_path))
+    rel_render_file = os.path.relpath(output_master_wav_path, rpp_dir).replace("/", "\\")
+
+    rpp = []
+    rpp.append('<REAPER_PROJECT 0.1 "6.80/x64" 1680000000')
+    rpp.append('  RIPPLE 0')
+    rpp.append('  GROUPOVERRIDE 0 0 0')
+    rpp.append('  AUTOXFADE 1')
+    rpp.append('  ENVATTACH 1')
+    rpp.append('  POOLEDENVATTACH 0')
+    rpp.append('  MIXERFLAG 1')
+    rpp.append('  PEAKGAIN 1')
+    rpp.append('  FEEDBACK 0')
+    rpp.append(f'  TEMPO {bpm} 4 4')
+    rpp.append('  SAMPLERATE 44100 0 0')
+    
+    # Configure Render target inside RPP so `reaper.exe -renderproject` knows where to export
+    rpp.append(f'  RENDER_FILE "{rel_render_file}"')
+    rpp.append('  RENDER_FMT 0 2 44100')
+    rpp.append('  RENDER_RANGE 1 0 0')
+    rpp.append('  RENDER_RESAMPLE 3 0 0')
+    rpp.append('  RENDER_SPEED 0')
+
+    daw_tracks = blueprint.get("daw_tracks", [])
+    if not daw_tracks:
+        # Default tracks
+        daw_tracks = [
+            {"id": "01_Lead_Vocal", "name": "Lead Vocal", "color": 16744448, "volume_db": 0.0, "pan": 0.0},
+            {"id": "02_SuperSaw_Pad", "name": "SuperSaw Pad", "color": 33023, "volume_db": -2.0, "pan": 0.0},
+            {"id": "03_Cyber_Pluck", "name": "Cyber Pluck", "color": 65535, "volume_db": -3.0, "pan": 0.2},
+            {"id": "04_Reese_Bass", "name": "Reese Bass", "color": 16711680, "volume_db": -1.0, "pan": 0.0},
+            {"id": "05_Cyber_Drums", "name": "Cyber Drums", "color": 255, "volume_db": 0.0, "pan": 0.0},
+            {"id": "06_Funk_Guitar", "name": "Funk Guitar", "color": 65280, "volume_db": -4.0, "pan": -0.2}
+        ]
+
+    for idx, tr in enumerate(daw_tracks, start=1):
+        tr_id = tr.get("id", f"Track_{idx}")
+        tr_name = tr.get("name", tr_id)
+        tr_color = tr.get("color", 16777215)
+        vol_db = tr.get("volume_db", 0.0)
+        pan = tr.get("pan", 0.0)
+        vol_linear = 10.0 ** (vol_db / 20.0)
+
+        rpp.append('  <TRACK')
+        rpp.append(f'    NAME "{tr_name}"')
+        rpp.append(f'    PEAKCOL {tr_color}')
+        rpp.append(f'    VOLPAN {vol_linear:.6f} {pan:.6f} -1 -1 1')
+        rpp.append('    MUTESOLO 0 0 0')
+        rpp.append('    IPHASE 0')
+        rpp.append('    ISBUS 0 0')
+        rpp.append('    BUSCOMP 0 0 0 0 0')
+        rpp.append('    SHOWINMIX 1 0.6 1 0.5 0 0 0')
+        rpp.append('    REC 0 0 0 0 0 0 0')
+
+        # Link Stem WAV
+        stem_path = audio_files.get(tr_id)
+        if stem_path and os.path.exists(stem_path):
+            rel_wav = os.path.relpath(stem_path, rpp_dir).replace("/", "\\")
+            dur_sec = (total_bars * 4 * (60.0 / bpm))
+            rpp.append('    <ITEM')
+            rpp.append('      POSITION 0.0')
+            rpp.append('      SNAPOFFS 0.0')
+            rpp.append(f'      LENGTH {dur_sec:.6f}')
+            rpp.append('      LOOP 0')
+            rpp.append('      ALLTAKES 0')
+            rpp.append('      FADEIN 1 0.005 0 1 0 0')
+            rpp.append('      FADEOUT 1 0.05 0 1 0 0')
+            rpp.append(f'      NAME "{os.path.basename(stem_path)}"')
+            rpp.append('      VOLPAN 1.0 0.0 1.0 -1.0')
+            rpp.append('      <SOURCE WAVE')
+            rpp.append(f'        FILE "{rel_wav}"')
+            rpp.append('      >')
+            rpp.append('    >')
+
+        # Link MIDI Take
+        mid_path = midi_files.get(tr_id)
+        if mid_path and os.path.exists(mid_path):
+            rel_mid = os.path.relpath(mid_path, rpp_dir).replace("/", "\\")
+            dur_sec = (total_bars * 4 * (60.0 / bpm))
+            rpp.append('    <ITEM')
+            rpp.append('      POSITION 0.0')
+            rpp.append('      SNAPOFFS 0.0')
+            rpp.append(f'      LENGTH {dur_sec:.6f}')
+            rpp.append('      LOOP 0')
+            rpp.append('      ALLTAKES 0')
+            rpp.append(f'      NAME "{os.path.basename(mid_path)}"')
+            rpp.append('      <SOURCE MIDI')
+            rpp.append(f'        FILE "{rel_mid}"')
+            rpp.append('      >')
+            rpp.append('    >')
+
+        # VST FX Chain
+        vst_name = tr.get("vst_plugin")
+        if vst_name:
+            rpp.append('    <FXCHAIN')
+            rpp.append('      WNDRECT 0 0 0 0')
+            rpp.append('      SHOW 0')
+            rpp.append('      LASTSEL 0')
+            rpp.append('      DOCKED 0')
+            rpp.append(f'      <VST "{vst_name}"')
+            rpp.append('      >')
+            rpp.append('    >')
+
+        rpp.append('  >')
+
+    rpp.append('>')
+    
+    os.makedirs(os.path.dirname(os.path.abspath(output_rpp_path)), exist_ok=True)
+    with open(output_rpp_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(rpp))
+    return output_rpp_path
 
 
 class ReaperProjectBuilder:
-    def __init__(self, bpm=128.0, total_bars=88):
-        self.bpm = bpm
-        self.total_bars = total_bars
-        self.total_seconds = (total_bars * 4 * 60.0 / bpm) + 4.0
+    @staticmethod
+    def render_with_reaper(reaper_exe, rpp_path, expected_output_wav):
+        if not reaper_exe or not os.path.exists(reaper_exe):
+            return False, "REAPER executable not found or not configured."
+        if not os.path.exists(rpp_path):
+            return False, f"RPP project file not found: {rpp_path}"
 
-    def build_from_blueprint(self, blueprint, rpp_output_path, master_wav_rel_path, fallback_tracks=None):
-        daw_tracks = blueprint.get("daw_tracks")
-        if daw_tracks:
-            return self.build_rich_session(daw_tracks, rpp_output_path, master_wav_rel_path)
-        else:
-            return self.build_session(fallback_tracks or [], rpp_output_path, master_wav_rel_path)
-
-    def build_rich_session(self, daw_tracks, rpp_output_path, master_wav_rel_path):
-        track_blocks = []
-        for t in daw_tracks:
-            name = t.get("name", "Track")
-            volpan = t.get("volpan", "1.0 0.0 -1 -1 1")
-            peakcol = t.get("peakcol", 16576)
-            wav_file = t.get("wav")
-            mid_file = t.get("midi")
-            fxchain_raw = t.get("fxchain_raw")
-
-            items_list = []
-            if wav_file:
-                wav_path_str = wav_file.replace("\\", "/")
-                wav_base = os.path.basename(wav_file)
-                items_list.append(f"""    <ITEM
-      POSITION 0.00000000000000
-      LENGTH {self.total_seconds:.4f}
-      MUTE 0
-      NAME "{wav_base}"
-      VOLPAN 1.0 0.0 1.0 1.0 0
-      <SOURCE WAVE
-        FILE "{wav_path_str}"
-      >
-    >""")
-            if mid_file:
-                mid_path_str = mid_file.replace("\\", "/")
-                mid_base = os.path.basename(mid_file)
-                items_list.append(f"""    <ITEM
-      POSITION 0.00000000000000
-      LENGTH {self.total_seconds:.4f}
-      MUTE 0
-      NAME "{mid_base}"
-      <SOURCE MIDI
-        FILE "{mid_path_str}"
-      >
-    >""")
-
-            items_str = "\n" + "\n".join(items_list) if items_list else ""
-            fx_str = f"\n    {fxchain_raw}" if fxchain_raw else ""
-            
-            blk = f"""  <TRACK
-    NAME "{name}"
-    PEAKCOL {peakcol}
-    VOLPAN {volpan}
-    MUTESOLO 0 0 0{items_str}{fx_str}
-  >"""
-            track_blocks.append(blk)
-
-        tracks_joined = "\n".join(track_blocks)
-        master_str = master_wav_rel_path.replace("\\", "/")
-        rpp_content = f"""<REAPER_PROJECT 0.1 "7.0" 1620000000
-  RPR_VERSION 7.59
-  SAMPLERATE 44100 0 0
-  TEMPO {self.bpm:.1f} 4 4
-  RENDER_FILE "{master_str}"
-  RENDER_PATTERN ""
-  RENDER_FMT 0 2 44100
-  RENDER_1X 0
-  RENDER_RANGE 1 0 {self.total_seconds:.4f}
-{tracks_joined}
->
-"""
-        os.makedirs(os.path.dirname(os.path.abspath(rpp_output_path)), exist_ok=True)
-        with open(rpp_output_path, "w", encoding="utf-8") as f:
-            f.write(rpp_content)
-        return rpp_output_path
-
-    def build_session(self, tracks_config, rpp_output_path, master_wav_rel_path):
-        track_blocks = []
-        for t in tracks_config:
-            name = t["name"]
-            wav_file = t.get("wav", "")
-            mid_file = t.get("mid", "")
-            vol = t.get("vol", "1.0000")
-            pan = t.get("pan", "0.0000")
-            wav_base = os.path.basename(wav_file) if wav_file else ""
-            mid_base = os.path.basename(mid_file) if mid_file else ""
-
-            items_list = []
-            if wav_file:
-                wav_path_str = wav_file.replace("\\", "/")
-                items_list.append(f"""    <ITEM
-      POSITION 0.00000000000000
-      LENGTH {self.total_seconds:.4f}
-      MUTE 0
-      NAME "{wav_base}"
-      VOLPAN 1.0 0.0 1.0 1.0 0
-      <SOURCE WAVE
-        FILE "{wav_path_str}"
-      >
-    >""")
-            if mid_file:
-                mid_path_str = mid_file.replace("\\", "/")
-                items_list.append(f"""    <ITEM
-      POSITION 0.00000000000000
-      LENGTH {self.total_seconds:.4f}
-      MUTE 0
-      NAME "{mid_base}"
-      <SOURCE MIDI
-        FILE "{mid_path_str}"
-      >
-    >""")
-
-            items_str = "\n" + "\n".join(items_list) if items_list else ""
-            blk = f"""  <TRACK
-    NAME "{name}"
-    PEAKCOL 16576
-    VOLPAN {vol} {pan} -1.0 -1.0 1.0
-    MUTESOLO 0 0 0{items_str}
-  >"""
-            track_blocks.append(blk)
-
-        tracks_joined = "\n".join(track_blocks)
-        master_str = master_wav_rel_path.replace("\\", "/")
-        rpp_content = f"""<REAPER_PROJECT 0.1 "7.0" 1620000000
-  RPR_VERSION 7.59
-  SAMPLERATE 44100 0 0
-  TEMPO {self.bpm:.1f} 4 4
-  RENDER_FILE "{master_str}"
-  RENDER_PATTERN ""
-  RENDER_FMT 0 2 44100
-  RENDER_1X 0
-  RENDER_RANGE 1 0 {self.total_seconds:.4f}
-{tracks_joined}
->
-"""
-        os.makedirs(os.path.dirname(os.path.abspath(rpp_output_path)), exist_ok=True)
-        with open(rpp_output_path, "w", encoding="utf-8") as f:
-            f.write(rpp_content)
-        return rpp_output_path
+        print(f"  🎛️ [REAPER Engine] Launching headless render via '{reaper_exe}'...")
+        cmd = [reaper_exe, "-renderproject", rpp_path]
+        try:
+            res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+            if os.path.exists(expected_output_wav) and os.path.getsize(expected_output_wav) > 1024:
+                return True, expected_output_wav
+            else:
+                return False, f"Render finished but output file not generated: {expected_output_wav}"
+        except Exception as e:
+            return False, str(e)

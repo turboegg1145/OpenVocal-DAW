@@ -1,132 +1,121 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-OpenVocal-DAW CLI Entrypoint
-Autonomous AI Vocal & Music Production Pipeline.
-Supports custom voicebanks via CLI or blueprint JSON, with automatic
-adaptive sample rate conversion (44.1k/48k/96k alignment).
+OpenVocal-DAW: Autonomous Song Production Engine
+Orchestrates:
+1. Blueprint loading & Harmonic Matrix multi-track synthesis
+2. Authentic Voicebank vocal slice rendering
+3. OpenUtau .ustx YAML project generation
+4. REAPER .rpp session generation with VST plugin chains
+5. Headless REAPER CLI rendering for genuine VST master audio!
 """
 
 import os
 import sys
 import json
-import re
+import time
+import argparse
 import soundfile as sf
-import numpy as np
 
-# Ensure UTF-8 stdout
 if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-from core.utau_vocal_engine import UtauVocalEngine
-from core.openutau_ustx_builder import OpenUtauUstxBuilder
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, PROJECT_ROOT)
+
+from core.env_detector import EnvDetector
 from core.harmony_matrix import HarmonyMatrix
-from core.reaper_project_builder import ReaperProjectBuilder
+from core.openutau_ustx_builder import OpenUtauUstxBuilder
+from core.reaper_project_builder import build_rpp_session, ReaperProjectBuilder
+from core.utau_vocal_engine import UtauVocalEngine
 from core.mastering_dsp import MasteringDSP
 
 
-def sanitize_filename(name):
-    return re.sub(r'[\\/*?:"<>|]', '_', name).strip()
-
-
-def main():
-    print("=" * 70)
-    print("   OpenVocal-DAW: Autonomous AI Vocal & Music Production Toolkit")
-    print("=" * 70)
-    if len(sys.argv) < 2:
-        print("Usage: python make_song.py <blueprint.json> [export_base_dir] [custom_voicebank_dir]")
-        return
-
-    blueprint_path = sys.argv[1]
-    export_base_dir = sys.argv[2] if len(sys.argv) > 2 else "export"
-    custom_vb_cli = sys.argv[3] if len(sys.argv) > 3 else None
+def produce_song(blueprint_path):
+    if not os.path.exists(blueprint_path):
+        print(f"❌ Error: Blueprint file not found: {blueprint_path}")
+        sys.exit(1)
 
     with open(blueprint_path, "r", encoding="utf-8") as f:
         blueprint = json.load(f)
 
-    title = blueprint.get("title", "Untitled_Song")
-    safe_title = sanitize_filename(title)
+    title = blueprint.get("title", "Untitled Track")
     bpm = float(blueprint.get("bpm", 128.0))
-    total_bars = int(blueprint.get("total_bars", 88))
-    singer_name = blueprint.get("singer", "Kasane Teto [UTAU]")
-    custom_vb = custom_vb_cli or blueprint.get("voicebank_dir")
-    target_sr = 44100
-    
-    print(f"Loaded Song: {title} | BPM: {bpm} | Total Bars: {total_bars}")
-    print(f"Assigned Singer: {singer_name}")
+    total_bars = int(blueprint.get("total_bars", 78))
 
-    # Create dedicated song directory: export/<safe_title>/
-    song_dir = os.path.join(export_base_dir, safe_title)
-    stems_dir = os.path.join(song_dir, "stems")
-    midi_dir = os.path.join(song_dir, "midi")
+    print("=" * 75)
+    print(f"🎵 OpenVocal-DAW Producing Song: '{title}' ({bpm} BPM, {total_bars} Bars)")
+    print("=" * 75)
+
+    # Prepare export folders
+    safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '_', '-', '(', ')')).strip()
+    export_root = os.path.join(PROJECT_ROOT, "export", safe_title)
+    stems_dir = os.path.join(export_root, "stems")
+    midi_dir = os.path.join(export_root, "midi")
     os.makedirs(stems_dir, exist_ok=True)
     os.makedirs(midi_dir, exist_ok=True)
-    print(f"Target Output Folder: {song_dir}")
 
-    # --- STEP 1: OPENUTAU (.USTX) GENERATION ---
-    print("[1/5] Compiling OpenUtau (.ustx) Project...")
-    ustx_builder = OpenUtauUstxBuilder(title=title, bpm=bpm)
-    t_lead = ustx_builder.add_track("Lead Vocal", singer=singer_name, phoneticizer=blueprint.get("phoneticizer", "OpenUtau.Core.DefaultPhoneticizer"))
-    
-    notes_flat = []
-    vocal_score = blueprint.get("vocal_score", {})
-    for b in range(total_bars):
-        bar_notes = vocal_score.get(str(b), vocal_score.get(b, []))
-        for item in bar_notes:
-            notes_flat.append({"lyric": item[0], "ticks": int(item[1]), "pitch": int(item[2]), "vel": int(item[3])})
-    
-    ustx_builder.add_voice_part(t_lead, "Lead Vocal Part", notes_flat)
-    ustx_path = os.path.join(song_dir, f"{safe_title}.ustx")
-    ustx_builder.export_ustx_yaml(ustx_path)
-    print(f"  [OK] Saved OpenUtau Project: {ustx_path}")
+    cfg = EnvDetector.load_config(PROJECT_ROOT)
+    reaper_exe = cfg.get("reaper_exe")
 
-    # --- STEP 2: VOCAL AUDIO SYNTHESIS ---
-    print("[2/5] Synthesizing 24-bit Lead Vocal Audio...")
-    vocal_engine = UtauVocalEngine(voicebank_dir=custom_vb)
+    # 1. Synthesize multi-track accompaniment stems and MIDI
+    print("
+[Step 1/5] Synthesizing Multi-Track Accompaniment & MIDI sequences...")
+    matrix = HarmonyMatrix(bpm=bpm, sample_rate=44100)
+    audio_files, midi_files = matrix.generate_full_arrangement(blueprint, stems_dir, midi_dir)
+
+    # 2. Render Vocal with authentic Voicebank
+    print("
+[Step 2/5] Synthesizing Vocal Track using OpenUtau Voicebank...")
+    vocal_engine = UtauVocalEngine()
     vocal_wav_path = os.path.join(stems_dir, "01_Lead_Vocal.wav")
-    vocal_engine.render_blueprint(blueprint, vocal_wav_path, sample_rate=target_sr)
-    print(f"  [OK] Exported Lead Vocal Stem: {vocal_wav_path}")
+    vocal_engine.render_blueprint(blueprint, vocal_wav_path)
+    audio_files["01_Lead_Vocal"] = vocal_wav_path
 
-    # --- STEP 3: HARMONY MATRIX BACKING TRACKS (MIDI + STEMS) ---
-    print("[3/5] Generating SoundQuest Harmonic Matrix (Piano, Bass, Drums, Synth)...")
-    harmony = HarmonyMatrix(bpm=bpm)
-    tracks_config, backing_audio = harmony.generate_full_arrangement(blueprint, song_dir=song_dir)
-    print(f"  [OK] Generated {len(tracks_config)} Multi-Track Stems in {stems_dir}")
-    print(f"  [OK] Generated {len(tracks_config)} MIDI Sequences in {midi_dir}")
+    # 3. Generate OpenUtau .ustx Project
+    print("
+[Step 3/5] Generating Native OpenUtau .ustx Project...")
+    ustx_path = os.path.join(export_root, f"{safe_title}.ustx")
+    OpenUtauUstxBuilder.build_ustx(blueprint, ustx_path)
 
-    # --- STEP 4: MASTERING DSP WITH ADAPTIVE RESAMPLING ---
-    print("[4/5] Mastering DSP (Adaptive Resampling Alignment, Tape Glue Saturation & Limiter)...")
-    vocal_audio, vocal_sr = sf.read(vocal_wav_path)
-    if len(vocal_audio.shape) > 1: vocal_audio = vocal_audio[:, 0]
+    # 4. Generate REAPER 10-Track Session (.rpp)
+    print("
+[Step 4/5] Building REAPER 10-Track Session (.rpp)...")
+    rpp_path = os.path.join(export_root, f"{safe_title}.rpp")
+    master_wav_path = os.path.join(export_root, f"{safe_title}_Master.wav")
+    build_rpp_session(blueprint, audio_files, midi_files, rpp_path, master_wav_path)
 
-    # Adaptive sample rate conversion safeguard
-    if vocal_sr != target_sr:
-        print(f"  [DSP Resampler] Adaptively converting vocal stem from {vocal_sr}Hz to {target_sr}Hz...")
-        vocal_audio = MasteringDSP.resample_audio(vocal_audio, vocal_sr, target_sr)
-    
-    max_len = max(len(vocal_audio), len(backing_audio))
-    full_mix = np.zeros(max_len, dtype=np.float32)
-    full_mix[:len(backing_audio)] += backing_audio * 0.7
-    full_mix[:len(vocal_audio)] += vocal_audio * 0.85
-    
-    master_wav_path = os.path.join(song_dir, f"{safe_title}_Master.wav")
-    MasteringDSP.export_master(full_mix, master_wav_path, sample_rate=target_sr)
-    print(f"  [OK] Exported 24-bit Master Audio (Locked {target_sr}Hz / -0.3 dBFS): {master_wav_path}")
+    # 5. Render Final Master (REAPER Headless Render -> DSP Limiter)
+    print("
+[Step 5/5] Mastering Final Audio Track...")
+    rendered_via_reaper = False
+    if reaper_exe and os.path.exists(reaper_exe):
+        success, res = ReaperProjectBuilder.render_with_reaper(reaper_exe, rpp_path, master_wav_path)
+        if success:
+            print(f"  ✓ [SUCCESS] Rendered authentic VST Master via REAPER: {master_wav_path}")
+            rendered_via_reaper = True
+        else:
+            print(f"  ⚠️ REAPER Headless Render note: {res}")
 
-    # --- STEP 5: REAPER DUAL-LAYER SESSION ---
-    print("[5/5] Building Dual-Layer REAPER DAW Session (.rpp)...")
-    rpp_builder = ReaperProjectBuilder(bpm=bpm, total_bars=total_bars)
-    rpp_path = os.path.join(song_dir, f"{safe_title}.rpp")
-    rpp_builder.build_from_blueprint(blueprint, rpp_path, f"{safe_title}_Master.wav", fallback_tracks=tracks_config)
-    print(f"  [OK] Saved REAPER Project: {rpp_path}")
+    if not rendered_via_reaper:
+        print("  🎚️ Mixing Stems into 24-bit PCM Master Audio...")
+        MasteringDSP.mix_and_master(audio_files, master_wav_path)
 
-    print("=" * 70)
-    print("SUCCESS: PROJECT SUCCESSFULLY EXPORTED TO STRUCTURED DIRECTORY!")
-    print(f"Folder: {song_dir}")
-    print(f"  ├── {safe_title}_Master.wav        [Direct Play Master]")
-    print(f"  ├── {safe_title}.rpp               [REAPER DAW Session]")
-    print(f"  ├── {safe_title}.ustx              [OpenUtau Project]")
-    print(f"  ├── stems/                         [6x 24-bit Lossless Stems]")
-    print(f"  └── midi/                          [6x Standard MIDI Sequences]")
-    print("=" * 70)
+    print("
+" + "=" * 75)
+    print("🎉 SONG PRODUCTION COMPLETE!")
+    print(f"📁 Output Directory : {export_root}")
+    print(f"🎵 Master WAV       : {master_wav_path}")
+    print(f"🎛️ REAPER Project   : {rpp_path}")
+    print(f"🎤 OpenUtau Project : {ustx_path}")
+    print("=" * 75)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="OpenVocal-DAW Autonomous Song Production")
+    parser.add_argument("blueprint", nargs="?", default="examples/neon_pulse/song_blueprint.json", help="Path to song blueprint JSON")
+    args = parser.parse_args()
+    produce_song(args.blueprint)
 
 
 if __name__ == "__main__":
