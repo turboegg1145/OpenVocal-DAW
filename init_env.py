@@ -11,7 +11,6 @@ import sys
 import json
 import argparse
 
-# Ensure UTF-8 stdout
 if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
@@ -21,7 +20,7 @@ sys.path.insert(0, PROJECT_ROOT)
 from core.env_detector import EnvDetector
 
 
-def prompt_user_input(step_num, title, description, hint_val=None, must_exist=False):
+def prompt_user_input(step_num, title, description, hint_val=None, must_exist=False, is_multi=False):
     print("\n" + "=" * 70)
     print(f"【步骤 {step_num}/4】{title}")
     print(f"说明: {description}")
@@ -35,32 +34,40 @@ def prompt_user_input(step_num, title, description, hint_val=None, must_exist=Fa
             print("\n[!] 取消输入，保留推荐值。")
             return hint_val
 
-        # Strip outer quotes if dragged and dropped
-        if val.startswith('"') and val.endswith('"'):
-            val = val[1:-1].strip()
-        elif val.startswith("'") and val.endswith("'"):
-            val = val[1:-1].strip()
+        if val.startswith('"') and val.endswith('"'): val = val[1:-1].strip()
+        elif val.startswith("'") and val.endswith("'"): val = val[1:-1].strip()
 
-        if not val:
-            val = hint_val
-
+        if not val: val = hint_val
         if not val:
             if must_exist:
                 print("❌ 该项为必须项，请输入有效路径！")
                 continue
             return None
 
-        if os.path.exists(val):
-            abs_p = os.path.abspath(val)
-            print(f"✓ 已确认有效路径: {abs_p}")
-            return abs_p
+        if is_multi:
+            parts = [p.strip() for p in val.split(';') if p.strip()]
+            valid_parts = []
+            for p in parts:
+                if os.path.exists(p):
+                    abs_p = os.path.abspath(p)
+                    print(f"✓ 已确认有效路径: {abs_p}")
+                    valid_parts.append(abs_p)
+                else:
+                    print(f"⚠️ 路径未找到: {p}")
+                    valid_parts.append(p)
+            return ";".join(valid_parts)
         else:
-            if must_exist:
-                print(f"❌ 路径不存在: '{val}'，请重新输入！")
+            if os.path.exists(val):
+                abs_p = os.path.abspath(val)
+                print(f"✓ 已确认有效路径: {abs_p}")
+                return abs_p
             else:
-                confirm = input(f"⚠️ 警告: 路径 '{val}' 当前在磁盘上不存在，是否仍要保存？(y/n) [y]: ").strip().lower()
-                if confirm in ['', 'y', 'yes']:
-                    return val
+                if must_exist:
+                    print(f"❌ 路径不存在: '{val}'，请重新输入！")
+                else:
+                    confirm = input(f"⚠️ 警告: 路径 '{val}' 当前在磁盘上不存在，是否仍要保存？(y/n) [y]: ").strip().lower()
+                    if confirm in ['', 'y', 'yes']:
+                        return val
 
 
 def run_setup_wizard(auto_mode=False):
@@ -87,38 +94,11 @@ def run_setup_wizard(auto_mode=False):
             "vst_directories": h_vsts
         }
     else:
-        # Step 1: OpenUtau Executable
-        openutau_path = prompt_user_input(
-            1,
-            "配置 OpenUtau 主程序路径 (OpenUtau.exe)",
-            "你的现代歌姬调教宿主 OpenUtau 主程序位置 (如 E:\\utau\\OpenUtau\\OpenUtau.exe)。",
-            hint_val=h_openutau
-        )
-
-        # Step 2: OpenUtau Singers Directory
-        singers_path = prompt_user_input(
-            2,
-            "配置 OpenUtau 歌手声库文件夹 (Singers 目录)",
-            "包含你所有歌姬声库的文件夹 (如 C:\\Users\\用户名\\Documents\\OpenUtau\\Singers)。",
-            hint_val=h_singers
-        )
-
-        # Step 3: REAPER DAW Executable
-        reaper_path = prompt_user_input(
-            3,
-            "配置 REAPER 编曲宿主路径 (reaper.exe)",
-            "用于编曲混音的 REAPER 主程序位置 (如 C:\\Program Files\\REAPER (x64)\\reaper.exe，未安装可回车跳过)。",
-            hint_val=h_reaper
-        )
-
-        # Step 4: VST Plugin Directory
+        openutau_path = prompt_user_input(1, "配置 OpenUtau 主程序路径 (OpenUtau.exe)", "你的现代歌姬调教宿主 OpenUtau 主程序位置 (如 E:\\utau\\OpenUtau\\OpenUtau.exe)。", hint_val=h_openutau)
+        singers_path = prompt_user_input(2, "配置 OpenUtau 歌手声库文件夹 (Singers 目录)", "包含你所有歌姬声库的文件夹 (如 C:\\Users\\用户名\\Documents\\OpenUtau\\Singers)。", hint_val=h_singers)
+        reaper_path = prompt_user_input(3, "配置 REAPER 编曲宿主路径 (reaper.exe)", "用于编曲混音的 REAPER 主程序位置 (如 E:\\REAPER\\reaper.exe，未安装可回车跳过)。", hint_val=h_reaper)
         vst_hint_str = ";".join(h_vsts) if h_vsts else None
-        vst_raw = prompt_user_input(
-            4,
-            "配置 VST 插件文件夹路径 (VSTPlugins / VST3)",
-            "你的常用 VST 乐器/效果器目录 (如 MT-PowerDrumKit、Ample Bass 等，多个目录用分号 ';' 分隔)。",
-            hint_val=vst_hint_str
-        )
+        vst_raw = prompt_user_input(4, "配置 VST 插件文件夹路径 (VSTPlugins / VST3)", "你的常用 VST 乐器/效果器目录 (多个目录用分号 ';' 分隔)。", hint_val=vst_hint_str, is_multi=True)
         vst_dirs = [p.strip() for p in vst_raw.split(";") if p.strip()] if vst_raw else []
 
         cfg = {
@@ -129,11 +109,10 @@ def run_setup_wizard(auto_mode=False):
         }
 
     saved_p = EnvDetector.save_config(cfg, PROJECT_ROOT)
-
     print("\n" + "=" * 70)
     print("🎉 配置保存成功！你的本地制作环境清单：")
     print(f"📄 配置文件: {saved_p}")
-    print(f"  • OpenUtau 宿主路径 : {cfg['openutau_exe'] or '未指定 (纯代码生成模式)'}")
+    print(f"  • OpenUtau 宿主路径 : {cfg['openutau_exe'] or '未指定'}")
     print(f"  • 歌手声库总目录   : {cfg['openutau_singers_dir'] or '未指定'}")
     print(f"  • REAPER 宿主路径   : {cfg['reaper_exe'] or '未指定'}")
     print(f"  • VST 插件目录列表 : {cfg['vst_directories']}")

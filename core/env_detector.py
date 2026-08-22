@@ -6,6 +6,7 @@ Manages user-specified paths for OpenUtau, Singers, REAPER, and VST plugins.
 import os
 import sys
 import json
+import winreg
 
 CONFIG_FILENAME = "openvocal_config.json"
 
@@ -66,8 +67,29 @@ class EnvDetector:
                 hints["openutau_singers_dir"] = p
                 break
 
-        # 3. REAPER hints
-        for p in [os.path.join(progfiles, "REAPER (x64)", "reaper.exe"), os.path.join(progfiles, "REAPER", "reaper.exe")]:
+        # 3. REAPER hints (Registry + Common paths)
+        reaper_candidates = [
+            r"E:\REAPER\reaper.exe",
+            r"D:\REAPER\reaper.exe",
+            os.path.join(progfiles, "REAPER (x64)", "reaper.exe"),
+            os.path.join(progfiles, "REAPER", "reaper.exe")
+        ]
+        
+        # Check registry
+        try:
+            for root in [winreg.HKEY_LOCAL_MACHINE, winreg.HKEY_CURRENT_USER]:
+                for sk in [r"Software\Cockos\REAPER", r"Software\Microsoft\Windows\CurrentVersion\Uninstall\REAPER"]:
+                    try:
+                        k = winreg.OpenKey(root, sk)
+                        val, _ = winreg.QueryValueEx(k, "")
+                        if val and os.path.exists(val) and val.endswith(".exe"):
+                            reaper_candidates.insert(0, val)
+                        elif val and os.path.exists(os.path.join(val, "reaper.exe")):
+                            reaper_candidates.insert(0, os.path.join(val, "reaper.exe"))
+                    except: pass
+        except: pass
+
+        for p in reaper_candidates:
             if os.path.exists(p):
                 hints["reaper_exe"] = p
                 break
