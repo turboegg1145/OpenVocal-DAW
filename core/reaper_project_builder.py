@@ -9,12 +9,61 @@ import sys
 import subprocess
 
 DEFAULT_TRACK_SPECS = {
-    "01_Lead_Vocal": {"name": "01_LEAD_VOCAL", "color": 16744448, "vol": 1.15, "pan": 0.0, "vst": ["VST: ReaEQ (Cockos) reaeq.dll 0 \"\" 1919247729", "VST: ReaComp (Cockos) reacomp.dll 0 \"\" 1919246960"]},
-    "02_SuperSaw_Pad": {"name": "02_SUPERSAW_PAD", "color": 33023, "vol": 0.85, "pan": -0.15, "vst": ["VSTi: NeoPiano (SoundMagic (Wang YiChi)) Neo_Piano_x64.dll 0 \"\" 1313884466"]},
-    "03_Cyber_Pluck": {"name": "03_CYBER_PLUCK", "color": 65535, "vol": 0.80, "pan": 0.20, "vst": ["VST: ReaDelay (Cockos) readelay.dll 0 \"\" 1919247212"]},
-    "04_Reese_Bass": {"name": "04_REESE_BASS", "color": 16711680, "vol": 0.95, "pan": 0.0, "vst": ["VSTi: Ample Bass P Lite II (Ample Sound) ABPL_64.dll 0 \"\" 1094930514"]},
-    "05_Cyber_Drums": {"name": "05_CYBER_DRUMS", "color": 255, "vol": 1.00, "pan": 0.0, "vst": ["VSTi: MT-PowerDrumKit (MANDA AUDIO) MT-PowerDrumKit.dll 0 \"\" 1297371211"]},
-    "06_Funk_Guitar": {"name": "06_FUNK_GUITAR", "color": 65280, "vol": 0.75, "pan": -0.20, "vst": ["VSTi: Ample Guitar M Lite II (Ample Sound) AGML_64.dll 0 \"\" 1095322962"]}
+    "01_Lead_Vocal": {
+        "name": "01_LEAD_VOCAL",
+        "color": 16744448,
+        "vol": 1.15,
+        "pan": 0.0,
+        "vst": [
+            'VST "VST: ReaEQ (Cockos)" reaeq.dll 0 "" 1919247729',
+            'VST "VST: ReaComp (Cockos)" reacomp.dll 0 "" 1919246960'
+        ]
+    },
+    "02_SuperSaw_Pad": {
+        "name": "02_SUPERSAW_PAD",
+        "color": 33023,
+        "vol": 0.85,
+        "pan": -0.15,
+        "vst": [
+            'VST "VSTi: NeoPiano (SoundMagic (Wang YiChi))" Neo_Piano_x64.dll 0 "" 1313884466'
+        ]
+    },
+    "03_Cyber_Pluck": {
+        "name": "03_CYBER_PLUCK",
+        "color": 65535,
+        "vol": 0.80,
+        "pan": 0.20,
+        "vst": [
+            'VST "VST: ReaDelay (Cockos)" readelay.dll 0 "" 1919247212'
+        ]
+    },
+    "04_Reese_Bass": {
+        "name": "04_REESE_BASS",
+        "color": 16711680,
+        "vol": 0.95,
+        "pan": 0.0,
+        "vst": [
+            'VST "VSTi: Ample Bass P Lite II (Ample Sound)" ABPL_64.dll 0 "" 1094930514'
+        ]
+    },
+    "05_Cyber_Drums": {
+        "name": "05_CYBER_DRUMS",
+        "color": 255,
+        "vol": 1.00,
+        "pan": 0.0,
+        "vst": [
+            'VST "VSTi: MT-PowerDrumKit (MANDA AUDIO)" MT-PowerDrumKit.dll 0 "" 1297371211'
+        ]
+    },
+    "06_Funk_Guitar": {
+        "name": "06_FUNK_GUITAR",
+        "color": 65280,
+        "vol": 0.75,
+        "pan": -0.20,
+        "vst": [
+            'VST "VSTi: Ample Guitar M Lite II (Ample Sound)" AGML_64.dll 0 "" 1095322962'
+        ]
+    }
 }
 
 
@@ -55,7 +104,6 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
     rpp.append('    ZXZhdxgAAA==')
     rpp.append('  >')
 
-    # Gather all track IDs from audio and midi files
     all_track_keys = list(dict.fromkeys(list(audio_files.keys()) + list(midi_files.keys())))
     if not all_track_keys:
         all_track_keys = list(DEFAULT_TRACK_SPECS.keys())
@@ -150,6 +198,10 @@ def build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, outpu
 
 
 class ReaperProjectBuilder:
+    @staticmethod
+    def build_project(blueprint, audio_files, midi_files, output_rpp_path, output_master_wav_path=None):
+        return build_rpp_session(blueprint, audio_files, midi_files, output_rpp_path, output_master_wav_path)
+
     @staticmethod
     def render_with_reaper(reaper_exe, rpp_path, expected_output_wav):
         if not reaper_exe or not os.path.exists(reaper_exe):
